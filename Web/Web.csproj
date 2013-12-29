@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B535162-10C2-4238-BC56-193B968E1834}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TX_Bussiness.Web</RootNamespace>
+    <AssemblyName>TX_Bussiness.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SubSonic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SubSonic\bin\Debug\SubSonic.dll</HintPath>
+    </Reference>
+    <Reference Include="SubSonic.Migrations">
+      <HintPath>F:\项目\CMS\DTcmsMSSQL21\Yannis.DAO\bin\Debug\SubSonic.Migrations.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Default.css" />
+    <Content Include="App_Themes\Green2Theme\Default.css" />
+    <Content Include="App_Themes\GreenTheme\Default.css" />
+    <Content Include="App_Themes\PurpleTheme\Default.css" />
+    <Content Include="App_Themes\RedTheme\Default.css" />
+    <Content Include="bussiness\depart\departedit.aspx" />
+    <Content Include="bussiness\depart\departlist.aspx" />
+    <Content Include="bussiness\HtmlPage.html" />
+    <Content Include="bussiness\img\bj.png" />
+    <Content Include="bussiness\img\chur\0.png" />
+    <Content Include="bussiness\img\chur\1.png" />
+    <Content Include="bussiness\img\chur\2.png" />
+    <Content Include="bussiness\img\chur\3.png" />
+    <Content Include="bussiness\img\chur\4.png" />
+    <Content Include="bussiness\img\chur\5.png" />
+    <Content Include="bussiness\img\cloud.jpg" />
+    <Content Include="bussiness\img\cloud1.png" />
+    <Content Include="bussiness\img\code.gif" />
+    <Content Include="bussiness\img\danger.png" />
+    <Content Include="bussiness\img\footer-bg.jpg" />
+    <Content Include="bussiness\img\glyphicons-halflings-white.png" />
+    <Content Include="bussiness\img\glyphicons-halflings.png" />
+    <Content Include="bussiness\img\info.png" />
+    <Content Include="bussiness\img\leaf4.png" />
+    <Content Include="bussiness\img\leaf5.png" />
+    <Content Include="bussiness\img\leaf6.png" />
+    <Content Include="bussiness\img\leaf7.png" />
+    <Content Include="bussiness\img\leaf8.png" />
+    <Content Include="bussiness\img\logo.png" />
+    <Content Include="bussiness\img\nav-tip.gif" />
+    <Content Include="bussiness\img\primary.png" />
+    <Content Include="bussiness\img\success.png" />
+    <Content Include="bussiness\img\top-menu-bg-left.gif" />
+    <Content Include="bussiness\img\top-menu-con.gif" />
+    <Content Include="bussiness\img\warning.png" />
+    <Content Include="bussiness\index.aspx" />
+    <Content Include="bussiness\Index.html" />
+    <Content Include="bussiness\login.aspx" />
+    <Content Include="bussiness\Login.html" />
+    <Content Include="bussiness\p_class\classedit.aspx" />
+    <Content Include="bussiness\p_class\classlist.aspx" />
+    <Content Include="bussiness\role\roleedit.aspx" />
+    <Content Include="bussiness\role\rolelist.aspx" />
+    <Content Include="bussiness\Scripts\alert.js" />
+    <Content Include="bussiness\Scripts\bootstrap.min.js" />
+    <Content Include="bussiness\Scripts\chur-alert.1.0.js" />
+    <Content Include="bussiness\Scripts\chur.min.js" />
+    <Content Include="bussiness\Scripts\ChurAlert.min.js" />
+    <Content Include="bussiness\Scripts\collapse.js" />
+    <Content Include="bussiness\Scripts\dropdown.js" />
+    <Content Include="bussiness\Scripts\index.js" />
+    <Content Include="bussiness\Scripts\jquery-1.7.2.js" />
+    <Content Include="bussiness\Scripts\jquery-ui-1.8.22.custom.min.js" />
+    <Content Include="bussiness\Scripts\jquery.easyui.min.js" />
+    <Content Include="bussiness\Scripts\jquery.spritely-0.6.js" />
+    <Content Include="bussiness\Scripts\skins\blue.css" />
+    <Content Include="bussiness\Scripts\skins\blue\blue_s.png" />
+    <Content Include="bussiness\Scripts\skins\blue\blue_s2.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\blue_titbtn.gif" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_b.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_l.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_lb.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_lt.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_lt2.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_r.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_rb.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_rt.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_rt2.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_t.png" />
+    <Content Include="bussiness\Scripts\skins\blue\ie6\ui_t2.png" />
+    <Content Include="bussiness\Scripts\skins\icons\32X32\fail.png" />
+    <Content Include="bussiness\Scripts\skins\icons\32X32\hits.png" />
+    <Content Include="bussiness\Scripts\skins\icons\32X32\i.png" />
+    <Content Include="bussiness\Scripts\skins\icons\32X32\succ.png" />
+    <Content Include="bussiness\Scripts\skins\icons\discuz_bg.gif" />
+    <Content Include="bussiness\Scripts\skins\icons\error.png" />
+    <Content Include="bussiness\Scripts\skins\icons\face-sad.png" />
+    <Content Include="bussiness\Scripts\skins\icons\face-smile.png" />
+    <Content Include="bussiness\Scripts\skins\icons\gb_tip_layer.png" />
+    <Content Include="bussiness\Scripts\skins\icons\gb_tip_layer_ie6.png" />
+    <Content Include="bussiness\Scripts\skins\icons\info.png" />
+    <Content Include="bussiness\Scripts\skins\icons\loading.gif" />
+    <Content Include="bussiness\Scripts\skins\icons\primary.png" />
+    <Content Include="bussiness\Scripts\skins\icons\success.png" />
+    <Content Include="bussiness\Scripts\skins\icons\tips.gif" />
+    <Content Include="bussiness\Scripts\skins\icons\warning.png" />
+    <Content Include="bussiness\Scripts\tip.js" />
+    <Content Include="bussiness\Styles\admin-all.css" />
+    <Content Include="bussiness\Styles\base.css" />
+    <Content Include="bussiness\Styles\bootstrap-responsive.min.css" />
+    <Content Include="bussiness\Styles\bootstrap.min.css" />
+    <Content Include="bussiness\Styles\chur.css" />
+    <Content Include="bussiness\Styles\login.css" />
+    <Content Include="bussiness\Styles\ui-all\easyui.css" />
+    <Content Include="bussiness\Styles\ui-all\images\accordion_collapse.png" />
+    <Content Include="bussiness\Styles\ui-all\images\accordion_expand.png" />
+    <Content Include="bussiness\Styles\ui-all\images\blank.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\button_a_bg.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\button_plain_hover.png" />
+    <Content Include="bussiness\Styles\ui-all\images\button_span_bg.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\calendar_nextmonth.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\calendar_nextyear.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\calendar_prevmonth.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\calendar_prevyear.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\combo_arrow.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_header_bg.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_row_collapse.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_row_expand.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_sort_asc.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_sort_desc.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datagrid_title_bg.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\datebox_arrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\layout_arrows.png" />
+    <Content Include="bussiness\Styles\ui-all\images\menu.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\menu_downarrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\menu_rightarrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\menu_sep.png" />
+    <Content Include="bussiness\Styles\ui-all\images\menu_split_downarrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\messager_error.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\messager_info.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\messager_question.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\messager_warning.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_first.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_last.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_load.png" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_loading.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_next.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\pagination_prev.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\panel_loading.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\panel_title.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\panel_tools.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\panel_tool_collapse.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\panel_tool_expand.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\searchbox_button.png" />
+    <Content Include="bussiness\Styles\ui-all\images\slider_handle.png" />
+    <Content Include="bussiness\Styles\ui-all\images\spinner_arrow_down.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\spinner_arrow_up.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tabs_close.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tabs_enabled.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tabs_leftarrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\tabs_rightarrow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_arrows.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_checkbox_0.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_checkbox_1.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_checkbox_2.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_dnd_no.png" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_dnd_yes.png" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_elbow.png" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_file.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_folder.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_folder_open.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\tree_loading.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\validatebox_pointer.gif" />
+    <Content Include="bussiness\Styles\ui-all\images\validatebox_warning.png" />
+    <Content Include="bussiness\Styles\ui-all\tree.css" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="bussiness\Styles\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="bussiness\Styles\ui-lightness\jquery-ui-1.8.22.custom.css" />
+    <Content Include="bussiness\Template\Alert.html" />
+    <Content Include="bussiness\Template\Area_Info.aspx" />
+    <Content Include="bussiness\Template\Area_Info_Detail.aspx" />
+    <Content Include="bussiness\Template\CompleteProject.aspx" />
+    <Content Include="bussiness\Template\data.html" />
+    <Content Include="bussiness\Template\find-1.html" />
+    <Content Include="bussiness\Template\find-2.html" />
+    <Content Include="bussiness\Template\find-alert-win.html" />
+    <Content Include="bussiness\Template\find-alert.html" />
+    <Content Include="bussiness\Template\find-form.html" />
+    <Content Include="bussiness\Template\find-order.html" />
+    <Content Include="bussiness\Template\form-collapse.html" />
+    <Content Include="bussiness\Template\form-guide.html" />
+    <Content Include="bussiness\Template\form-Master-slave.html" />
+    <Content Include="bussiness\Template\form-tabs-list.html" />
+    <Content Include="bussiness\Template\form-tabs.html" />
+    <Content Include="bussiness\Template\form-tree.html" />
+    <Content Include="bussiness\Template\Maintain-add.html" />
+    <Content Include="bussiness\Template\Maintain-del.html" />
+    <Content Include="bussiness\Template\Maintain-edit.html" />
+    <Content Include="bussiness\Template\ProjectAdd.aspx" />
+    <Content Include="bussiness\Template\ProjectEdit.aspx" />
+    <Content Include="bussiness\Template\projectlist.aspx" />
+    <Content Include="bussiness\Template\ProjectView.aspx" />
+    <Content Include="bussiness\Template\UserInfo.aspx" />
+    <Content Include="bussiness\users\UserEdit.aspx" />
+    <Content Include="bussiness\users\UserList.aspx" />
+    <Content Include="js\classes\addclass.aspx" />
+    <Content Include="js\classes\classlist.aspx" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\dateIco.png" />
+    <Content Include="css\global.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\interface.css" />
+    <Content Include="css\lanrenzhijia.css" />
+    <Content Include="css\list.css" />
+    <Content Include="css\manhuaDate.1.0.css" />
+    <Content Include="css\menu.css" />
+    <Content Include="Global.asax" />
+    <Content Include="images\add.png" />
+    <Content Include="images\bianjik.png" />
+    <Content Include="images\btn_bg.png" />
+    <Content Include="images\category_tab.jpg" />
+    <Content Include="images\city_bg.png" />
+    <Content Include="images\content_bg.png" />
+    <Content Include="images\fbr.jpg" />
+    <Content Include="images\go.png" />
+    <Content Include="images\hfr.jpg" />
+    <Content Include="images\icon1.png" />
+    <Content Include="images\icon2.png" />
+    <Content Include="images\icon_1.png" />
+    <Content Include="images\icon_10.png" />
+    <Content Include="images\icon_11.png" />
+    <Content Include="images\icon_12.png" />
+    <Content Include="images\icon_13.png" />
+    <Content Include="images\icon_14.png" />
+    <Content Include="images\icon_15.png" />
+    <Content Include="images\icon_16.png" />
+    <Content Include="images\icon_17.png" />
+    <Content Include="images\icon_18.png" />
+    <Content Include="images\icon_19.png" />
+    <Content Include="images\icon_2.png" />
+    <Content Include="images\icon_20.png" />
+    <Content Include="images\icon_21.png" />
+    <Content Include="images\icon_22.png" />
+    <Content Include="images\icon_23.png" />
+    <Content Include="images\icon_24.png" />
+    <Content Include="images\icon_25.png" />
+    <Content Include="images\icon_26.png" />
+    <Content Include="images\icon_27.png" />
+    <Content Include="images\icon_28.png" />
+    <Content Include="images\icon_29.png" />
+    <Content Include="images\icon_3.png" />
+    <Content Include="images\icon_30.png" />
+    <Content Include="images\icon_31.png" />
+    <Content Include="images\icon_32.png" />
+    <Content Include="images\icon_33.png" />
+    <Content Include="images\icon_34.png" />
+    <Content Include="images\icon_35.png" />
+    <Content Include="images\icon_36.png" />
+    <Content Include="images\icon_37.png" />
+    <Content Include="images\icon_38.png" />
+    <Content Include="images\icon_39.png" />
+    <Content Include="images\icon_4.png" />
+    <Content Include="images\icon_40.png" />
+    <Content Include="images\icon_41.png" />
+    <Content Include="images\icon_42.png" />
+    <Content Include="images\icon_43.png" />
+    <Content Include="images\icon_44.png" />
+    <Content Include="images\icon_45.png" />
+    <Content Include="images\icon_46.png" />
+    <Content Include="images\icon_47.png" />
+    <Content Include="images\icon_48.png" />
+    <Content Include="images\icon_5.png" />
+    <Content Include="images\icon_6.png" />
+    <Content Include="images\icon_7.png" />
+    <Content Include="images\icon_8.png" />
+    <Content Include="images\icon_9.png" />
+    <Content Include="images\icon_a.png" />
+    <Content Include="images\icon_b.png" />
+    <Content Include="images\icon_c.png" />
+    <Content Include="images\icon_close.png" />
+    <Content Include="images\icon_d.png" />
+    <Content Include="images\icon_e.png" />
+    <Content Include="images\icon_f.png" />
+    <Content Include="images\icon_footer.png" />
+    <Content Include="images\icon_g.png" />
+    <Content Include="images\icon_h.png" />
+    <Content Include="images\icon_head.png" />
+    <Content Include="images\icon_i.png" />
+    <Content Include="images\icon_j.png" />
+    <Content Include="images\icon_k.png" />
+    <Content Include="images\icon_l.png" />
+    <Content Include="images\icon_m.png" />
+    <Content Include="images\icon_sanjiao.png" />
+    <Content Include="images\icon_tianqi.png" />
+    <Content Include="images\index-footer-bg.gif" />
+    <Content Include="images\index-header-bg.gif" />
+    <Content Include="images\index-logo.gif" />
+    <Content Include="images\index-logout.png" />
+    <Content Include="images\index-menu-bg.gif" />
+    <Content Include="images\index-menu-bg2.gif" />
+    <Content Include="images\index-menu-title.gif" />
+    <Content Include="images\index-menu-title.png" />
+    <Content Include="images\index-nav-bg.png" />
+    <Content Include="images\index-nav-firstbg.png" />
+    <Content Include="images\index-nav-left.png" />
+    <Content Include="images\index-nav-right.png" />
+    <Content Include="images\index-submenu-bg.gif" />
+    <Content Include="images\index-subnav-bg.gif" />
+    <Content Include="images\index-subnav-left.gif" />
+    <Content Include="images\index-subnav-right.gif" />
+    <Content Include="images\liaotian.png" />
+    <Content Include="images\line.jpg" />
+    <Content Include="images\login-bg.gif" />
+    <Content Include="images\login-bg.png" />
+    <Content Include="images\login-btn.gif" />
+    <Content Include="images\login-input.gif" />
+    <Content Include="images\login.css" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\main_desktop.png" />
+    <Content Include="images\menu.jpg" />
+    <Content Include="images\menu_bg.jpg" />
+    <Content Include="images\nav_tab.png" />
+    <Content Include="images\nav_tab2.png" />
+    <Content Include="images\next.png" />
+    <Content Include="images\page-bg.gif" />
+    <Content Include="images\page-pageTitle-bg.gif" />
+    <Content Include="images\page-thead-bg.gif" />
+    <Content Include="images\people.jpg" />
+    <Content Include="images\peopleo.png" />
+    <Content Include="images\people_bg.jpg" />
+    <Content Include="images\prev.png" />
+    <Content Include="images\quit.png" />
+    <Content Include="images\review.png" />
+    <Content Include="images\rl_bg.png" />
+    <Content Include="images\rl_bg2.png" />
+    <Content Include="images\search_bg.png" />
+    <Content Include="images\search_btn.png" />
+    <Content Include="images\sidebar-on.gif" />
+    <Content Include="images\sidebar_tab.png" />
+    <Content Include="images\small_main1.png" />
+    <Content Include="images\small_main2.png" />
+    <Content Include="images\small_main3.png" />
+    <Content Include="images\small_main4.png" />
+    <Content Include="images\small_main5.png" />
+    <Content Include="images\style.css" />
+    <Content Include="images\subnav_bg.png" />
+    <Content Include="images\Switch_bg.png" />
+    <Content Include="images\switch_tab.png" />
+    <Content Include="images\switch_tab1.png" />
+    <Content Include="images\switch_tab2.png" />
+    <Content Include="images\time_bg.png" />
+    <Content Include="images\tixing.png" />
+    <Content Include="images\weather_bg.png" />
+    <Content Include="images\welcome_wz.png" />
+    <Content Include="images\year_next.png" />
+    <Content Include="images\year_prev.png" />
+    <Content Include="images\youjian.png" />
+    <Content Include="images\zsgc_bg.png" />
+    <Content Include="javascript\bootstrap.js" />
+    <Content Include="javascript\jquery.min.js" />
+    <Content Include="js\autoheight.js" />
+    <Content Include="js\cfcoda.js" />
+    <Content Include="js\easing.js" />
+    <Content Include="js\fixPNG.js" />
+    <Content Include="js\global.js" />
+    <Content Include="js\iepngfix.htc" />
+    <Content Include="js\interface.js" />
+    <Content Include="js\jquery-1.8.0.min.js" />
+    <Content Include="js\jquery-ui\css\redmond\images\animated-overlay.gif" />
+    <Content Include="js\jquery-ui\css\redmond\images\nav_link.gif" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="js\jquery-ui\css\redmond\jquery-ui-1.10.3.custom.css" />
+    <Content Include="js\jquery-ui\css\redmond\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="js\jquery-ui\js\jquery-1.9.1.js" />
+    <Content Include="js\jquery-ui\js\jquery-ui-1.10.3.custom.js" />
+    <Content Include="js\jquery-ui\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="js\jquery-ui\layout\css\layout-default-latest.css" />
+    <Content Include="js\jquery-ui\layout\jquery.layout-latest.js" />
+    <Content Include="js\jquery-ui\layout\jquery.layout-latest.min.js" />
+    <Content Include="js\jquery.easyui.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\kandtabs\00.png" />
+    <Content Include="js\kandtabs\01.png" />
+    <Content Include="js\kandtabs\kandytabs.css" />
+    <Content Include="js\kandtabs\kandytabs.pack.js" />
+    <Content Include="js\kandtabs\kandytabs2.css" />
+    <Content Include="js\kandtabs\resultset_next.png" />
+    <Content Include="js\kandtabs\resultset_previous.png" />
+    <Content Include="js\kandtabs\style.css" />
+    <Content Include="js\manhuaDate.1.0.js" />
+    <Content Include="js\time.js" />
+    <Content Include="main.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bussiness\depart\departedit.aspx.cs">
+      <DependentUpon>departedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\depart\departedit.aspx.designer.cs">
+      <DependentUpon>departedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\depart\departlist.aspx.cs">
+      <DependentUpon>departlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\depart\departlist.aspx.designer.cs">
+      <DependentUpon>departlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\p_class\classedit.aspx.cs">
+      <DependentUpon>classedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\p_class\classedit.aspx.designer.cs">
+      <DependentUpon>classedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\p_class\classlist.aspx.cs">
+      <DependentUpon>classlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\p_class\classlist.aspx.designer.cs">
+      <DependentUpon>classlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\role\roleedit.aspx.cs">
+      <DependentUpon>roleedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\role\roleedit.aspx.designer.cs">
+      <DependentUpon>roleedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\role\rolelist.aspx.cs">
+      <DependentUpon>rolelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\role\rolelist.aspx.designer.cs">
+      <DependentUpon>rolelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\Area_Info.aspx.cs">
+      <DependentUpon>Area_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Area_Info.aspx.designer.cs">
+      <DependentUpon>Area_Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\Area_Info_Detail.aspx.cs">
+      <DependentUpon>Area_Info_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Area_Info_Detail.aspx.designer.cs">
+      <DependentUpon>Area_Info_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\CompleteProject.aspx.cs">
+      <DependentUpon>CompleteProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\CompleteProject.aspx.designer.cs">
+      <DependentUpon>CompleteProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectAdd.aspx.cs">
+      <DependentUpon>ProjectAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectAdd.aspx.designer.cs">
+      <DependentUpon>ProjectAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectEdit.aspx.cs">
+      <DependentUpon>ProjectEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectEdit.aspx.designer.cs">
+      <DependentUpon>ProjectEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\projectlist.aspx.cs">
+      <DependentUpon>projectlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\projectlist.aspx.designer.cs">
+      <DependentUpon>projectlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectView.aspx.cs">
+      <DependentUpon>ProjectView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\ProjectView.aspx.designer.cs">
+      <DependentUpon>ProjectView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\users\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\users\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\users\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\users\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="js\classes\addclass.aspx.cs">
+      <DependentUpon>addclass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="js\classes\addclass.aspx.designer.cs">
+      <DependentUpon>addclass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="js\classes\classlist.aspx.cs">
+      <DependentUpon>classlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="js\classes\classlist.aspx.designer.cs">
+      <DependentUpon>classlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Comm\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Comm\Constant.cs" />
+    <Compile Include="Comm\Enums.cs" />
+    <Compile Include="Comm\PageControl.cs" />
+    <Compile Include="Comm\WebHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="main.aspx.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="main.aspx.designer.cs">
+      <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tools\AjaxHandler.ashx.cs">
+      <DependentUpon>AjaxHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Control.skin" />
+    <Content Include="App_Themes\Green2Theme\Control.skin" />
+    <Content Include="App_Themes\GreenTheme\Control.skin" />
+    <Content Include="App_Themes\PurpleTheme\Control.skin" />
+    <Content Include="App_Themes\RedTheme\Control.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Global.asax.resx">
+      <DependentUpon>Global.asax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bussiness\Bussiness.csproj">
+      <Project>{14E85CD2-9954-40DF-BFD1-DA164738C295}</Project>
+      <Name>Bussiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Yannis.DAO\Yannis.DAO.csproj">
+      <Project>{F64E5803-F775-4816-8F05-EC68A7AE90E3}</Project>
+      <Name>Yannis.DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bussiness\img\logo.psd" />
+    <None Include="bussiness\Styles\font\fzqt.ttf" />
+    <None Include="bussiness\Styles\font\Vani.ttf" />
+    <None Include="bussiness\Styles\font\Vanib.ttf" />
+    <None Include="bussiness\Styles\ui-all\images\Thumbs.db" />
+    <None Include="images\Thumbs.db" />
+    <Content Include="tools\AjaxHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3448</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

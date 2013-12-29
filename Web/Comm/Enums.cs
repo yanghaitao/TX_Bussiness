@@ -1,0 +1,70 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace TX_Bussiness.Web.Comm
+{
+    public class Enums
+    {
+        /// <summary>
+        /// 用户状态
+        /// </summary>
+        public enum AccountState:int
+        {
+             /// <summary>
+            /// 正常
+            /// </summary>
+            Normal=1,
+            /// <summary>
+            /// 可用
+            /// </summary>
+            Enable,
+            /// <summary>
+            /// 不可用
+            /// </summary>
+            Disable,
+            /// <summary>
+            /// 删除
+            /// </summary>
+            Delete
+           
+        }
+        public enum UserType:int
+        {
+            /// <summary>
+            /// 普通用户
+            /// </summary>
+            Normal=1,
+            /// <summary>
+            /// 城管通用户
+            /// </summary>
+            Mobile
+        }
+
+        public enum RoleType:int
+        {
+            /// <summary>
+            /// 人员定位系统
+            /// </summary>
+            Location=1,
+            /// <summary>
+            /// 勤务实时系统
+            /// </summary>
+            QWSS,
+            /// <summary>
+            /// 上报交办系统
+            /// </summary>
+            SBJB,
+            /// <summary>
+            /// 勤务市局系统
+            /// </summary>
+            QWSJ,
+            /// <summary>
+            /// 应用维护系统
+            /// </summary>
+            YYWH
+
+        }
+    }
+}
