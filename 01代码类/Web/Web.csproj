@@ -261,8 +261,6 @@
     <Content Include="bussiness\Template\UserInfo.aspx" />
     <Content Include="bussiness\users\UserEdit.aspx" />
     <Content Include="bussiness\users\UserList.aspx" />
-    <Content Include="js\classes\addclass.aspx" />
-    <Content Include="js\classes\classlist.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\dateIco.png" />
@@ -596,20 +594,6 @@
     </Compile>
     <Compile Include="bussiness\users\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="js\classes\addclass.aspx.cs">
-      <DependentUpon>addclass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="js\classes\addclass.aspx.designer.cs">
-      <DependentUpon>addclass.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="js\classes\classlist.aspx.cs">
-      <DependentUpon>classlist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="js\classes\classlist.aspx.designer.cs">
-      <DependentUpon>classlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="Comm\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
