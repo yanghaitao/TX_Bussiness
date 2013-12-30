@@ -10,6 +10,8 @@ using Yannis.DAO;
 using LitJson;
 using System.Web.Script.Serialization;
 using Bussiness.Common;
+using System.IO;
+using System.Configuration;
 
 namespace TX_Bussiness.Web.tools
 {
@@ -28,13 +30,14 @@ namespace TX_Bussiness.Web.tools
                        (context.Request.RequestType.ToUpper().Equals("GET"))
                        ? context.Request.QueryString : context.Request.Form;
             NameValueCollection dict = new NameValueCollection(dictionarySource);
+            string acts = dict["act"];
             switch (dict["act"])
             {
-               
+
                 case "DeleteUser"://删除用户（暂不使用）
                     context.Response.Write(DeleteUser(dict["id"]));
                     break;
-               
+
                 case "DeleteRole"://删除部门（暂不使用）
                     context.Response.Write(DeleteRole(dict["id"]));
                     break;
@@ -68,26 +71,53 @@ namespace TX_Bussiness.Web.tools
                 case "ChangePassword"://修改用户密码
                     context.Response.Write(ChangePassword(dict["uid"], dict["oldpwd"], dict["newpwd"]));
                     break;
+                case "UploadFile":
+                    context.Response.Write(FileUpload(context));
+                    break;
             }
+        }
+
+        private string FileUpload(HttpContext context)
+        {
+            HttpPostedFile file = context.Request.Files["Filedata"];
+            string uploadPath =
+                HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["ImgUploadPath"]);
+
+            if (file != null)
+            {
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                file.SaveAs(uploadPath + file.FileName);
+                //下面这句代码缺少的话，上传成功后上传队列的显示不会自动消失  
+                return file.FileName;
+            }
+            else
+            {
+                return "0";
+            }
+
+            //throw new NotImplementedException();
         }
         private string ChangePassword(string uid, string oldpwd, string newpwd)
         {
-           Yannis.DAO.User model= new Select().From(Yannis.DAO.User.Schema).Where(Yannis.DAO.User.IdColumn).IsEqualTo(uid)
-               .And(Yannis.DAO.User.PasswordColumn).IsEqualTo(oldpwd).ExecuteSingle<Yannis.DAO.User>();
-           if (model == null)
-               return "旧密码错误！";
-           model.Password = newpwd;
-           model.Save();
-           new SysLog()
-           {
-               Actionname = "修改用户密码，旧密码："+oldpwd+" 新密码："+newpwd,
-               CuDate = DateTime.Now,
-               Ip = Utility.GetIP(),
-               Loginname = model.Loginname,
-               Userid = model.Id
-           }.Save();
-           return "1";
-           // throw new NotImplementedException();
+            Yannis.DAO.User model = new Select().From(Yannis.DAO.User.Schema).Where(Yannis.DAO.User.IdColumn).IsEqualTo(uid)
+                .And(Yannis.DAO.User.PasswordColumn).IsEqualTo(oldpwd).ExecuteSingle<Yannis.DAO.User>();
+            if (model == null)
+                return "旧密码错误！";
+            model.Password = newpwd;
+            model.Save();
+            new SysLog()
+            {
+                Actionname = "修改用户密码，旧密码：" + oldpwd + " 新密码：" + newpwd,
+                CuDate = DateTime.Now,
+                Ip = Utility.GetIP(),
+                Loginname = model.Loginname,
+                Userid = model.Id
+            }.Save();
+            return "1";
+            // throw new NotImplementedException();
         }
 
         private string DepartIsExist(string departname)
@@ -103,7 +133,7 @@ namespace TX_Bussiness.Web.tools
             //throw new NotImplementedException();
         }
 
-        private string  UserIsExist(string loginname)
+        private string UserIsExist(string loginname)
         {
             SqlQuery query = new Select().From(Yannis.DAO.User.Schema);
             query.Where("1=1");
@@ -139,8 +169,8 @@ namespace TX_Bussiness.Web.tools
                 Projectclass pclass = Projectclass.FetchByID(id);
                 pclass.Isdel = true;
                 pclass.Save();
-               // WriteLog("删除分类 分类id:" + pclass.Id + " 类别名称：" + pclass.Classname);
-                return  "1";
+                // WriteLog("删除分类 分类id:" + pclass.Id + " 类别名称：" + pclass.Classname);
+                return "1";
             }
             return "0";
             // throw new NotImplementedException();

@@ -277,6 +277,7 @@
     <Content Include="images\btn_bg.png" />
     <Content Include="images\category_tab.jpg" />
     <Content Include="images\city_bg.png" />
+    <Content Include="images\close.png" />
     <Content Include="images\content_bg.png" />
     <Content Include="images\fbr.jpg" />
     <Content Include="images\go.png" />
@@ -408,6 +409,7 @@
     <Content Include="images\switch_tab2.png" />
     <Content Include="images\time_bg.png" />
     <Content Include="images\tixing.png" />
+    <Content Include="images\uploadify-cancel.png" />
     <Content Include="images\weather_bg.png" />
     <Content Include="images\welcome_wz.png" />
     <Content Include="images\year_next.png" />
@@ -463,6 +465,15 @@
     <Content Include="js\manhuaDate.1.0.js" />
     <Content Include="js\time.js" />
     <Content Include="main.aspx" />
+    <Content Include="uploadify\Change Log.txt" />
+    <Content Include="uploadify\jquery.uploadify.js" />
+    <Content Include="uploadify\jquery.uploadify.min.js" />
+    <Content Include="uploadify\license.txt" />
+    <Content Include="uploadify\uploadify-cancel.png" />
+    <Content Include="uploadify\uploadify.css" />
+    <Content Include="uploadify\uploadify.swf" />
+    <Content Include="uploadify\__MACOSX\._Change Log.txt" />
+    <Content Include="uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -653,11 +664,16 @@
     <None Include="bussiness\Styles\font\Vani.ttf" />
     <None Include="bussiness\Styles\font\Vanib.ttf" />
     <None Include="bussiness\Styles\ui-all\images\Thumbs.db" />
+    <None Include="images\ico.psd" />
     <None Include="images\Thumbs.db" />
     <Content Include="tools\AjaxHandler.ashx" />
+    <None Include="uploadify\check-exists.php" />
+    <None Include="uploadify\index.php" />
+    <None Include="uploadify\uploadify.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="uploadfile\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
