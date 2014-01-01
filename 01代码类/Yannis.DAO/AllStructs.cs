@@ -18,15 +18,15 @@ namespace Yannis.DAO
 	public partial struct Tables
 	{
 		
-		public static readonly string AreaInfo = @"area_info";
-        
-		public static readonly string CollectoInfo = @"collecto_info";
-        
 		public static readonly string CollectorLocation = @"collector_location";
         
 		public static readonly string Depart = @"depart";
         
-		public static readonly string DepartInfo = @"depart_info";
+		public static readonly string InfoArea = @"info_area";
+        
+		public static readonly string InfoCollector = @"info_collector";
+        
+		public static readonly string InfoDepart = @"info_depart";
         
 		public static readonly string Limit = @"limit";
         
@@ -55,16 +55,6 @@ namespace Yannis.DAO
     #region Schemas
     public partial class Schemas {
 		
-		public static TableSchema.Table AreaInfo
-		{
-            get { return DataService.GetSchema("area_info", "Yannis_DAO"); }
-		}
-        
-		public static TableSchema.Table CollectoInfo
-		{
-            get { return DataService.GetSchema("collecto_info", "Yannis_DAO"); }
-		}
-        
 		public static TableSchema.Table CollectorLocation
 		{
             get { return DataService.GetSchema("collector_location", "Yannis_DAO"); }
@@ -75,9 +65,19 @@ namespace Yannis.DAO
             get { return DataService.GetSchema("depart", "Yannis_DAO"); }
 		}
         
-		public static TableSchema.Table DepartInfo
+		public static TableSchema.Table InfoArea
 		{
-            get { return DataService.GetSchema("depart_info", "Yannis_DAO"); }
+            get { return DataService.GetSchema("info_area", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table InfoCollector
+		{
+            get { return DataService.GetSchema("info_collector", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table InfoDepart
+		{
+            get { return DataService.GetSchema("info_depart", "Yannis_DAO"); }
 		}
         
 		public static TableSchema.Table Limit

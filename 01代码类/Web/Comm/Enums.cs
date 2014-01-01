@@ -77,5 +77,19 @@ namespace TX_Bussiness.Web.Comm
             /// </summary>
             After
         }
+        public enum ProjectType : int {
+            /// <summary>
+            /// 交办阶段
+            /// </summary>
+            JIAOBAN=1,
+            /// <summary>
+            /// 处理阶段
+            /// </summary>
+            CHULILI=2,
+            /// <summary>
+            /// 完成阶段
+            /// </summary>
+            WANCHENG=3
+        }
     }
 }

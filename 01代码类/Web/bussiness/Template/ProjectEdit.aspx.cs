@@ -8,6 +8,7 @@ using Yannis.DAO;
 using SubSonic;
 using Bussiness.Common;
 using System.Transactions;
+using TX_Bussiness.Web.Comm;
 
 namespace TX_Bussiness.Web.bussiness.Template
 {
@@ -30,14 +31,14 @@ namespace TX_Bussiness.Web.bussiness.Template
                     {
                         Project proj = Project.FetchByID(projectcode);
                         ProjectTrace protrace = new ProjectTrace();
+                        #region [ 局领导操作 ]
                         if (CheckRole(user.Id, Comm.Constant.RoleCode_JLD))//局领导
                         {
-                            proj.Leadmessage = Utility.GetParameter("txt_message");
+                            proj.Leadmessage = Utility.GetParameter("txt_leadmessage");
                             proj.Departcode = Utility.GetParameter("txt_depart");
                             proj.Nodeid = 2;//中队长办理栏 
                             proj.Dispatcherid = user.Id;
                             proj.Dispatchername = user.Username;
-                            proj.Save();
 
                             protrace.Actionname = GetAppSeeting("LeaderActionName");//局领导操作步骤名称
                             protrace.Currentnodeid = 2;//当前节点
@@ -47,16 +48,19 @@ namespace TX_Bussiness.Web.bussiness.Template
                             protrace.Operatordepart = user.Departcode;//操作人部门
                             protrace.Prenodeid = 1;//前一节点
                             protrace.Opinion = Utility.GetParameter("txt_message");//意见
-                            protrace.Acceptdate = GetAcceptTime(projectcode, int.Parse(projectcode)-1);//受理时间
+                            protrace.Acceptdate = GetAcceptTime(projectcode, proj.Nodeid - 1);//受理时间
                             protrace.Projcode = proj.Projcode.ToString();//案卷编号
 
                         }
+                        #endregion
+                        #region [ 中队长操作 ]
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZDZ))
                         {
                             proj.Handlerid = Utility.GetIntParameter("txt_handler");
                             proj.Handlername = GetUserName(proj.Handlerid.ToString());
                             proj.Message = Utility.GetParameter("txt_message");
                             proj.Nodeid = 3;
+                            proj.Projectstate = (int)Enums.ProjectType.CHULILI;
 
                             protrace.Actionname = GetAppSeeting("CaptainActionName");//中队长操作步骤名称
                             protrace.Currentnodeid = 3;//当前节点
@@ -66,16 +70,19 @@ namespace TX_Bussiness.Web.bussiness.Template
                             protrace.Operatordepart = user.Departcode;//操作人部门
                             protrace.Prenodeid = 2;//前一节点
                             protrace.Opinion = Utility.GetParameter("txt_message");//意见
-                            protrace.Acceptdate = GetAcceptTime(projectcode, int.Parse(projectcode) - 1);//受理时间
+                            protrace.Acceptdate = GetAcceptTime(projectcode, proj.Nodeid - 1);//受理时间
                             protrace.Projcode = proj.Projcode.ToString();//案卷编号
 
                         }
+                        #endregion
+                        #region [ 执法人员操作 ]
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZFRY))
                         {
-                            proj.Handlermessge = Utility.GetParameter("txt_message");
+                            proj.Handlermessge = Utility.GetParameter("txt_handlemessage");
                             proj.Nodeid = 4;
                             proj.Handlerid = user.Id;
                             proj.Handlername = user.Username;
+                            proj.Projectstate = (int)Enums.ProjectType.WANCHENG;
 
                             protrace.Actionname = GetAppSeeting("HanlderActionName");//执法人员操作步骤名称
                             protrace.Currentnodeid = 4;//当前节点
@@ -85,9 +92,10 @@ namespace TX_Bussiness.Web.bussiness.Template
                             protrace.Operatordepart = user.Departcode;//操作人部门
                             protrace.Prenodeid = 3;//前一节点
                             protrace.Opinion = Utility.GetParameter("txt_message");//意见
-                            protrace.Acceptdate = GetAcceptTime(projectcode, int.Parse(projectcode) - 1);//受理时间
+                            protrace.Acceptdate = GetAcceptTime(projectcode, proj.Nodeid - 1);//受理时间
                             protrace.Projcode = proj.Projcode.ToString();//案卷编号
                         }
+                        #endregion
                         proj.Save();
                         protrace.Save();
                         WriteLog("案卷批转 案卷编号：" + projectcode);

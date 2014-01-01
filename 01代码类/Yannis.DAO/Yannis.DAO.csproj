@@ -54,6 +54,12 @@
     <Compile Include="CollectorLocationController.cs" />
     <Compile Include="Depart.cs" />
     <Compile Include="DepartController.cs" />
+    <Compile Include="InfoArea.cs" />
+    <Compile Include="InfoAreaController.cs" />
+    <Compile Include="InfoCollector.cs" />
+    <Compile Include="InfoCollectorController.cs" />
+    <Compile Include="InfoDepart.cs" />
+    <Compile Include="InfoDepartController.cs" />
     <Compile Include="Limit.cs" />
     <Compile Include="LimitController.cs" />
     <Compile Include="Project.cs" />

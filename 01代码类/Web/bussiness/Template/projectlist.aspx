@@ -62,7 +62,7 @@
     </div>
     <div class="alert alert-info">
         当前位置<b class="tip"></b>查询界面<b class="tip"></b>案卷列表</div>
-    <form action="projectlist.aspx" method="post">
+    <form action="/bussiness/template/projectlist.aspx" method="get">
     <table class="table table-striped table-bordered table-condensed">
         <thead>
             <tr>
@@ -74,16 +74,10 @@
         <tbody>
             <tr>
                 <td>
-                    案卷编号
+                    勤务编号
                 </td>
                 <td class="detail">
-                    <input id="formid" name="txt_projectcode" />
-                </td>
-                <td>
-                    案卷类型
-                </td>
-                <td class="td_detail">
-                    <input id="formtype" name="txt_projecttype" />
+                    <input id="formid" name="txt_projectcode"  value="<%=txt_projectcode %>"/>
                 </td>
                 <td>
                     处理部门
@@ -95,25 +89,11 @@
                           {
                               if (v.Departname != "")
                               { %>
-                        <option value="<%=v.Id %>">
+                        <option value="<%=v.Id %>" <%=txt_depart==v.Id.ToString()?"selected=selected":"" %>>
                             <%=v.Departname %></option>
                         <%}
                           }%>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    上报人
-                </td>
-                <td class="detail">
-                    <input id="Text3" name="txt_dispatcher" />
-                </td>
-                <td>
-                    处理人
-                </td>
-                <td class="td_detail">
-                    <input id="Text4" name="txt_handler" />
                 </td>
                 <td>
                     案卷状态
@@ -121,9 +101,14 @@
                 <td>
                     <select size="1" name="txt_projectstate" id="Select2">
                         <option value="0">全部</option>
+                         <option value="1" <%=txt_projectstate=="1"?"selected=selected":"" %>>交办阶段</option>
+                          <option value="2" <%=txt_projectstate=="2"?"selected=selected":"" %>>处理阶段</option>
+                           <option value="3" <%=txt_projectstate=="3"?"selected=selected":"" %>>完成阶段</option>
                     </select>
                 </td>
+                
             </tr>
+           
             <tr>
                 <td>
                     区域
@@ -135,7 +120,7 @@
                           {
                               if (!string.IsNullOrEmpty(v.Areaname))
                               { %>
-                        <option value="<%=v.Areacode %>">
+                        <option value="<%=v.Areacode %>" <%=txt_area==v.Areacode.ToString()?"selected=selected":"" %>>
                             <%=v.Areaname %></option>
                         <%}
                           }%>
@@ -151,7 +136,7 @@
                           {
                               if (!string.IsNullOrEmpty(v.Streetname))
                               { %>
-                        <option value="<%=v.Streetcode %>">
+                        <option value="<%=v.Streetcode %>" <%=txt_street==v.Streetcode.ToString()?"selected=selected":"" %>>
                             <%=v.Streetname %></option>
                         <%}
                           }%>
@@ -166,7 +151,7 @@
                               {
                                   if (!string.IsNullOrEmpty(v.Commname))
                                   { %>
-                            <option value="<%=v.Commcode %>">
+                            <option value="<%=v.Commcode %>" <%=txt_commnuity==v.Commcode.ToString()?"selected=selected":"" %>>
                                 <%=v.Commname %></option>
                             <%}
                               }%>
@@ -175,32 +160,14 @@
             </tr>
             <tr>
                 <td>
-                    上报日期起
+                    录入日期起
                 </td>
-                <td>
+                <td colspan="5">
                     <div class="input-append">
-                        <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate" /><span
+                        <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"  value="<%=txt_startdate %>"/><span
                             class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
-                                name="txt_enddate" size="16" type="text" /><span class="add-on"><i class="icon-calendar"></i></span>
+                                name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
                     </div>
-                </td>
-                <td>
-                    报销人
-                </td>
-                <td>
-                    <select size="1" name="select2" id="baoxiaoren">
-                        <option value="10401"></option>
-                        <option value="10388">第二营销事业部</option>
-                    </select>
-                </td>
-                <td>
-                    所属项目
-                </td>
-                <td>
-                    <select id="xiangmu" size="1" name="select3">
-                        <option value="10401"></option>
-                        <option value="10388">第二营销事业部</option>
-                    </select>
                 </td>
             </tr>
             <tr>

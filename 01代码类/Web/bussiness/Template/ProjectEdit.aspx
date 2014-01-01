@@ -173,7 +173,7 @@
                     案卷描述
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_message" style="width: 95%" rows="4" cols="5" readonly="readonly"><%=model.Describe %></textarea>
+                    <textarea name="txt_describe" style="width: 95%" rows="4" cols="5" readonly="readonly"><%=model.Describe %></textarea>
                 </td>
             </tr>
            
@@ -200,7 +200,7 @@
                     执法人员处置结果
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_message" style="width: 95%" rows="4" cols="5"><%=model.Handlermessge %></textarea>
+                    <textarea name="txt_handlemessage" style="width: 95%" rows="4" cols="5"><%=model.Handlermessge %></textarea>
                 </td>
             </tr>
         </tbody>

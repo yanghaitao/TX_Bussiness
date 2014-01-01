@@ -28,17 +28,48 @@ namespace TX_Bussiness.Web.bussiness.p_class
                     model = Projectclass.FetchByID(id);
                     model.IsNew = false;
                     model.Classname = Utility.GetParameter("txt_classname");
-                    model.Parentid = string.IsNullOrEmpty(Utility.GetParameter("txt_parentid")) ? "0" : Utility.GetParameter("txt_parentid");
-                    model.Classtype = Utility.GetParameter("txt_parentid") == "0" ? 1 : 0;
-
+                    if (Utility.GetParameter("txt_classcode") == "0")
+                    {
+                        model.Parentid = "0";
+                        model.Classtype = 0;
+                    }
+                    else
+                    {
+                        if (Utility.GetParameter("txt_bigclass") == "0")
+                        {
+                            model.Parentid = Utility.GetParameter("txt_classcode");
+                            model.Classtype = 1;
+                        }
+                        else
+                        {
+                            model.Parentid = Utility.GetParameter("txt_bigclass");
+                            model.Classtype = 2;
+                        }
+                    }
                 }
                 else
                 {
                     model = new Projectclass();
                     model.IsNew = true;
                     model.Classname = Utility.GetParameter("txt_classname");
-                    model.Parentid = string.IsNullOrEmpty(Utility.GetParameter("txt_parentid")) ? "0" : Utility.GetParameter("txt_parentid");
-                    model.Classtype = Utility.GetParameter("txt_parentid") == "0" ? 1 : 0;
+                    if (Utility.GetParameter("txt_classcode") == "0")
+                    {
+                        model.Parentid = "0";
+                        model.Classtype = 0;
+                    }
+                    else
+                    {
+                        if (Utility.GetParameter("txt_bigclass") == "0")
+                        {
+                            model.Parentid = Utility.GetParameter("txt_classcode");
+                            model.Classtype = 1;
+                        }
+                        else
+                        {
+                            model.Parentid = Utility.GetParameter("txt_bigclass");
+                            model.Classtype = 2;
+                        }
+                    }
                     model.Isdel = false;
                 }
                 model.Save();

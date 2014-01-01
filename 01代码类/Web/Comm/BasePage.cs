@@ -68,8 +68,6 @@ namespace TX_Bussiness.Web.Comm
             }
             return null;
         }
-       
-       
         /// <summary>
         /// 获取子部门列表
         /// </summary>
@@ -303,13 +301,12 @@ namespace TX_Bussiness.Web.Comm
         /// </summary>
         /// <param name="projecttype">类别</param>
         /// <returns></returns>
-        public List<Projectclass> GetProjectClass(object projecttype)
+        public List<Projectclass> GetProjectClass(object parentcode)
         {
             SqlQuery query = new Select().From(Projectclass.Schema);
             query.Where("1=1");
             query.And(Projectclass.IsdelColumn).IsNotEqualTo(true);
-            query.And(Projectclass.ClasstypeColumn).IsEqualTo(projecttype);
-
+            query.And(Projectclass.ParentidColumn).IsEqualTo(parentcode);
             List<Projectclass> list = query.ExecuteTypedList<Projectclass>();
             if (list != null && list.Count > 0)
                 return list;
@@ -392,13 +389,12 @@ namespace TX_Bussiness.Web.Comm
         /// 获取角色列表
         /// </summary>
         /// <returns></returns>
-        public  List<Role> GetRoleList()
+        public List<Role> GetRoleList()
         {
             SqlQuery query = new Select().From(Role.Schema);
             query.Where("1=1");
             return query.ExecuteTypedList<Role>();
         }
-
         /// <summary>
         /// 记录操作日志
         /// </summary>

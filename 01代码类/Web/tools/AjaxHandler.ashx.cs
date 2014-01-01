@@ -74,6 +74,9 @@ namespace TX_Bussiness.Web.tools
                 case "UploadFile":
                     context.Response.Write(FileUpload(context));
                     break;
+                case "GetProjessClassJson":
+                    context.Response.Write(GetProjessClassJson(dict["parentcode"]));
+                    break;
             }
         }
 
@@ -356,6 +359,20 @@ namespace TX_Bussiness.Web.tools
                 Loginname = user.Loginname,
                 Userid = user.Id
             }.Save();
+        }
+
+        /// <summary>
+        /// 获取子类别列表
+        /// </summary>
+        /// <param name="parentcode"></param>
+        /// <returns></returns>
+        public string GetProjessClassJson(object parentcode)
+        {
+            SqlQuery query = new Select().From(Projectclass.Schema).Where(Projectclass.ParentidColumn).IsEqualTo(parentcode);
+            query.Where("1=1");
+            query.And(Projectclass.IsdelColumn).IsNotEqualTo(true);
+            List<Projectclass> list = query.ExecuteTypedList<Projectclass>();
+            return new JavaScriptSerializer().Serialize(list);
         }
     }
 }

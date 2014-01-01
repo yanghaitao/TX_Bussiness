@@ -13,7 +13,7 @@
     <script src="/js/global.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            $('.modal').show();
+
         })
     </script>
 </head>
@@ -36,11 +36,9 @@
                     <input type="hidden" value="<%=model.Id %>" name="id" />
                 </td>
                 <td width="500" colspan="3">
-                <%if (model.Classtype != 1)
-                  {%>
-                     <select size="1" name="txt_parentid" id="bumen" >
-                     <option value="0">无</option>
-                        <%foreach (var v in GetProjectClass(1))
+                    <select size="1" name="txt_classcode" id="bumen">
+                        <option value="0">无</option>
+                        <%foreach (var v in GetProjectClass(0))
                           {
                               if (v.Classname != "")
                               { %>
@@ -49,28 +47,25 @@
                         <%}
                           }%>
                     </select>
-                    <%}
-                  else
-                  { %>
-                   <input name="" value="<%=GetClassName(model.Id.ToString()) %>" type="text" readonly="readonly"/>
-                    <%}%>
+                    <select size="1" name="txt_bigclass" id="Select1">
+                        <option value="0">无</option>
+                    </select>
                 </td>
             </tr>
             <tr>
                 <td>
-                    类别名称<font color="FF0000">*</font> 
+                    类别名称<font color="FF0000">*</font>
                 </td>
                 <td colspan="3">
-                     <input name="txt_classname" value="<%=model.Classname %>" type="text" />
+                    <input name="txt_classname" value="<%=model.Classname %>" type="text" />
                 </td>
-              
             </tr>
-        
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-inverse" id="find" onclick="return initcheck();" type="submit" value="保存" />
+                    <input class="btn btn-inverse" id="find" onclick="return initcheck();" type="submit"
+                        value="保存" />
                     <input class="btn btn-inverse" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
@@ -79,5 +74,3 @@
     </form>
 </body>
 </html>
-
-

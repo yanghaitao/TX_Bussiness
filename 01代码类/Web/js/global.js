@@ -148,9 +148,24 @@ $(function () {
             { $("select[name='txt_smallclass']").html(""); }
         })
     })
-    $(".projimg").find(".prev").click(function () { 
-        
-    })
+    $("select[name='txt_classcode']").change(function () {
+        var classcode = $(this).val();
+        if (classcode != "0") {
+            $.post("/tools/AjaxHandler.ashx", { act: "GetProjessClassJson", parentcode: classcode }, function (data) {
+                if (data != "" && data.length > 0) {
+                    var jsondata = JSON.parse(data);
+                    var options = "<option value='0'>无</option>";
+                    $.each(jsondata, function (i, item) {
+                        options += "<option value='" + item.Id + "'>" + item.Classname + "</option>";
+                    })
+                    $("select[name='txt_bigclass']").html(options);
+                }
+            })
+        }
+        else {
+            $("select[name='txt_bigclass']").html("<option value='0'>无</option>");
+        }
+    });
 })
 function Refstate() {
     window.location.reload();

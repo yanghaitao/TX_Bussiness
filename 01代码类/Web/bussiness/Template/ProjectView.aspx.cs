@@ -29,13 +29,13 @@ namespace TX_Bussiness.Web.bussiness.Template
         /// </summary>
         /// <param name="nodeid"></param>
         /// <returns></returns>
-        protected string GetStepName(int nodeid)
+        protected string GetStepName(int projectstate)
         {
-            if (nodeid < 2)
+            if (projectstate ==1)
                 return "交办阶段";
-            if (nodeid < 4)
+            if (projectstate ==2)
                 return "处理阶段";
-            if (nodeid > 4)
+            if (projectstate ==3)
                 return "完成阶段";
             return string.Empty;
         }

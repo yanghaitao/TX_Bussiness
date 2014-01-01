@@ -25,7 +25,7 @@
         </div>
         局属部门:<div style="margin: 0px 20px; display: inline-block;"><%=GetDepart(Convert.ToInt32(model.Reportpersonid))%>
         </div>
-        当前阶段:<div style="margin: 0px 20px; display: inline-block;"><%=GetStepName(Convert.ToInt32(model.Nodeid)) %></div>
+        当前阶段:<div style="margin: 0px 20px; display: inline-block;"><%=GetStepName(Convert.ToInt32(model.Projectstate)) %></div>
         </div>
     <table class="table table-striped table-bordered table-condensed" id="projlist">
         <thead>

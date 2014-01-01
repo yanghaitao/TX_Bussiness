@@ -8,6 +8,7 @@ using SubSonic;
 using Yannis.DAO;
 using Bussiness.Common;
 using System.Transactions;
+using TX_Bussiness.Web.Comm;
 
 namespace TX_Bussiness.Web.bussiness.Template
 {
@@ -20,6 +21,7 @@ namespace TX_Bussiness.Web.bussiness.Template
             user = GetUserInfo();
             if (!IsPostBack && Request.HttpMethod == "POST")
             {
+                #region[ 获取参数列表 ]
                 string txt_name = Utility.GetParameter("txt_name");
                 string txt_area = Utility.GetParameter("txt_area");
                 string txt_street = Utility.GetParameter("txt_street");
@@ -31,6 +33,7 @@ namespace TX_Bussiness.Web.bussiness.Template
                 string txt_describ = Utility.GetParameter("txt_describ");
                 string txt_addrss = Utility.GetParameter("txt_address");
                 string projectimgs = Utility.GetParameter("fileimgs");
+                #endregion
                 using (TransactionScope ts = new TransactionScope())
                 {
                     using (SharedDbConnectionScope scope = new SharedDbConnectionScope())
@@ -46,15 +49,22 @@ namespace TX_Bussiness.Web.bussiness.Template
                         project.Describe = txt_describ;
                         project.Loacation = txt_location;
                         if (CheckRole(user.Id, Comm.Constant.RoleCode_JLD))
+                        {
                             project.Nodeid = 1;
+                            project.Projectstate = (int)Enums.ProjectType.JIAOBAN;
+                        }
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZDZ))
+                        {
                             project.Nodeid = 2;
+                            project.Projectstate = (int)Enums.ProjectType.JIAOBAN;
+                        }
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZFRY))
+                        {
                             project.Nodeid = 3;
-
+                            project.Projectstate = (int)Enums.ProjectType.CHULILI;
+                        }
                         project.Reportpersonid = user.Id;
                         project.Reportpersonname = user.Username;
-                        //project.Projectname =
                         project.Projectstate = 1;
                         project.ProjectType = txt_projecttype;
                         project.Reportpersonname = txt_name;
@@ -93,6 +103,35 @@ namespace TX_Bussiness.Web.bussiness.Template
                         projtrace.Projcode = projectcode;
                         projtrace.Save();
                         #endregion
+                        #region[ 记录统计信息 ]
+                        InfoArea area = new InfoArea
+                        {
+                            Adddate = DateTime.Now,
+                            Areacode = txt_area,
+                            Areaname = GetAreaName(txt_area),
+                            Commnuitycode = txt_commnuity,
+                            Commnuityname = GetCommName(txt_commnuity),
+                            Projcode = projectcode,
+                            Streetcode = txt_street,
+                            Streetname = GetStreetName(txt_street)
+                        };
+                        area.Save();
+                        InfoCollector collector = new InfoCollector
+                        {
+                            Adddate = DateTime.Now,
+                            Collectorid = user.Id,
+                            Collectorname = user.Username,
+                            Projcode = projectcode
+                        };
+                        collector.Save();
+                        InfoDepart depart = new InfoDepart
+                        {
+                            Adddate = DateTime.Now,
+                            Departcode = user.Departcode.ToString(),
+                            Departname = GetDepartName(user.Departcode.ToString())
+                        };
+                        depart.Save();
+                        #endregion
                         #region [ 上传图片 ]
                         if (!string.IsNullOrEmpty(projectimgs))
                         {
@@ -104,7 +143,7 @@ namespace TX_Bussiness.Web.bussiness.Template
                                     Imgtype = (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.Before,
                                     Imgurl = imgs[i],
                                     Projcode = projectcode,
-                                    Adddate=DateTime.Now
+                                    Adddate = DateTime.Now
                                 };
                                 pimg.Save();
                             }

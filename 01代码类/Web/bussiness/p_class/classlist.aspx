@@ -86,16 +86,20 @@
                     所属类别
                 </td>
                 <td>
-                    <select size="1" name="txt_parentid" id="bumen">
+                    <select size="1" name="txt_classcode" id="bumen">
                         <option value="0">全部</option>
-                        <%foreach (var v in GetProjectClass(1))
+                        <%foreach (var v in GetProjectClass(0))
                           {
                               if (v.Classname != "")
                               { %>
-                        <option value="<%=v.Id %>" <%=v.Id.ToString()==txt_parentid?"selected='selected'":"" %>>
+                        <option value="<%=v.Id %>" <%=v.Id.ToString()==txt_classcode?"selected='selected'":"" %>>
                             <%=v.Classname %></option>
                         <%}
                           }%>
+                    </select>
+                     <select size="1" name="txt_bigclass" id="Select1">
+                     <option value="0">无</option>
+                         <%=!string.IsNullOrEmpty(txt_bigclass)&&txt_bigclass != "0" ? "<option value='" + txt_bigclass + "'>"+GetClassName(txt_bigclass)+"</option>" : ""%>
                     </select>
                 </td>
             </tr>
