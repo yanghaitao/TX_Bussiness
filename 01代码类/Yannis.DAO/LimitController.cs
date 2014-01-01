@@ -80,13 +80,13 @@ namespace Yannis.DAO
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int Limitid,string Limitname)
+	    public void Insert(string Limitname,int Id)
 	    {
 		    Limit item = new Limit();
 		    
-            item.Limitid = Limitid;
-            
             item.Limitname = Limitname;
+            
+            item.Id = Id;
             
 	    
 		    item.Save(UserName);

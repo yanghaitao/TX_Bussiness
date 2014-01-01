@@ -19,7 +19,7 @@
 </head>
 <body>
     <form action="/bussiness/depart/departedit.aspx" method="post">
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>维护界面<b class="tip"></b>部门编辑</div>
     <table class="table table-striped table-bordered table-condensed list">
         <thead>

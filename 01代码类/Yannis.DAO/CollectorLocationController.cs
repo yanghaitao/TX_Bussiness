@@ -80,7 +80,7 @@ namespace Yannis.DAO
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int Id,int? Collectorid,string Longitude,string Atitude,DateTime? Localtionupdate)
+	    public void Insert(int Id,int? Collectorid,string Longitude,string Atitude,DateTime? Localtionupdate,string Location)
 	    {
 		    CollectorLocation item = new CollectorLocation();
 		    
@@ -94,6 +94,8 @@ namespace Yannis.DAO
             
             item.Localtionupdate = Localtionupdate;
             
+            item.Location = Location;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -102,7 +104,7 @@ namespace Yannis.DAO
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,int? Collectorid,string Longitude,string Atitude,DateTime? Localtionupdate)
+	    public void Update(int Id,int? Collectorid,string Longitude,string Atitude,DateTime? Localtionupdate,string Location)
 	    {
 		    CollectorLocation item = new CollectorLocation();
 	        item.MarkOld();
@@ -117,6 +119,8 @@ namespace Yannis.DAO
 			item.Atitude = Atitude;
 				
 			item.Localtionupdate = Localtionupdate;
+				
+			item.Location = Location;
 				
 	        item.Save(UserName);
 	    }

@@ -15,13 +15,13 @@ using SubSonic.Utilities;
 namespace Yannis.DAO
 {
     /// <summary>
-    /// Controller class for info_collector
+    /// Controller class for info_class
     /// </summary>
     [System.ComponentModel.DataObject]
-    public partial class InfoCollectorController
+    public partial class InfoClassController
     {
         // Preload our schema..
-        InfoCollector thisSchemaLoad = new InfoCollector();
+        InfoClass thisSchemaLoad = new InfoClass();
         private string userName = String.Empty;
         protected string UserName
         {
@@ -42,36 +42,36 @@ namespace Yannis.DAO
             }
         }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public InfoCollectorCollection FetchAll()
+        public InfoClassCollection FetchAll()
         {
-            InfoCollectorCollection coll = new InfoCollectorCollection();
-            Query qry = new Query(InfoCollector.Schema);
+            InfoClassCollection coll = new InfoClassCollection();
+            Query qry = new Query(InfoClass.Schema);
             coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public InfoCollectorCollection FetchByID(object Id)
+        public InfoClassCollection FetchByID(object Id)
         {
-            InfoCollectorCollection coll = new InfoCollectorCollection().Where("id", Id).Load();
+            InfoClassCollection coll = new InfoClassCollection().Where("id", Id).Load();
             return coll;
         }
 		
 		[DataObjectMethod(DataObjectMethodType.Select, false)]
-        public InfoCollectorCollection FetchByQuery(Query qry)
+        public InfoClassCollection FetchByQuery(Query qry)
         {
-            InfoCollectorCollection coll = new InfoCollectorCollection();
+            InfoClassCollection coll = new InfoClassCollection();
             coll.LoadAndCloseReader(qry.ExecuteReader()); 
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
         public bool Delete(object Id)
         {
-            return (InfoCollector.Delete(Id) == 1);
+            return (InfoClass.Delete(Id) == 1);
         }
         [DataObjectMethod(DataObjectMethodType.Delete, false)]
         public bool Destroy(object Id)
         {
-            return (InfoCollector.Destroy(Id) == 1);
+            return (InfoClass.Destroy(Id) == 1);
         }
         
         
@@ -80,19 +80,21 @@ namespace Yannis.DAO
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(int? Collectorid,string Collectorname,string Projcode,DateTime? Adddate,int? Departcode)
+	    public void Insert(string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate)
 	    {
-		    InfoCollector item = new InfoCollector();
+		    InfoClass item = new InfoClass();
 		    
-            item.Collectorid = Collectorid;
+            item.Projectcode = Projectcode;
             
-            item.Collectorname = Collectorname;
+            item.Bigclasscode = Bigclasscode;
             
-            item.Projcode = Projcode;
+            item.Bigclassname = Bigclassname;
+            
+            item.Smallclasscode = Smallclasscode;
+            
+            item.Smallclassanme = Smallclassanme;
             
             item.Adddate = Adddate;
-            
-            item.Departcode = Departcode;
             
 	    
 		    item.Save(UserName);
@@ -102,23 +104,25 @@ namespace Yannis.DAO
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,int? Collectorid,string Collectorname,string Projcode,DateTime? Adddate,int? Departcode)
+	    public void Update(int Id,string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate)
 	    {
-		    InfoCollector item = new InfoCollector();
+		    InfoClass item = new InfoClass();
 	        item.MarkOld();
 	        item.IsLoaded = true;
 		    
 			item.Id = Id;
 				
-			item.Collectorid = Collectorid;
+			item.Projectcode = Projectcode;
 				
-			item.Collectorname = Collectorname;
+			item.Bigclasscode = Bigclasscode;
 				
-			item.Projcode = Projcode;
+			item.Bigclassname = Bigclassname;
+				
+			item.Smallclasscode = Smallclasscode;
+				
+			item.Smallclassanme = Smallclassanme;
 				
 			item.Adddate = Adddate;
-				
-			item.Departcode = Departcode;
 				
 	        item.Save(UserName);
 	    }

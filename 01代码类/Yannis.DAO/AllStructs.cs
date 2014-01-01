@@ -24,6 +24,8 @@ namespace Yannis.DAO
         
 		public static readonly string InfoArea = @"info_area";
         
+		public static readonly string InfoClass = @"info_class";
+        
 		public static readonly string InfoCollector = @"info_collector";
         
 		public static readonly string InfoDepart = @"info_depart";
@@ -68,6 +70,11 @@ namespace Yannis.DAO
 		public static TableSchema.Table InfoArea
 		{
             get { return DataService.GetSchema("info_area", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table InfoClass
+		{
+            get { return DataService.GetSchema("info_class", "Yannis_DAO"); }
 		}
         
 		public static TableSchema.Table InfoCollector

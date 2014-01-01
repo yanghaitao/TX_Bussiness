@@ -20,7 +20,7 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         勤务编号:<div style="margin: 0px 20px; display: inline-block;"><%=string.Format(GetAppSeeting("ProjectNameTemplate"), projcode)%>
         </div>
         局属部门:<div style="margin: 0px 20px; display: inline-block;"><%=GetDepart(Convert.ToInt32(model.Reportpersonid))%>

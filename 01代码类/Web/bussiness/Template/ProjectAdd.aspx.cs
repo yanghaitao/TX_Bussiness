@@ -56,11 +56,14 @@ namespace TX_Bussiness.Web.bussiness.Template
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZDZ))
                         {
                             project.Nodeid = 2;
+                            project.Departcode = user.Departcode.ToString();
                             project.Projectstate = (int)Enums.ProjectType.JIAOBAN;
                         }
                         else if (CheckRole(user.Id, Comm.Constant.RoleCode_ZFRY))
                         {
                             project.Nodeid = 3;
+                            project.Handlerid = user.Id;
+                            project.Handlername = user.Username;
                             project.Projectstate = (int)Enums.ProjectType.CHULILI;
                         }
                         project.Reportpersonid = user.Id;
@@ -119,6 +122,7 @@ namespace TX_Bussiness.Web.bussiness.Template
                         InfoCollector collector = new InfoCollector
                         {
                             Adddate = DateTime.Now,
+                            Departcode = user.Departcode,
                             Collectorid = user.Id,
                             Collectorname = user.Username,
                             Projcode = projectcode
@@ -128,9 +132,20 @@ namespace TX_Bussiness.Web.bussiness.Template
                         {
                             Adddate = DateTime.Now,
                             Departcode = user.Departcode.ToString(),
+                            Projcode = projectcode,
                             Departname = GetDepartName(user.Departcode.ToString())
                         };
                         depart.Save();
+                        InfoClass infoclass = new InfoClass
+                        {
+                            Adddate = DateTime.Now,
+                            Bigclasscode = txt_bigclass.ToString(),
+                            Bigclassname = GetClassName(txt_bigclass.ToString()),
+                            Projectcode = projectcode,
+                            Smallclassanme = GetClassName(txt_smallclass.ToString()),
+                            Smallclasscode = txt_smallclass.ToString()
+                        };
+                        infoclass.Save();
                         #endregion
                         #region [ 上传图片 ]
                         if (!string.IsNullOrEmpty(projectimgs))

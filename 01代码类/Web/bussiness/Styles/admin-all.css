@@ -286,7 +286,10 @@ table thead {
 .table {
     white-space: nowrap;
 }
-
+.c_table input{width:150px;}
+.c_table select{width:80px;}
+.c_table td{width:150px; vertical-align:middle;}
+.c_table .t_label{width:80px;}
 .bottom_c {
     position: absolute;
     bottom: 0;
@@ -296,3 +299,6 @@ table thead {
     color: #CCD8E8;
     padding: 8px 0;
 }
+.tit{margin-bottom:5px;}
+#find{width:48px;}
+#reset{width:48px;}

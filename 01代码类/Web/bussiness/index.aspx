@@ -94,7 +94,7 @@
                     <a class="one">勤务数据系统</a>
                     <ul class="kid">
                        <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/area_info.aspx">区域统计</a></li>
-                            <li><b class="tip"></b><a target="Conframe" href="/bussiness/depart/departlist.aspx">执法人员统计</a></li>
+                            <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/collector_info.aspx">执法人员统计</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/role/rolelist.aspx">类别统计</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/p_class/classlist.aspx">部门统计</a></li>
                     </ul>

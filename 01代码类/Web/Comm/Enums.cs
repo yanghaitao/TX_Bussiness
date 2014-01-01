@@ -12,7 +12,7 @@ namespace TX_Bussiness.Web.Comm
         /// </summary>
         public enum AccountState:int
         {
-             /// <summary>
+            /// <summary>
             /// 正常
             /// </summary>
             Normal=1,
@@ -90,6 +90,21 @@ namespace TX_Bussiness.Web.Comm
             /// 完成阶段
             /// </summary>
             WANCHENG=3
+        }
+        public enum AreaCountType : int 
+        { 
+            /// <summary>
+            /// 区域
+            /// </summary>
+            Area=1,
+            /// <summary>
+            /// 街道
+            /// </summary>
+            Street,
+            /// <summary>
+            /// 社区
+            /// </summary>
+            Commnuity
         }
     }
 }

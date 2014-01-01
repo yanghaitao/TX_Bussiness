@@ -237,6 +237,7 @@
     <Content Include="bussiness\Template\Alert.html" />
     <Content Include="bussiness\Template\Area_Info.aspx" />
     <Content Include="bussiness\Template\Area_Info_Detail.aspx" />
+    <Content Include="bussiness\Template\Collector_Info.aspx" />
     <Content Include="bussiness\Template\CompleteProject.aspx" />
     <Content Include="bussiness\Template\data.html" />
     <Content Include="bussiness\Template\find-1.html" />
@@ -466,15 +467,10 @@
     <Content Include="js\manhuaDate.1.0.js" />
     <Content Include="js\time.js" />
     <Content Include="main.aspx" />
-    <Content Include="uploadify\Change Log.txt" />
     <Content Include="uploadify\jquery.uploadify.js" />
     <Content Include="uploadify\jquery.uploadify.min.js" />
-    <Content Include="uploadify\license.txt" />
-    <Content Include="uploadify\uploadify-cancel.png" />
     <Content Include="uploadify\uploadify.css" />
     <Content Include="uploadify\uploadify.swf" />
-    <Content Include="uploadify\__MACOSX\._Change Log.txt" />
-    <Content Include="uploadify\__MACOSX\._uploadify.swf" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -550,6 +546,13 @@
     </Compile>
     <Compile Include="bussiness\Template\Area_Info_Detail.aspx.designer.cs">
       <DependentUpon>Area_Info_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\Collector_Info.aspx.cs">
+      <DependentUpon>Collector_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Collector_Info.aspx.designer.cs">
+      <DependentUpon>Collector_Info.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\Template\CompleteProject.aspx.cs">
       <DependentUpon>CompleteProject.aspx</DependentUpon>
@@ -675,9 +678,6 @@
     <None Include="images\ico.psd" />
     <None Include="images\Thumbs.db" />
     <Content Include="tools\AjaxHandler.ashx" />
-    <None Include="uploadify\check-exists.php" />
-    <None Include="uploadify\index.php" />
-    <None Include="uploadify\uploadify.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

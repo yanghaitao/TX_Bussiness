@@ -61,7 +61,7 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>查询界面<b class="tip"></b>部门列表 <span style="display: inline-block;
             float: right; position: relative; top: -5px;"><a href="/bussiness/depart/departedit.aspx?action=add"
                 class="btn btn-primary btn-small" id="primary">添加部门</a></span></div>
@@ -81,11 +81,7 @@
                 </td>
                 <td class="detail">
                     <input id="formid" name="txt_departname" value="<%=txt_departname %>" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5" align="right">
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
+                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
                     <input class="btn btn-inverse" type="reset" value="清空" />
                 </td>
             </tr>

@@ -61,7 +61,7 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>查询界面<b class="tip"></b>类别列表 <span style="display: inline-block;
             float: right; position: relative; top: -5px;"><a href="/bussiness/p_class/classedit.aspx?action=add"
                 class="btn btn-primary btn-small" id="primary">添加类别</a></span></div>
@@ -101,13 +101,13 @@
                      <option value="0">无</option>
                          <%=!string.IsNullOrEmpty(txt_bigclass)&&txt_bigclass != "0" ? "<option value='" + txt_bigclass + "'>"+GetClassName(txt_bigclass)+"</option>" : ""%>
                     </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5" align="right">
+                </td> <td colspan="5" align="right">
                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
                     <input class="btn btn-inverse" type="reset" value="清空" />
                 </td>
+            </tr>
+            <tr>
+               
             </tr>
         </tbody>
     </table>

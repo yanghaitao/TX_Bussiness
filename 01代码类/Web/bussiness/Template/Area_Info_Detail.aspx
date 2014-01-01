@@ -30,8 +30,8 @@
 </head>
 <body>
     <div></div>
-    <div class="alert alert-info">当前位置<b class="tip"></b>查询界面<b class="tip"></b>查询结果一</div>
-    <table class="table table-striped table-bordered table-condensed">
+    <div class="alert alert-info tit">当前位置<b class="tip"></b>查询界面<b class="tip"></b>查询结果一</div>
+    <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
                 <td colspan="6" class="auto-style2">&nbsp;请填写查询条件 </td>

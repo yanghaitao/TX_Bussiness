@@ -191,6 +191,19 @@ namespace Yannis.DAO
 				colvarAdddate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarAdddate);
 				
+				TableSchema.TableColumn colvarDepartcode = new TableSchema.TableColumn(schema);
+				colvarDepartcode.ColumnName = "departcode";
+				colvarDepartcode.DataType = DbType.Int32;
+				colvarDepartcode.MaxLength = 0;
+				colvarDepartcode.AutoIncrement = false;
+				colvarDepartcode.IsNullable = true;
+				colvarDepartcode.IsPrimaryKey = false;
+				colvarDepartcode.IsForeignKey = false;
+				colvarDepartcode.IsReadOnly = false;
+				colvarDepartcode.DefaultSetting = @"";
+				colvarDepartcode.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarDepartcode);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -240,6 +253,14 @@ namespace Yannis.DAO
 			get { return GetColumnValue<DateTime?>(Columns.Adddate); }
 			set { SetColumnValue(Columns.Adddate, value); }
 		}
+		  
+		[XmlAttribute("Departcode")]
+		[Bindable(true)]
+		public int? Departcode 
+		{
+			get { return GetColumnValue<int?>(Columns.Departcode); }
+			set { SetColumnValue(Columns.Departcode, value); }
+		}
 		
 		#endregion
 		
@@ -260,7 +281,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int? varCollectorid,string varCollectorname,string varProjcode,DateTime? varAdddate)
+		public static void Insert(int? varCollectorid,string varCollectorname,string varProjcode,DateTime? varAdddate,int? varDepartcode)
 		{
 			InfoCollector item = new InfoCollector();
 			
@@ -272,6 +293,8 @@ namespace Yannis.DAO
 			
 			item.Adddate = varAdddate;
 			
+			item.Departcode = varDepartcode;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -282,7 +305,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,int? varCollectorid,string varCollectorname,string varProjcode,DateTime? varAdddate)
+		public static void Update(int varId,int? varCollectorid,string varCollectorname,string varProjcode,DateTime? varAdddate,int? varDepartcode)
 		{
 			InfoCollector item = new InfoCollector();
 			
@@ -295,6 +318,8 @@ namespace Yannis.DAO
 				item.Projcode = varProjcode;
 			
 				item.Adddate = varAdddate;
+			
+				item.Departcode = varDepartcode;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -344,6 +369,13 @@ namespace Yannis.DAO
         
         
         
+        public static TableSchema.TableColumn DepartcodeColumn
+        {
+            get { return Schema.Columns[5]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -353,6 +385,7 @@ namespace Yannis.DAO
 			 public static string Collectorname = @"collectorname";
 			 public static string Projcode = @"projcode";
 			 public static string Adddate = @"adddate";
+			 public static string Departcode = @"departcode";
 						
 		}
 		#endregion

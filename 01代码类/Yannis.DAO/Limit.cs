@@ -130,7 +130,7 @@ namespace Yannis.DAO
 				colvarLimitid.ColumnName = "limitid";
 				colvarLimitid.DataType = DbType.Int32;
 				colvarLimitid.MaxLength = 0;
-				colvarLimitid.AutoIncrement = false;
+				colvarLimitid.AutoIncrement = true;
 				colvarLimitid.IsNullable = false;
 				colvarLimitid.IsPrimaryKey = false;
 				colvarLimitid.IsForeignKey = false;
@@ -156,7 +156,7 @@ namespace Yannis.DAO
 				colvarId.ColumnName = "id";
 				colvarId.DataType = DbType.Int32;
 				colvarId.MaxLength = 0;
-				colvarId.AutoIncrement = true;
+				colvarId.AutoIncrement = false;
 				colvarId.IsNullable = false;
 				colvarId.IsPrimaryKey = true;
 				colvarId.IsForeignKey = false;
@@ -218,13 +218,13 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varLimitid,string varLimitname)
+		public static void Insert(string varLimitname,int varId)
 		{
 			Limit item = new Limit();
 			
-			item.Limitid = varLimitid;
-			
 			item.Limitname = varLimitname;
+			
+			item.Id = varId;
 			
 		
 			if (System.Web.HttpContext.Current != null)

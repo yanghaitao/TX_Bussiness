@@ -23,7 +23,7 @@
 </head>
 <body>
     <form name="form1" action="/bussiness/template/projectedit.aspx" method="post">
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>维护界面<b class="tip"></b>案卷详情</div>
     <table class="table table-striped table-bordered table-condensed list">
         <thead>
@@ -42,11 +42,11 @@
                 <td width="500">
                     <%=string.Format(GetAppSeeting("ProjectNameTemplate"),model.Projcode)%>
                 </td>
-                <td width="500">
-                    上报人<font color="FF0000">*</font>
+                <td>
+                    处理部门<font color="FF0000">*</font>
                 </td>
-                <td width="500">
-                    <%=model.Reportpersonname %>
+                <td>
+                    <%=GetDepartName( model.Departcode)%>
                 </td>
             </tr>
             <tr>
@@ -104,20 +104,6 @@
                 </td>
                 <td width="500">
                    
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    处理部门<font color="FF0000">*</font>
-                </td>
-                <td>
-                    <%=GetDepartName( model.Departcode)%>
-                </td>
-                <td>
-                    处理人<font color="FF0000">*</font>
-                </td>
-                <td>
-                    <%=model.Handlername%>
                 </td>
             </tr>
             <tr>

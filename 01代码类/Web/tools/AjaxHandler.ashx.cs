@@ -72,10 +72,10 @@ namespace TX_Bussiness.Web.tools
                     context.Response.Write(ChangePassword(dict["uid"], dict["oldpwd"], dict["newpwd"]));
                     break;
                 case "UploadFile":
-                    context.Response.Write(FileUpload(context));
+                    context.Response.Write(FileUpload(context));//案卷处理前图片上传
                     break;
                 case "GetProjessClassJson":
-                    context.Response.Write(GetProjessClassJson(dict["parentcode"]));
+                    context.Response.Write(GetProjessClassJson(dict["parentcode"]));//获取子类
                     break;
             }
         }

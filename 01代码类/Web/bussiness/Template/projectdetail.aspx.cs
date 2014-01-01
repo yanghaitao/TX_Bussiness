@@ -16,7 +16,6 @@ namespace TX_Bussiness.Web.bussiness.Template
         protected Project model = new Project();
         Yannis.DAO.User user = new User();
         protected List<Projectimg> imglist = new List<Projectimg>();
-        protected List<Depart> delartlist = new List<Depart>();
         protected ProjectTrace tracemodel = new ProjectTrace();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,7 +25,6 @@ namespace TX_Bussiness.Web.bussiness.Template
             model = query.ExecuteSingle<Project>();
             tracemodel = new Select().From(ProjectTrace.Schema).Where(ProjectTrace.ProjcodeColumn).IsEqualTo(model.Projcode)
                 .And(ProjectTrace.CurrentnodeidColumn).IsEqualTo(model.Nodeid).ExecuteSingle<ProjectTrace>();
-            Departlist();
             imglist = new Select().From(Projectimg.Schema).Where(Projectimg.ProjcodeColumn).IsEqualTo(projectcode).ExecuteTypedList<Projectimg>();
 
         }

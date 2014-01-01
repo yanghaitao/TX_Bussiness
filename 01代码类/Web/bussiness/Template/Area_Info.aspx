@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Area_Info.aspx.cs" Inherits="TX_Bussiness.Web.bussiness.Template.Area_Info" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,106 +9,259 @@
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
-    <script type="text/javascript" src="../Scripts/jquery.easyui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Styles/ui-all/tree.css" />
+    <script type="text/javascript" src="../Scripts/tip.js"></script>
+    <script type="text/javascript" src="/js/json2.js"></script>
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
+    <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
     <script type="text/javascript">
-       
+        $(function () {
+            $(".datepicker").datepicker();
+            //            $('#formid').tooltip({ title: '单据号' });
+            //            $('#formtype').tooltip({ title: '单据类型' });
+            //            $('#bumen').tooltip({ title: '部门' });
+            //            $('#startime').tooltip({ title: '起始日期' });
+            //            $('#endtime').tooltip({ title: '结束日期' });
+            //            $('#baoxiaoren').tooltip({ title: '报销人' });
+            //            $('#xiangmu').tooltip({ title: '所属项目' });
+
+            $(".preview").click(function () {
+                var projcode = $(this).closest("tr").attr("_projcode");
+                if (projcode && projcode != "") {
+                    $.dialog({
+                        title: '案卷流程',
+                        content: 'url:/bussiness/Template/projectview.aspx?projcode=' + projcode,
+                        lock: true,
+                        okVal: '关闭',
+                        ok: true,
+                        width: 788,
+                        height: 550,
+                        //cancelVal: '叉掉',
+                        cancel: true /*为true等价于function(){}*/
+                    });
+                }
+            })
+        });
+        function showdetail(projectcode) {
+            $.dialog({
+                title: '案卷详情',
+                content: 'url:/bussiness/Template/projectdetail.aspx?projcode=' + projectcode,
+                lock: true,
+                okVal: '关闭',
+                ok: true,
+                width: 788,
+                height: 550,
+                //cancelVal: '叉掉',
+                cancel: true /*为true等价于function(){}*/
+            });
+        }
     </script>
 </head>
 <body>
-    <div class="alert alert-info">当前位置<b class="tip"></b>表单风格<b class="tip"></b>树+表单</div>
-    <div class="container-fluid" style=" position:relative;">
-        <div class="row-fluid">
-            <div  style=" overflow:auto;">
-                <ul id="tt" class="easyui-tree">
-                <%foreach(var area in Arealist()) {%>
-                    <li>
-                        <span><%=area.Areaname %></span>
-                        <ul>
-                        <%foreach(var street in Streettlist(area.Areacode)) {%>
-                            <li>
-                                <span><%=street.Streetname %></span>
-                                <ul>
-                                <%foreach(var community in Communitylist(street.Streetcode)){ %>
-                                    <li>
-                                        <span><a href="#"><%=community.Commname %></a></span>
-                                    </li>
-                                    <%} %>
-                                   <%-- <li>
-                                        <span>财务部</span>
-                                    </li>
-                                    <li>
-                                        <span>商务信息部</span>
-                                    </li>
-                                    <li>
-                                        <span>人力资源部</span>
-                                    </li>
-                                    <li>
-                                        <span>行政部</span>
-                                    </li>--%>
-                                </ul>
-                            </li>
-                            <%} %>
-                           <%-- <li>
-                                <span>上海运营总部</span>
-                            </li>
-                            <li>
-                                <span>南昌</span>
-                            </li>
-                            <li>
-                                <span>深圳艺谷</span>
-                                <ul>
-                                    <li>
-                                        <span><a href="#">总裁办</a></span>
-                                    </li>
-                                    <li>
-                                        <span>财务部</span>
-                                    </li>
-                                    <li>
-                                        <span>商务信息部</span>
-                                    </li>
-                                    <li>
-                                        <span>IT部</span>
-                                        <ul>
-                                            <li>
-                                                <span><a href="#">李恒</a></span>
-                                            </li>
-                                            <li>
-                                                <span><a>邱致武</a></span>
-                                            </li>
-                                            <li>
-                                                <span><a>叶委</a></span>
-                                            </li>
-                                            <li>
-                                                <span>黄林洁</span>
-                                            </li>
-                                            <li>
-                                                <span>赵号</span>
-                                            </li>
-                                            <li>
-                                                <span>游源</span>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <span>行政部</span>
-                                    </li>
-                                </ul>
-                            </li>--%>
-                        </ul>
-                    </li>
-                    <%} %>
-                   <%-- <li>
-                        <span>打酱油的</span>
-                        <ul><li>孙悟苍井空</li></ul>
-                    </li>--%>
-                </ul>
-            </div>
-            <%--<div class="span10"> 
-                <iframe frameborder="0" width="100%" height="90%" src="/bussiness/template/area_info_detail.aspx"></iframe>                
-            </div>--%>
-        </div>
+    <div>
     </div>
-
+    <div class="alert alert-info tit">
+        当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计</div>
+    <form action="/bussiness/template/area_info.aspx" method="get">
+    <table class="table table-striped table-bordered table-condensed c_table">
+        <thead>
+            <tr>
+                <td colspan="10" class="auto-style2">
+                    &nbsp;请填写查询条件
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="t_label">
+                    统计类型
+                </td>
+                <td class="detail">
+                    <select size="1" name="txt_infotype" id="Select4">
+                       <option value="1" <%=txt_infotype=="1"?"selected=selected":"" %>>区域</option>
+                         <option value="2" <%=txt_infotype=="2"?"selected=selected":"" %>>街道</option>
+                           <option value="3" <%=txt_infotype=="3"?"selected=selected":"" %>>社区</option>
+                    </select>
+                </td>
+                <td class="t_label">
+                    区域
+                </td>
+                <td class="detail">
+                    <select size="1" name="txt_area" id="Select2">
+                        <option value="0">全部</option>
+                        <%foreach (var v in Arealist())
+                          {
+                              if (!string.IsNullOrEmpty(v.Areaname))
+                              { %>
+                        <option value="<%=v.Areacode %>" <%=txt_area==v.Areacode.ToString()?"selected=selected":"" %>>
+                            <%=v.Areaname %></option>
+                        <%}
+                          }%>
+                    </select>
+                </td>
+                <td class="t_label">
+                    街道
+                </td>
+                <td class="td_detail">
+                    <select size="1" name="txt_street" id="Select3">
+                        <option value="0">全部</option>
+                        <%foreach (var v in Streettlist())
+                          {
+                              if (!string.IsNullOrEmpty(v.Streetname))
+                              { %>
+                        <option value="<%=v.Streetcode %>" <%=txt_street==v.Streetcode.ToString()?"selected=selected":"" %>>
+                            <%=v.Streetname %></option>
+                        <%}
+                          }%>
+                    </select>
+                    </td>
+                <td class="t_label">
+                        社区
+                    </td>
+                <td>
+                        <select size="1" name="txt_commnuity" id="Select1">
+                            <option value="0">全部</option>
+                            <%foreach (var v in Communitylist())
+                              {
+                                  if (!string.IsNullOrEmpty(v.Commname))
+                                  { %>
+                            <option value="<%=v.Commcode %>" <%=txt_commnuity==v.Commcode.ToString()?"selected=selected":"" %>>
+                                <%=v.Commname %></option>
+                            <%}
+                              }%>
+                        </select>
+                    </td>
+                     <td class="t_label">
+                    录入日期起
+                </td>
+                <td colspan="3">
+                    <div class="input-append">
+                        <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"  value="<%=txt_startdate %>"/><span
+                            class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
+                                name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>
+                </td>
+                 
+            </tr>
+            <tr>
+                <td colspan="10" align="right">
+                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
+                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+    <table class="table table-striped table-bordered table-condensed" id="projlist">
+        <thead>
+            <tr class="tr_detail">
+                <td>
+                    区域名称
+                </td>
+                <td>
+                   工作量
+                </td>
+                
+                <td>
+                    操作
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+        <%if (txt_infotype == ((int)TX_Bussiness.Web.Comm.Enums.AreaCountType.Area).ToString())
+          { %>
+            <%if (arealist != null && arealist.Count > 0)
+              {
+                  int i = 0;
+                  foreach (var v in arealist)
+                  {%>
+            <tr <%=i%2==0?"":"class='even'" %> ">
+                <td>
+                    <a href="javascript:;">
+                        <%=v.Areaname%>
+                    </a>
+                </td>
+                <td>
+                    <%=GetAreacount(v.Areacode, TX_Bussiness.Web.Comm.Enums.AreaCountType.Area)%>
+                </td>
+                <td>
+                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
+                   办理
+                    </a>
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
+                   查看流程
+                    </a>
+                </td>
+            </tr>
+            
+            <%}
+              }
+              } %>
+              <%if (txt_infotype == ((int)TX_Bussiness.Web.Comm.Enums.AreaCountType.Street).ToString())
+                { %>
+            <%if (streetlist != null && streetlist.Count > 0)
+              {
+                  int i = 0;
+                  foreach (var v in streetlist)
+                  {%>
+            <tr <%=i%2==0?"":"class='even'" %> ">
+                <td>
+                    <a href="javascript:;">
+                        <%=v.Streetname%>
+                    </a>
+                </td>
+                <td>
+                    <%=GetAreacount(v.Streetcode, TX_Bussiness.Web.Comm.Enums.AreaCountType.Street)%>
+                </td>
+                <td>
+                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
+                   办理
+                    </a>
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
+                   查看流程
+                    </a>
+                </td>
+            </tr>
+            
+            <%}
+              }
+              } %>
+              <%if (txt_infotype == ((int)TX_Bussiness.Web.Comm.Enums.AreaCountType.Commnuity).ToString())
+                { %>
+            <%if (commnuitylist != null && commnuitylist.Count > 0)
+              {
+                  int i = 0;
+                  foreach (var v in commnuitylist)
+                  {%>
+            <tr <%=i%2==0?"":"class='even'" %> ">
+                <td>
+                    <a href="javascript:;">
+                        <%=v.Commname%>
+                    </a>
+                </td>
+                <td>
+                    <%=GetAreacount(v.Commcode,TX_Bussiness.Web.Comm.Enums.AreaCountType.Commnuity)%>
+                </td>
+                <td>
+                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
+                   办理
+                    </a>
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
+                   查看流程
+                    </a>
+                </td>
+            </tr>
+            
+            <%}
+              }
+              } %>
+            <tr class="tr_pagenumber">
+                <td colspan="100">
+                    <div id="PageContent" runat="server">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

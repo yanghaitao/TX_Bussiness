@@ -25,9 +25,8 @@
             //            $('#endtime').tooltip({ title: '结束日期' });
             //            $('#baoxiaoren').tooltip({ title: '报销人' });
             //            $('#xiangmu').tooltip({ title: '所属项目' });
-            $("#projlist").find("tr").tooltip({ title: '双击查看案卷流程' });
-            $("#projlist").find("tr").dblclick(function () {
-                var projcode = $(this).attr("_projcode");
+            $(".preview").click(function () {
+                var projcode = $(this).closest("tr").attr("_projcode");
                 if (projcode && projcode != "") {
                     $.dialog({
                         title: '案卷流程',
@@ -61,24 +60,24 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
-        当前位置<b class="tip"></b>查询界面<b class="tip"></b>案卷列表</div>
+    <div class="alert alert-info tit">
+        当前位置<b class="tip"></b>查询界面<b class="tip"></b>已处理案卷列表</div>
     <form action="/bussiness/template/completeproject.aspx" method="get">
-    <table class="table table-striped table-bordered table-condensed">
+    <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
-                <td colspan="6" class="auto-style2">
+                <td colspan="12" class="auto-style2">
                     &nbsp;请填写查询条件
                 </td>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
+                <td class="t_label">
                     勤务编号
                 </td>
                 <td class="detail">
-                    <input id="formid" name="txt_projectcode"  value="<%=txt_projectcode %>"/>
+                    <input id="formid" name="txt_projectcode" value="<%=txt_projectcode %>" />
                 </td>
                 <td>
                     处理部门
@@ -102,15 +101,11 @@
                 <td>
                     <select size="1" name="txt_projectstate" id="Select2">
                         <option value="0">全部</option>
-                         <option value="1" <%=txt_projectstate=="1"?"selected=selected":"" %>>交办阶段</option>
-                          <option value="2" <%=txt_projectstate=="2"?"selected=selected":"" %>>处理阶段</option>
-                           <option value="3" <%=txt_projectstate=="3"?"selected=selected":"" %>>完成阶段</option>
+                        <option value="1" <%=txt_projectstate=="1"?"selected=selected":"" %>>交办阶段</option>
+                        <option value="2" <%=txt_projectstate=="2"?"selected=selected":"" %>>处理阶段</option>
+                        <option value="3" <%=txt_projectstate=="3"?"selected=selected":"" %>>完成阶段</option>
                     </select>
                 </td>
-                
-            </tr>
-           
-            <tr>
                 <td>
                     区域
                 </td>
@@ -142,39 +137,36 @@
                         <%}
                           }%>
                     </select>
-                    <td>
-                        社区
-                    </td>
-                    <td>
-                        <select size="1" name="txt_commnuity" id="Select1">
-                            <option value="0">全部</option>
-                            <%foreach (var v in Communitylist())
-                              {
-                                  if (!string.IsNullOrEmpty(v.Commname))
-                                  { %>
-                            <option value="<%=v.Commcode %>" <%=txt_commnuity==v.Commcode.ToString()?"selected=selected":"" %>>
-                                <%=v.Commname %></option>
-                            <%}
+                </td>
+                <td>
+                    社区
+                </td>
+                <td>
+                    <select size="1" name="txt_commnuity" id="Select1">
+                        <option value="0">全部</option>
+                        <%foreach (var v in Communitylist())
+                          {
+                              if (!string.IsNullOrEmpty(v.Commname))
+                              { %>
+                        <option value="<%=v.Commcode %>" <%=txt_commnuity==v.Commcode.ToString()?"selected=selected":"" %>>
+                            <%=v.Commname %></option>
+                        <%}
                               }%>
-                        </select>
-                    </td>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>
                     录入日期起
                 </td>
-                <td colspan="5">
+                <td colspan="10">
                     <div class="input-append">
-                        <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"  value="<%=txt_startdate %>"/><span
-                            class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
-                                name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6" align="right">
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" value="清空" />
+                        <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"
+                            value="<%=txt_startdate %>" /><span class="add-on"><i class="icon-calendar"></i></span>至<input
+                                id="endtime" class="span2 datepicker" name="txt_enddate" size="16" type="text"
+                                value="<%=txt_enddate %>" /><span class="add-on"><i class="icon-calendar"></i></span>
+                        <input class="btn btn-inverse" id="find" type="submit" value="查询" />
+                        <input class="btn btn-inverse" type="reset" id="reset" value="清空" /></div>
                 </td>
             </tr>
         </tbody>
@@ -213,7 +205,9 @@
                 <td>
                     上报时间
                 </td>
-               
+                <td>
+                    操作
+                </td>
             </tr>
         </thead>
         <tbody>
@@ -254,6 +248,9 @@
                 </td>
                 <td>
                     <%=v.Adddate %>
+                </td>
+                <td>
+                    <a href="javascript:;" class="preview btn btn-mini btn-primary add">查看流程 </a>
                 </td>
             </tr>
             <%}

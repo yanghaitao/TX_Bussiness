@@ -60,7 +60,7 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>查询界面<b class="tip"></b>查询结果一 <span style="display: inline-block;
             float: right; position: relative; top: -5px;"><a href="/bussiness/role/roleedit.aspx?action=add"
                 class="btn btn-primary btn-small" id="primary">添加角色</a></span></div>

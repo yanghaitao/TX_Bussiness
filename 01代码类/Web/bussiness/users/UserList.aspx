@@ -40,28 +40,28 @@
 <body>
     <div>
     </div>
-    <div class="alert alert-info">
+    <div class="alert alert-info tit">
         当前位置<b class="tip"></b>查询界面<b class="tip"></b>用户列表 <span style="display: inline-block;
             float: right; position: relative; top: -5px;"><a href="/bussiness/users/UserEdit.aspx?action=add"
                 class="btn btn-primary btn-small" id="primary">添加用户</a></span></div>
     <form action="/bussiness/users/userlist.aspx" method="get">
-    <table class="table table-striped table-bordered table-condensed">
+    <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
-                <td colspan="6" class="auto-style2">
+                <td colspan="8" class="auto-style2">
                     &nbsp;请填写查询条件
                 </td>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
+                <td class="t_label">
                     姓名
                 </td>
                 <td class="detail">
                     <input id="formid" name="txt_username" value="<%=txt_username %>" />
                 </td>
-                <td>
+                <td class="t_label">
                     用户类型
                 </td>
                 <td class="td_detail">
@@ -71,7 +71,7 @@
                         <option value="2" <%=txt_usertype=="2"?"selected='selected'":"" %>>城管通用户</option>
                     </select>
                 </td>
-                <td>
+                <td class="t_label">
                     所属部门
                 </td>
                 <td>
@@ -87,11 +87,9 @@
                           }%>
                     </select>
                 </td>
-            </tr>
-            <tr>
-                <td colspan="5" align="right">
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" value="清空" />
+                <td>
+                <input class="btn btn-inverse" id="find" type="submit" value="查询" />
+                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
                 </td>
             </tr>
         </tbody>

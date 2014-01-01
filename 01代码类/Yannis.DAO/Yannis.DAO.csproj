@@ -56,6 +56,8 @@
     <Compile Include="DepartController.cs" />
     <Compile Include="InfoArea.cs" />
     <Compile Include="InfoAreaController.cs" />
+    <Compile Include="InfoClass.cs" />
+    <Compile Include="InfoClassController.cs" />
     <Compile Include="InfoCollector.cs" />
     <Compile Include="InfoCollectorController.cs" />
     <Compile Include="InfoDepart.cs" />

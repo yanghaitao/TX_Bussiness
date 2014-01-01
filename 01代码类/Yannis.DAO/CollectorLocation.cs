@@ -191,6 +191,19 @@ namespace Yannis.DAO
 				colvarLocaltionupdate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarLocaltionupdate);
 				
+				TableSchema.TableColumn colvarLocation = new TableSchema.TableColumn(schema);
+				colvarLocation.ColumnName = "location";
+				colvarLocation.DataType = DbType.String;
+				colvarLocation.MaxLength = 200;
+				colvarLocation.AutoIncrement = false;
+				colvarLocation.IsNullable = true;
+				colvarLocation.IsPrimaryKey = false;
+				colvarLocation.IsForeignKey = false;
+				colvarLocation.IsReadOnly = false;
+				colvarLocation.DefaultSetting = @"";
+				colvarLocation.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarLocation);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -240,6 +253,14 @@ namespace Yannis.DAO
 			get { return GetColumnValue<DateTime?>(Columns.Localtionupdate); }
 			set { SetColumnValue(Columns.Localtionupdate, value); }
 		}
+		  
+		[XmlAttribute("Location")]
+		[Bindable(true)]
+		public string Location 
+		{
+			get { return GetColumnValue<string>(Columns.Location); }
+			set { SetColumnValue(Columns.Location, value); }
+		}
 		
 		#endregion
 		
@@ -260,7 +281,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(int varId,int? varCollectorid,string varLongitude,string varAtitude,DateTime? varLocaltionupdate)
+		public static void Insert(int varId,int? varCollectorid,string varLongitude,string varAtitude,DateTime? varLocaltionupdate,string varLocation)
 		{
 			CollectorLocation item = new CollectorLocation();
 			
@@ -274,6 +295,8 @@ namespace Yannis.DAO
 			
 			item.Localtionupdate = varLocaltionupdate;
 			
+			item.Location = varLocation;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -284,7 +307,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,int? varCollectorid,string varLongitude,string varAtitude,DateTime? varLocaltionupdate)
+		public static void Update(int varId,int? varCollectorid,string varLongitude,string varAtitude,DateTime? varLocaltionupdate,string varLocation)
 		{
 			CollectorLocation item = new CollectorLocation();
 			
@@ -297,6 +320,8 @@ namespace Yannis.DAO
 				item.Atitude = varAtitude;
 			
 				item.Localtionupdate = varLocaltionupdate;
+			
+				item.Location = varLocation;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -346,6 +371,13 @@ namespace Yannis.DAO
         
         
         
+        public static TableSchema.TableColumn LocationColumn
+        {
+            get { return Schema.Columns[5]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -355,6 +387,7 @@ namespace Yannis.DAO
 			 public static string Longitude = @"longitude";
 			 public static string Atitude = @"atitude";
 			 public static string Localtionupdate = @"localtionupdate";
+			 public static string Location = @"location";
 						
 		}
 		#endregion
