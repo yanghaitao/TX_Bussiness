@@ -148,7 +148,9 @@ $(function () {
             { $("select[name='txt_smallclass']").html(""); }
         })
     })
-
+    $(".projimg").find(".prev").click(function () { 
+        
+    })
 })
 function Refstate() {
     window.location.reload();

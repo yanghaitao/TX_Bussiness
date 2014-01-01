@@ -18,9 +18,15 @@ namespace Yannis.DAO
 	public partial struct Tables
 	{
 		
+		public static readonly string AreaInfo = @"area_info";
+        
+		public static readonly string CollectoInfo = @"collecto_info";
+        
 		public static readonly string CollectorLocation = @"collector_location";
         
 		public static readonly string Depart = @"depart";
+        
+		public static readonly string DepartInfo = @"depart_info";
         
 		public static readonly string Limit = @"limit";
         
@@ -29,6 +35,8 @@ namespace Yannis.DAO
 		public static readonly string ProjectTrace = @"project_trace";
         
 		public static readonly string Projectclass = @"projectclass";
+        
+		public static readonly string Projectimg = @"projectimg";
         
 		public static readonly string Role = @"role";
         
@@ -47,6 +55,16 @@ namespace Yannis.DAO
     #region Schemas
     public partial class Schemas {
 		
+		public static TableSchema.Table AreaInfo
+		{
+            get { return DataService.GetSchema("area_info", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table CollectoInfo
+		{
+            get { return DataService.GetSchema("collecto_info", "Yannis_DAO"); }
+		}
+        
 		public static TableSchema.Table CollectorLocation
 		{
             get { return DataService.GetSchema("collector_location", "Yannis_DAO"); }
@@ -55,6 +73,11 @@ namespace Yannis.DAO
 		public static TableSchema.Table Depart
 		{
             get { return DataService.GetSchema("depart", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table DepartInfo
+		{
+            get { return DataService.GetSchema("depart_info", "Yannis_DAO"); }
 		}
         
 		public static TableSchema.Table Limit
@@ -75,6 +98,11 @@ namespace Yannis.DAO
 		public static TableSchema.Table Projectclass
 		{
             get { return DataService.GetSchema("projectclass", "Yannis_DAO"); }
+		}
+        
+		public static TableSchema.Table Projectimg
+		{
+            get { return DataService.GetSchema("projectimg", "Yannis_DAO"); }
 		}
         
 		public static TableSchema.Table Role

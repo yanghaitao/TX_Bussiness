@@ -62,12 +62,13 @@
                     <input id="formid" name="txt_username" value="<%=txt_username %>" />
                 </td>
                 <td>
-                    用户状态
+                    用户类型
                 </td>
                 <td class="td_detail">
-                    <select size="1" name="txt_userstate" id="Select1">
-                        <option value="0">全部</option>
-                        <option value="1">正常</option>
+                    <select size="1" name="txt_usertype" id="Select1">
+                      <option value="0">全部用户</option>
+                        <option value="1" <%=txt_usertype=="1"?"selected='selected'":"" %>>普通用户</option>
+                        <option value="2" <%=txt_usertype=="2"?"selected='selected'":"" %>>城管通用户</option>
                     </select>
                 </td>
                 <td>

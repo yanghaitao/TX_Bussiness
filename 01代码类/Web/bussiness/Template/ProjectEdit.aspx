@@ -34,7 +34,7 @@
            
             <tr>
                 <td width="15%">
-                    案卷名称<font color="FF0000">*</font>
+                    勤务编号<font color="FF0000">*</font>
                     <input type="hidden" name="projcode" value="<%=model.Projcode %>"/> 
                 </td>
                 <td width="500">

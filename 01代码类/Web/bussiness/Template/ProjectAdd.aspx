@@ -27,13 +27,13 @@
                 'width': 50,
                 'height': 20,
                 'onUploadSuccess': function (file, data, response) {
-                    filename += data+",";
+                    filename += data + ",";
                 },
-                'onQueueComplete' : function(queueData) {
-                    alert(filename);
-                  }
+                'onQueueComplete': function (queueData) {
+                    $("#fileimgs").val(filename);
+                }
             });
-           
+
         })
     </script>
 </head>
@@ -163,6 +163,7 @@
                     上传图片
                 </td>
                 <td width="500" colspan="3" height="">
+                <input type="hidden" name="fileimgs" id="fileimgs" />
                     <input type="file" name="file_upload" id="file_upload" />
                     <button type="button" onclick="$('#file_upload').uploadify('upload','*')" class="btn btn-primary">
                         上传</button>

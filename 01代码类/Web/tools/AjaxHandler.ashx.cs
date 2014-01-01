@@ -79,9 +79,10 @@ namespace TX_Bussiness.Web.tools
 
         private string FileUpload(HttpContext context)
         {
+            string filepath = string.Format(ConfigurationManager.AppSettings["ImgUploadPath"]+"{0}/{1}/{2}/",DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
             HttpPostedFile file = context.Request.Files["Filedata"];
             string uploadPath =
-                HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["ImgUploadPath"]);
+                HttpContext.Current.Server.MapPath(filepath);
 
             if (file != null)
             {
@@ -91,7 +92,7 @@ namespace TX_Bussiness.Web.tools
                 }
                 file.SaveAs(uploadPath + file.FileName);
                 //下面这句代码缺少的话，上传成功后上传队列的显示不会自动消失  
-                return file.FileName;
+                return filepath+file.FileName;
             }
             else
             {

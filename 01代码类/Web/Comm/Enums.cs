@@ -66,5 +66,16 @@ namespace TX_Bussiness.Web.Comm
             YYWH
 
         }
+        public enum ProjectImgType : int 
+        {
+            /// <summary>
+            /// 处理前
+            /// </summary>
+            Before=1,
+            /// <summary>
+            /// 处理后
+            /// </summary>
+            After
+        }
     }
 }

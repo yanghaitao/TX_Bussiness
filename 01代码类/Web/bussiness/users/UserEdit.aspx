@@ -145,12 +145,12 @@
             </tr>
                <tr>
                 <td>
-                    是否是领导<font color="FF0000">*</font>
+                    用户类型<font color="FF0000">*</font>
                 </td>
                 <td>
                     <select name="txt_ismobile">
-                       <option value="1" <%=model.Isleader==true?"selected='selected'":"" %>>是 </option>
-                        <option value="0" <%=model.Isleader==false?"selected='selected'":"" %>>不是 </option>
+                       <option value="1" <%=model.Usertype==1?"selected='selected'":"" %>>普通用户 </option>
+                        <option value="2" <%=model.Usertype==2?"selected='selected'":"" %>>城管通用户 </option>
                     </select>
                 </td>
                <td>

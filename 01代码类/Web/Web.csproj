@@ -39,9 +39,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SubSonic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+    <Reference Include="SubSonic, Version=2.2.1.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SubSonic\bin\Debug\SubSonic.dll</HintPath>
+      <HintPath>F:\Subsonic\SubSonic2.2\SubSonic2.2\SubSonic.dll</HintPath>
     </Reference>
     <Reference Include="SubSonic.Migrations">
       <HintPath>F:\项目\CMS\DTcmsMSSQL21\Yannis.DAO\bin\Debug\SubSonic.Migrations.dll</HintPath>
@@ -255,6 +255,7 @@
     <Content Include="bussiness\Template\Maintain-del.html" />
     <Content Include="bussiness\Template\Maintain-edit.html" />
     <Content Include="bussiness\Template\ProjectAdd.aspx" />
+    <Content Include="bussiness\Template\projectdetail.aspx" />
     <Content Include="bussiness\Template\ProjectEdit.aspx" />
     <Content Include="bussiness\Template\projectlist.aspx" />
     <Content Include="bussiness\Template\ProjectView.aspx" />
@@ -563,6 +564,13 @@
     </Compile>
     <Compile Include="bussiness\Template\ProjectAdd.aspx.designer.cs">
       <DependentUpon>ProjectAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\projectdetail.aspx.cs">
+      <DependentUpon>projectdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\projectdetail.aspx.designer.cs">
+      <DependentUpon>projectdetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\Template\ProjectEdit.aspx.cs">
       <DependentUpon>ProjectEdit.aspx</DependentUpon>

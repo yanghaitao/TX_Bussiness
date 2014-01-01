@@ -31,9 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SubSonic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+    <Reference Include="SubSonic, Version=2.2.1.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SubSonic\bin\Debug\SubSonic.dll</HintPath>
+      <HintPath>F:\Subsonic\SubSonic2.2\SubSonic2.2\SubSonic.dll</HintPath>
     </Reference>
     <Reference Include="SubSonic.Migrations">
       <HintPath>F:\项目\CMS\DTcmsMSSQL21\Yannis.DAO\bin\Debug\SubSonic.Migrations.dll</HintPath>
@@ -60,6 +60,8 @@
     <Compile Include="Projectclass.cs" />
     <Compile Include="ProjectclassController.cs" />
     <Compile Include="ProjectController.cs" />
+    <Compile Include="Projectimg.cs" />
+    <Compile Include="ProjectimgController.cs" />
     <Compile Include="ProjectTrace.cs" />
     <Compile Include="ProjectTraceController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

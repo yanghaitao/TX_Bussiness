@@ -39,7 +39,7 @@ namespace TX_Bussiness.Web.bussiness
                         Loginname = model.Loginname,
                         Userid = model.Id
                     }.Save();
-                    Response.Redirect("/index.html");
+                    Response.Redirect("/bussiness/index.aspx");
 
                 }
                 else

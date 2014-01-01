@@ -42,8 +42,7 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usermobile = Utility.GetParameter("txt_mobile");
                     model.Username = Utility.GetParameter("txt_name");
                     model.Usertel = Utility.GetParameter("txt_tel");
-                    model.Usertype = Convert.ToInt32(Enums.UserType.Normal);
-                    model.Isleader = Utility.GetParameter("ismobile") == "1" ? true : false;
+                    model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
                     model.Isdel = false;
 
@@ -62,7 +61,7 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usermobile = Utility.GetParameter("txt_mobile");
                     model.Username = Utility.GetParameter("txt_name");
                     model.Usertel = Utility.GetParameter("txt_tel");
-                    model.Isleader = Utility.GetParameter("ismobile") == "1" ? true : false;
+                    model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
 
                 }

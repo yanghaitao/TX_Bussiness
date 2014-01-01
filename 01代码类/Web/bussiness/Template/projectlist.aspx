@@ -42,6 +42,19 @@
                 }
             })
         });
+        function showdetail(projectcode) {
+            $.dialog({
+                title: '案卷详情',
+                content: 'url:/bussiness/Template/projectdetail.aspx?projcode=' + projectcode,
+                lock: true,
+                okVal: '关闭',
+                ok: true,
+                width: 788,
+                height: 550,
+                //cancelVal: '叉掉',
+                cancel: true /*为true等价于function(){}*/
+            });
+        }
     </script>
 </head>
 <body>
@@ -203,7 +216,7 @@
         <thead>
             <tr class="tr_detail">
                 <td>
-                    案卷编号
+                    勤务编号
                 </td>
                 <td>
                     上报人
@@ -232,6 +245,9 @@
                 <td>
                     上报时间
                 </td>
+                <td>
+                    操作
+                </td>
             </tr>
         </thead>
         <tbody>
@@ -242,7 +258,7 @@
                   {%>
             <tr <%=i%2==0?"":"class='even'" %> _projcode="<%=v.Projcode %>">
                 <td>
-                    <a href="/bussiness/template/projectedit.aspx?projcode=<%=v.Projcode %>">
+                    <a href="javascript:;showdetail('<%=v.Projcode %>')">
                         <%=String.Format(GetAppSeeting("ProjectNameTemplate"),v.Projcode) %>
                     </a>
                 </td>
@@ -272,6 +288,11 @@
                 </td>
                 <td>
                     <%=v.Adddate %>
+                </td>
+                <td>
+                 <a href="/bussiness/template/projectedit.aspx?projcode=<%=v.Projcode %>">
+                   办理
+                    </a>
                 </td>
             </tr>
             <%}

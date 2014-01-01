@@ -48,7 +48,7 @@ namespace TX_Bussiness.Web.bussiness.Template
             else if (CheckRole(GetUserInfo().Id, Comm.Constant.RoleCode_ZFRY))
             {
                 query.And(Project.NodeidColumn).IsEqualTo(3);
-                query.And(Project.HandleridColumn).IsEqualTo(GetUserInfo().Id);
+                query.And(Project.HandleridColumn).IsEqualTo(GetUserInfo().Id).Or(Project.ReportpersonidColumn).IsEqualTo(GetUserInfo().Id);
             }
             totalcount = query.GetRecordCount();
             query.Paged(pageindex,pagesize);
