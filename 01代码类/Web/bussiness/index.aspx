@@ -96,7 +96,7 @@
                        <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/area_info.aspx">区域统计</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/collector_info.aspx">执法人员统计</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/role/rolelist.aspx">类别统计</a></li>
-                            <li><b class="tip"></b><a target="Conframe" href="/bussiness/p_class/classlist.aspx">部门统计</a></li>
+                            <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/depart_info.aspx">部门统计</a></li>
                     </ul>
                 </div>
                 <%} %>

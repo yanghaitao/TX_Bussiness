@@ -17,20 +17,13 @@
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
-            //            $('#formid').tooltip({ title: '单据号' });
-            //            $('#formtype').tooltip({ title: '单据类型' });
-            //            $('#bumen').tooltip({ title: '部门' });
-            //            $('#startime').tooltip({ title: '起始日期' });
-            //            $('#endtime').tooltip({ title: '结束日期' });
-            //            $('#baoxiaoren').tooltip({ title: '报销人' });
-            //            $('#xiangmu').tooltip({ title: '所属项目' });
-
-            $(".preview").click(function () {
-                var projcode = $(this).closest("tr").attr("_projcode");
-                if (projcode && projcode != "") {
+            $(".area_info").click(function () {
+                var id = $(this).attr("_id");
+                var areatype = $("select[name='txt_infotype']").val();
+                if (id && id != "") {
                     $.dialog({
                         title: '案卷流程',
-                        content: 'url:/bussiness/Template/projectview.aspx?projcode=' + projcode,
+                        content: 'url:/bussiness/Template/area_info_detail.aspx?id=' + id + "&areatype=" + areatype,
                         lock: true,
                         okVal: '关闭',
                         ok: true,
@@ -42,19 +35,6 @@
                 }
             })
         });
-        function showdetail(projectcode) {
-            $.dialog({
-                title: '案卷详情',
-                content: 'url:/bussiness/Template/projectdetail.aspx?projcode=' + projectcode,
-                lock: true,
-                okVal: '关闭',
-                ok: true,
-                width: 788,
-                height: 550,
-                //cancelVal: '叉掉',
-                cancel: true /*为true等价于function(){}*/
-            });
-        }
     </script>
 </head>
 <body>
@@ -185,11 +165,8 @@
                     <%=GetAreacount(v.Areacode, TX_Bussiness.Web.Comm.Enums.AreaCountType.Area)%>
                 </td>
                 <td>
-                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
-                   办理
-                    </a>
-                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
-                   查看流程
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add area_info"  _id="<%=v.Areacode %>">
+                   查看详细
                     </a>
                 </td>
             </tr>
@@ -214,11 +191,8 @@
                     <%=GetAreacount(v.Streetcode, TX_Bussiness.Web.Comm.Enums.AreaCountType.Street)%>
                 </td>
                 <td>
-                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
-                   办理
-                    </a>
-                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
-                   查看流程
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add area_info" _id="<%=v.Streetcode %>">
+                   查看详细
                     </a>
                 </td>
             </tr>
@@ -242,12 +216,9 @@
                 <td>
                     <%=GetAreacount(v.Commcode,TX_Bussiness.Web.Comm.Enums.AreaCountType.Commnuity)%>
                 </td>
-                <td>
-                 <a href="/bussiness/template/projectedit.aspx?projcode=" class="btn btn-mini btn-primary add">
-                   办理
-                    </a>
-                     <a href="javascript:;" class="preview btn btn-mini btn-primary add">
-                   查看流程
+                 <td>
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add area_info"  _id="<%=v.Commcode %>">
+                   查看详细
                     </a>
                 </td>
             </tr>

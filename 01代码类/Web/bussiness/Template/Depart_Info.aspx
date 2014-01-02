@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Collector_Info.aspx.cs" Inherits="TX_Bussiness.Web.bussiness.Template.Collector_Info" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Depart_Info.aspx.cs" Inherits="TX_Bussiness.Web.bussiness.Template.Depart_Info" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,12 +17,13 @@
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
-            $(".collector_info").click(function () {
+          
+            $(".depart_info").click(function () {
                 var id = $(this).attr("_id");
                 if (id && id != "") {
                     $.dialog({
                         title: '案卷流程',
-                        content: 'url:/bussiness/Template/collector_info_detail.aspx?id=' + id,
+                        content: 'url:/bussiness/Template/depart_info_detail.aspx?id=' + id,
                         lock: true,
                         okVal: '关闭',
                         ok: true,
@@ -41,7 +42,7 @@
     </div>
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计</div>
-    <form action="/bussiness/template/collector_info.aspx" method="get">
+    <form action="/bussiness/template/depart_info.aspx" method="get">
     <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
@@ -101,22 +102,22 @@
         </thead>
         <tbody>
        
-            <%if (userlist != null && userlist.Count > 0)
+            <%if (departlist != null && departlist.Count > 0)
               {
                   int i = 0;
-                  foreach (var v in userlist)
+                  foreach (var v in departlist)
                   {%>
                  <tr <%=i%2==0?"":"class='even'" %> ">
                 <td>
                     <a href="javascript:;">
-                        <%=v.Username%>
+                        <%=v.Departname%>
                     </a>
                 </td>
                 <td>
-                    <%=GetCollectorCount(v.Id)%>
+                    <%=GetDepartCount(v.Id)%>
                 </td>
                  <td>
-                     <a href="javascript:;" class="preview btn btn-mini btn-primary add collector_info" _id="<%=v.Id%>">
+                     <a href="javascript:;" class="preview btn btn-mini btn-primary add depart_info" _id="<%=v.Id %>">
                    查看详细
                     </a>
                 </td>
@@ -135,3 +136,4 @@
     </table>
 </body>
 </html>
+

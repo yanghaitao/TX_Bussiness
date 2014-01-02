@@ -238,8 +238,11 @@
     <Content Include="bussiness\Template\Area_Info.aspx" />
     <Content Include="bussiness\Template\Area_Info_Detail.aspx" />
     <Content Include="bussiness\Template\Collector_Info.aspx" />
+    <Content Include="bussiness\Template\Collector_Info_Detail.aspx" />
     <Content Include="bussiness\Template\CompleteProject.aspx" />
     <Content Include="bussiness\Template\data.html" />
+    <Content Include="bussiness\Template\Depart_Info.aspx" />
+    <Content Include="bussiness\Template\Depart_Info_Detail.aspx" />
     <Content Include="bussiness\Template\find-1.html" />
     <Content Include="bussiness\Template\find-2.html" />
     <Content Include="bussiness\Template\find-alert-win.html" />
@@ -554,12 +557,33 @@
     <Compile Include="bussiness\Template\Collector_Info.aspx.designer.cs">
       <DependentUpon>Collector_Info.aspx</DependentUpon>
     </Compile>
+    <Compile Include="bussiness\Template\Collector_Info_Detail.aspx.cs">
+      <DependentUpon>Collector_Info_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Collector_Info_Detail.aspx.designer.cs">
+      <DependentUpon>Collector_Info_Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="bussiness\Template\CompleteProject.aspx.cs">
       <DependentUpon>CompleteProject.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="bussiness\Template\CompleteProject.aspx.designer.cs">
       <DependentUpon>CompleteProject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\Depart_Info.aspx.cs">
+      <DependentUpon>Depart_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Depart_Info.aspx.designer.cs">
+      <DependentUpon>Depart_Info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\Depart_Info_Detail.aspx.cs">
+      <DependentUpon>Depart_Info_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Depart_Info_Detail.aspx.designer.cs">
+      <DependentUpon>Depart_Info_Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\Template\ProjectAdd.aspx.cs">
       <DependentUpon>ProjectAdd.aspx</DependentUpon>

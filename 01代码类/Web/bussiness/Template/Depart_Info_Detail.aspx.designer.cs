@@ -10,7 +10,7 @@
 namespace TX_Bussiness.Web.bussiness.Template {
     
     
-    public partial class Area_Info_Detail {
+    public partial class Depart_Info_Detail {
         
         /// <summary>
         /// PageContent 控件。
