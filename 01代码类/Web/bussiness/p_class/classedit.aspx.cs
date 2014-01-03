@@ -25,6 +25,7 @@ namespace TX_Bussiness.Web.bussiness.p_class
             {
                 if (id > 0)
                 {
+                    #region [ 修改 ]
                     model = Projectclass.FetchByID(id);
                     model.IsNew = false;
                     model.Classname = Utility.GetParameter("txt_classname");
@@ -46,9 +47,11 @@ namespace TX_Bussiness.Web.bussiness.p_class
                             model.Classtype = 2;
                         }
                     }
+                    #endregion
                 }
                 else
                 {
+                    #region [ 新增 ]
                     model = new Projectclass();
                     model.IsNew = true;
                     model.Classname = Utility.GetParameter("txt_classname");
@@ -71,6 +74,7 @@ namespace TX_Bussiness.Web.bussiness.p_class
                         }
                     }
                     model.Isdel = false;
+                    #endregion
                 }
                 model.Save();
                 if (id > 0)

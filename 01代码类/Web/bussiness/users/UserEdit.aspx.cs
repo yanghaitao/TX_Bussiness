@@ -26,6 +26,7 @@ namespace TX_Bussiness.Web.bussiness.users
             {
                 if (id == "0")
                 {
+                    #region [ 新增 ]
                     model = new Yannis.DAO.User();
                     model.IsNew = true;
                     model.Accountdtate = Convert.ToInt32(Enums.AccountState.Normal);
@@ -45,10 +46,11 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
                     model.Isdel = false;
-
+                    #endregion
                 }
                 else
                 {
+                    #region [ 修改 ] 
                     model = Yannis.DAO.User.FetchByID(id);
                     model.IsNew = false;
                     model.Collectorareacode = Utility.GetParameter("txt_area");
@@ -63,7 +65,7 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usertel = Utility.GetParameter("txt_tel");
                     model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
-
+                    #endregion
                 }
                 model.Save();
                 if (id == "0")

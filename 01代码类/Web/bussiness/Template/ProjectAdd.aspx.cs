@@ -68,7 +68,6 @@ namespace TX_Bussiness.Web.bussiness.Template
                         }
                         project.Reportpersonid = user.Id;
                         project.Reportpersonname = user.Username;
-                        project.Projectstate = 1;
                         project.ProjectType = txt_projecttype;
                         project.Reportpersonname = txt_name;
                         project.Smallclassid = txt_smallclass;
@@ -107,36 +106,36 @@ namespace TX_Bussiness.Web.bussiness.Template
                         projtrace.Save();
                         #endregion
                         #region[ 记录统计信息 ]
-                        InfoArea area = new InfoArea
-                        {
-                            Adddate = DateTime.Now,
-                            Areacode = txt_area,
-                            Areaname = GetAreaName(txt_area),
-                            Commnuitycode = txt_commnuity,
-                            Commnuityname = GetCommName(txt_commnuity),
-                            Projcode = projectcode,
-                            Streetcode = txt_street,
-                            Streetname = GetStreetName(txt_street)
-                        };
-                        area.Save();
-                        InfoCollector collector = new InfoCollector
-                        {
-                            Adddate = DateTime.Now,
-                            Departcode = user.Departcode,
-                            Collectorid = user.Id,
-                            Collectorname = user.Username,
-                            Projcode = projectcode
-                        };
-                        collector.Save();
-                        InfoDepart depart = new InfoDepart
-                        {
-                            Adddate = DateTime.Now,
-                            Departcode = user.Departcode.ToString(),
-                            Projcode = projectcode,
-                            Departname = GetDepartName(user.Departcode.ToString())
-                        };
-                        depart.Save();
-                        InfoClass infoclass = new InfoClass
+                        new InfoArea
+                         {
+                             Adddate = DateTime.Now,
+                             Areacode = txt_area,
+                             Areaname = GetAreaName(txt_area),
+                             Commnuitycode = txt_commnuity,
+                             Commnuityname = GetCommName(txt_commnuity),
+                             Projcode = projectcode,
+                             Streetcode = txt_street,
+                             Streetname = GetStreetName(txt_street)
+                         }.Save();
+
+                        new InfoCollector
+                       {
+                           Adddate = DateTime.Now,
+                           Departcode = user.Departcode,
+                           Collectorid = user.Id,
+                           Collectorname = user.Username,
+                           Projcode = projectcode
+                       }.Save();
+
+                        new InfoDepart
+                       {
+                           Adddate = DateTime.Now,
+                           Departcode = user.Departcode.ToString(),
+                           Projcode = projectcode,
+                           Departname = GetDepartName(user.Departcode.ToString())
+                       }.Save();
+
+                        new InfoClass
                         {
                             Adddate = DateTime.Now,
                             Bigclasscode = txt_bigclass.ToString(),
@@ -144,8 +143,8 @@ namespace TX_Bussiness.Web.bussiness.Template
                             Projectcode = projectcode,
                             Smallclassanme = GetClassName(txt_smallclass.ToString()),
                             Smallclasscode = txt_smallclass.ToString()
-                        };
-                        infoclass.Save();
+                        }.Save();
+
                         #endregion
                         #region [ 上传图片 ]
                         if (!string.IsNullOrEmpty(projectimgs))

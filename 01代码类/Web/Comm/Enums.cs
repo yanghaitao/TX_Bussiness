@@ -8,7 +8,7 @@ namespace TX_Bussiness.Web.Comm
     public class Enums
     {
         /// <summary>
-        /// 用户状态
+        /// 用户账户状态
         /// </summary>
         public enum AccountState:int
         {
@@ -30,6 +30,9 @@ namespace TX_Bussiness.Web.Comm
             Delete
            
         }
+        /// <summary>
+        /// 用户类型
+        /// </summary>
         public enum UserType:int
         {
             /// <summary>
@@ -41,7 +44,9 @@ namespace TX_Bussiness.Web.Comm
             /// </summary>
             Mobile
         }
-
+        /// <summary>
+        /// 角色权限对应系统
+        /// </summary>
         public enum RoleType:int
         {
             /// <summary>
@@ -66,6 +71,9 @@ namespace TX_Bussiness.Web.Comm
             YYWH
 
         }
+        /// <summary>
+        /// 案卷图片类型
+        /// </summary>
         public enum ProjectImgType : int 
         {
             /// <summary>
@@ -77,6 +85,9 @@ namespace TX_Bussiness.Web.Comm
             /// </summary>
             After
         }
+        /// <summary>
+        /// 案卷状态类型
+        /// </summary>
         public enum ProjectType : int {
             /// <summary>
             /// 交办阶段
@@ -91,6 +102,9 @@ namespace TX_Bussiness.Web.Comm
             /// </summary>
             WANCHENG=3
         }
+        /// <summary>
+        /// 区域统计类型
+        /// </summary>
         public enum AreaCountType : int 
         { 
             /// <summary>

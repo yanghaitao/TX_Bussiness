@@ -25,6 +25,7 @@ namespace TX_Bussiness.Web.bussiness.depart
             {
                 if (id == "0")
                 {
+                    #region [ 新增 ]
                     model = new Depart();
                     model.IsNew = true;
                     model.Adddate = DateTime.Now;
@@ -38,9 +39,11 @@ namespace TX_Bussiness.Web.bussiness.depart
                     model.Parentcode = Utility.GetParameter("txt_parentdepart");
                     model.Rolecode = Utility.GetParameter("txt_rolecode");
                     model.Isdel = false;
+                    #endregion
                 }
                 else
                 {
+                    #region [ 修改 ]
                     model = Depart.FetchByID(id);
                     model.IsNew = false;
                     model.Areacode = Utility.GetIntParameter("txt_departarea");
@@ -52,7 +55,7 @@ namespace TX_Bussiness.Web.bussiness.depart
                     model.Mark = Utility.GetParameter("txt_message");
                     model.Parentcode = Utility.GetParameter("txt_parentdepart");
                     model.Rolecode = Utility.GetParameter("txt_rolecode");
-
+                    #endregion
                 }
                 model.Save();
                 if (id == "0")

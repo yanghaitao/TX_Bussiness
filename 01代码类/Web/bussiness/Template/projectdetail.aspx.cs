@@ -14,12 +14,10 @@ namespace TX_Bussiness.Web.bussiness.Template
     {
         string projectcode;
         protected Project model = new Project();
-        Yannis.DAO.User user = new User();
         protected List<Projectimg> imglist = new List<Projectimg>();
         protected ProjectTrace tracemodel = new ProjectTrace();
         protected void Page_Load(object sender, EventArgs e)
-        {
-            user = GetUserInfo();
+        { 
             projectcode = Utility.GetParameter("projcode");
             SqlQuery query = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).IsEqualTo(projectcode);
             model = query.ExecuteSingle<Project>();
