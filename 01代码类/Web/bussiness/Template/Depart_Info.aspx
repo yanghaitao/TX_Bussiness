@@ -79,7 +79,11 @@
                             class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
                                 name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" /> </div>
+                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" /> 
+                    <a href="/bussiness/template/chartinfo/departchart.aspx" class="btn btn-inverse">
+                    图表查询
+                    </a>
+                    </div>
                 </td>
             </tr>
         </tbody>

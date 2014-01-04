@@ -34,6 +34,23 @@
                     });
                 }
             })
+
+            $(".chart").click(function () {
+                var areatype = $("select[name='txt_infotype']").val();
+                if (areatype && areatype != "") {
+                    $.dialog({
+                        title: '案卷流程',
+                        content: 'url:/bussiness/Template/chartinfo/areachart.aspx?areatype=' + areatype,
+                        lock: true,
+                        okVal: '关闭',
+                        ok: true,
+                        width: 788,
+                        height: 550,
+                        //cancelVal: '叉掉',
+                        cancel: true /*为true等价于function(){}*/
+                    });
+                }
+            });
         });
     </script>
 </head>
@@ -46,7 +63,7 @@
     <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
-                <td colspan="10" class="auto-style2">
+                <td colspan="12" class="auto-style2">
                     &nbsp;请填写查询条件
                 </td>
             </tr>
@@ -124,10 +141,14 @@
                  
             </tr>
             <tr>
-                <td colspan="10" align="right">
+                <td colspan="9" align="right">
                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
                     <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
+                    <a href="/bussiness/template/chartinfo/areachart.aspx" class="btn btn-inverse">
+                    图表查询
+                    </a>
                 </td>
+               
             </tr>
         </tbody>
     </table>
