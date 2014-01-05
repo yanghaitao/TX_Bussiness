@@ -77,9 +77,9 @@
                         <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"  value="<%=txt_startdate %>"/><span
                             class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
                                 name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
-                    <a href="/bussiness/template/chartinfo/collectorchart.aspx" class="btn btn-inverse">
+                    <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                    <input class="btn btn-primary" type="reset" id="reset" value="清空" />
+                    <a href="/bussiness/template/chartinfo/collectorchart.aspx" class="btn btn-primary">
                     图表查询
                     </a>
                      </div>

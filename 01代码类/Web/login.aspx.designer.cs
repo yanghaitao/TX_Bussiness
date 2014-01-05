@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace TX_Bussiness.Web.bussiness {
+namespace TX_Bussiness.Web {
     
     
     public partial class login {

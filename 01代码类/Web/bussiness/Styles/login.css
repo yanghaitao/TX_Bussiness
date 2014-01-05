@@ -1,6 +1,6 @@
 ﻿body {
     display: block;
-    background: url(../img/cloud.jpg) repeat 50% 50%;
+    background: url(/bussiness/img/cloud.jpg) repeat 50% 50%;
     overflow: hidden;
 }
 
@@ -53,7 +53,7 @@
 
 #clouds {
     height: 350px;
-    background: url(../img/cloud1.png) no-repeat transparent;
+    background: url(/bussiness/img/cloud1.png) no-repeat transparent;
 }
 
 .row-fluid h1 {

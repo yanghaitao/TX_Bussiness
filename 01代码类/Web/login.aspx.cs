@@ -4,12 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Bussiness.Common;
 using Yannis.DAO;
 using SubSonic;
-using Bussiness.Common;
-using TX_Bussiness.Web.Comm;
 
-namespace TX_Bussiness.Web.bussiness
+namespace TX_Bussiness.Web
 {
     public partial class login : System.Web.UI.Page
     {
@@ -39,7 +38,7 @@ namespace TX_Bussiness.Web.bussiness
                         Loginname = model.Loginname,
                         Userid = model.Id
                     }.Save();
-                    Response.Redirect("/bussiness/index.aspx");
+                    Response.Redirect("/main.aspx");
 
                 }
                 else

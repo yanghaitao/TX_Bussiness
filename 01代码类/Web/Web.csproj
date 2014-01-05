@@ -101,7 +101,6 @@
     <Content Include="bussiness\img\warning.png" />
     <Content Include="bussiness\index.aspx" />
     <Content Include="bussiness\Index.html" />
-    <Content Include="bussiness\login.aspx" />
     <Content Include="bussiness\Login.html" />
     <Content Include="bussiness\p_class\classedit.aspx" />
     <Content Include="bussiness\p_class\classlist.aspx" />
@@ -481,6 +480,7 @@
     <Content Include="js\kandtabs\style.css" />
     <Content Include="js\manhuaDate.1.0.js" />
     <Content Include="js\time.js" />
+    <Content Include="login.aspx" />
     <Content Include="main.aspx" />
     <Content Include="uploadify\jquery.uploadify.js" />
     <Content Include="uploadify\jquery.uploadify.min.js" />
@@ -512,13 +512,6 @@
     </Compile>
     <Compile Include="bussiness\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="bussiness\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="bussiness\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\p_class\classedit.aspx.cs">
       <DependentUpon>classedit.aspx</DependentUpon>
@@ -683,6 +676,13 @@
     <Compile Include="Comm\WebHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>

@@ -142,9 +142,9 @@
             </tr>
             <tr>
                 <td colspan="9" align="right">
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
-                    <a href="/bussiness/template/chartinfo/areachart.aspx" class="btn btn-inverse">
+                    <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                    <input class="btn btn-primary" type="reset" id="reset" value="清空" />
+                    <a href="/bussiness/template/chartinfo/areachart.aspx" class="btn btn-primary">
                     图表查询
                     </a>
                 </td>

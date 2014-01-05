@@ -102,8 +102,8 @@
                          <%=!string.IsNullOrEmpty(txt_bigclass)&&txt_bigclass != "0" ? "<option value='" + txt_bigclass + "'>"+GetClassName(txt_bigclass)+"</option>" : ""%>
                     </select>
                 </td> <td colspan="5" align="right">
-                    <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" value="清空" />
+                    <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                    <input class="btn btn-primary" type="reset" value="清空" />
                 </td>
             </tr>
             <tr>

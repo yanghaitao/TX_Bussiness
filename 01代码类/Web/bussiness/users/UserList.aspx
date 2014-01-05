@@ -88,8 +88,8 @@
                     </select>
                 </td>
                 <td>
-                <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
+                <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                    <input class="btn btn-primary" type="reset" id="reset" value="清空" />
                 </td>
             </tr>
         </tbody>

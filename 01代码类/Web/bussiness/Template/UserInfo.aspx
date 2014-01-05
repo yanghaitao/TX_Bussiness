@@ -70,8 +70,8 @@
         <tfoot>
             <tr>
                 <td colspan="2">
-                    <input class="btn btn-inverse" id="submit" type="button" value="保存" />
-                    <input class="btn btn-inverse" type="button" value="取消" onclick="window.history.go(-1)" />
+                    <input class="btn btn-primary" id="submit" type="button" value="保存" />
+                    <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
         </tfoot>

@@ -23,23 +23,23 @@
 }
 
 .chur-alert .alert-primary .context {
-    background: url(../img/primary.png) 30px center no-repeat #FFF;
+    background: url(/bussiness/img/primary.png) 30px center no-repeat #FFF;
 }
 
 .chur-alert .alert-info .context {
-    background: url(../img/info.png) 30px center no-repeat #FFF;
+    background: url(/bussiness/img/info.png) 30px center no-repeat #FFF;
 }
 
 .chur-alert .alert-success .context {
-    background: url(../img/success.png) 30px center no-repeat #FFF;
+    background: url(/bussiness/img/success.png) 30px center no-repeat #FFF;
 }
 
 .chur-alert .alert-warning .context {
-    background: url(../img/warning.png) 30px center no-repeat #FFF;
+    background: url(/bussiness/img/warning.png) 30px center no-repeat #FFF;
 }
 
 .chur-alert .alert-danger .context {
-    background: url(../img/danger.png) 30px center no-repeat #FFF;
+    background: url(/bussiness/img/danger.png) 30px center no-repeat #FFF;
 }
 
 .alert-modal {

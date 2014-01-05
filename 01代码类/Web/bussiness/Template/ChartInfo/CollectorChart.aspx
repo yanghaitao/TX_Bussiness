@@ -92,9 +92,9 @@
                             </select>
                         </td>
                         <td>
-                            <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                            <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
-                             <a class="btn btn-inverse" href="javascript:;" id="exprot">导出Excel</a>
+                            <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                            <input class="btn btn-primary" type="reset" id="reset" value="清空" />
+                             <a class="btn btn-primary" href="javascript:;" id="exprot">导出Excel</a>
                         </td>
                     </div>
                 </td>

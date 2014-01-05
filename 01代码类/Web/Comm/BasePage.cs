@@ -14,7 +14,7 @@ namespace TX_Bussiness.Web.Comm
         protected override void OnInit(EventArgs e)
         {
             if (!IsUserLogin())
-                Response.Redirect("/bussiness/login.aspx");
+                Response.Redirect("/login.aspx");
             base.OnInit(e);
         }
         protected override void OnLoad(EventArgs e)

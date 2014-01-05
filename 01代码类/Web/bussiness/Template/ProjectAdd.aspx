@@ -175,8 +175,8 @@
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-inverse" id="find" type="submit" value="保存" />
-                    <input class="btn btn-inverse" type="button" value="取消" onclick="window.history.go(-1)" />
+                    <input class="btn btn-primary" id="find" type="submit" value="保存" />
+                    <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
         </tfoot>
