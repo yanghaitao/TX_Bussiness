@@ -99,7 +99,7 @@
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/depart_info.aspx">部门统计</a></li>
                     </ul>
                 </div>
-                <%} %>
+              <%}if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_GLY)){%>
                 <div>
                     <a class="one">应用维护</a>
                     <ul class="kid">
@@ -109,7 +109,8 @@
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/p_class/classlist.aspx">类别管理</a></li>
                     </ul>
                 </div>
-                <div>
+                <%} %>
+                <div class="hide">
                     <a class="one">表单风格</a>
                     <ul class="kid">
                         <li><b class="tip"></b><a target="Conframe" href="Template/form-Master-slave.html">主从表单</a></li>
@@ -120,7 +121,7 @@
                         <li><b class="tip"></b><a target="Conframe" href="Template/form-tabs-list.html">标签页+列表</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="hide">
                     <a class="one">提示</a>
                     <ul class="kid">
                         <li><b class="tip"></b><a target="Conframe" href="Template/Alert.html">权限提示</a></li>
@@ -131,7 +132,7 @@
                         <li><b class="tip"></b><a target="Conframe" href="Template/Alert.html">对话框二</a></li>
                     </ul>
                 </div>
-                <div>
+               <div class="hide">
                     <a class="one">辅助信息</a>
                     <ul class="kid">
                         <li><b class="tip"></b><a target="Conframe" href="Template/formstyle.html">寻访记录</a></li>

@@ -21,6 +21,12 @@
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
+            $("#exprot").click(function () {
+                var form = $("form");
+                $("#expportexcel").val("1");
+                $("form").submit();
+                $("#expportexcel").val("0");
+            });
         })
     </script>
 </head>
@@ -30,6 +36,7 @@
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计</div>
     <form action="/bussiness/template/chartinfo/collectorchart.aspx" method="get">
+    <input type="hidden" value="0" name="expportexcel" id="expportexcel"/>
     <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
@@ -87,6 +94,7 @@
                         <td>
                             <input class="btn btn-inverse" id="find" type="submit" value="查询" />
                             <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
+                             <a class="btn btn-inverse" href="javascript:;" id="exprot">导出Excel</a>
                         </td>
                     </div>
                 </td>
@@ -94,8 +102,9 @@
         </tbody>
     </table>
     </form>
-    <div style="position:relative;">
-        <div style="position: absolute; width: 200px; height: 30px; background-color: white; top:0; left:0;" id="exproterDiv">
+    <div style="position: relative;">
+        <div style="position: absolute; width: 200px; height: 30px; background-color: white;
+            top: 0; left: 0;" id="exproterDiv">
         </div>
         <div id="chartdiv" align="center">
             Chart will load here</div>

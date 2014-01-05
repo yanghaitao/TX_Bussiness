@@ -19,6 +19,12 @@
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
+            $("#exprot").click(function () {
+                var form = $("form");
+                $("#expportexcel").val("1");
+                $("form").submit();
+                $("#expportexcel").val("0");
+            });
         })
     </script>
 </head>
@@ -28,6 +34,7 @@
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计</div>
     <form action="/bussiness/template/chartinfo/areachart.aspx" method="get">
+    <input type="hidden" value="0" name="expportexcel" id="expportexcel"/>
     <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
             <tr>
@@ -93,7 +100,7 @@
                         <option value="<%=v.Commcode %>" <%=txt_commnuity==v.Commcode.ToString()?"selected=selected":"" %>>
                             <%=v.Commname %></option>
                         <%}
-                              }%>
+                          }%>
                     </select>
                 </td>
                 <td class="t_label">
@@ -131,36 +138,37 @@
                 <td colspan="9" align="right">
                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
                     <input class="btn btn-inverse" type="reset" id="reset" value="清空" />
+                     <a class="btn btn-inverse" href="javascript:;" id="exprot">导出Excel</a>
                 </td>
             </tr>
         </tbody>
     </table>
     </form>
-    <div style="position:relative;">
-        <div style="position: absolute; width: 200px; height: 30px; background-color: white; top:0; left:0;" id="exproterDiv">
+    <div style="position: relative;">
+        <div style="position: absolute; width: 200px; height: 30px; background-color: white;
+            top: 0; left: 0;" id="exproterDiv">
         </div>
-    <div id="chartdiv" align="center">
-        Chart will load here</div>
-        </div>
+        <div id="chartdiv" align="center">
+            Chart will load here</div>
+    </div>
     <script type="text/javascript">
         var chart = new FusionCharts("<%=chartpath %>", "ChartId_flash", "100%", "400", "0", "1");
         chart.setDataURL("<%=chartdatapath%>");
         chart.render("chartdiv");
-         <script type="text/javascript">
-            var chart = new FusionCharts("<%=chartpath %>", "ChartId_flash", "100%", "400", "0", "1");
-            chart.setDataURL("<%=chartdatapath%>");
-            chart.render("chartdiv");
+        var chart = new FusionCharts("<%=chartpath %>", "ChartId_flash", "100%", "400", "0", "1");
+        chart.setDataURL("<%=chartdatapath%>");
+        chart.render("chartdiv");
 
-            var myExportComponent = new FusionChartsExportObject("fcExporter1", "/charts/chart/FCExporter.swf"); //参数1：为处理程序标识，参数二为：上文中提到的导出需要用到的swf文件
-            myExportComponent.componentAttributes.btnColor = 'EAF4FD';
-            myExportComponent.componentAttributes.btnBorderColor = '0372AB';
-            myExportComponent.componentAttributes.btnFontFace = 'Verdana';
-            myExportComponent.componentAttributes.btnFontColor = '0372AB';
-            myExportComponent.componentAttributes.btnFontSize = '12';
-            //Title of button
-            myExportComponent.componentAttributes.btnsavetitle = '另存为'
-            myExportComponent.componentAttributes.btndisabledtitle = '右键生成图片';
-            myExportComponent.Render("exproterDiv");
+        var myExportComponent = new FusionChartsExportObject("fcExporter1", "/charts/chart/FCExporter.swf"); //参数1：为处理程序标识，参数二为：上文中提到的导出需要用到的swf文件
+        myExportComponent.componentAttributes.btnColor = 'EAF4FD';
+        myExportComponent.componentAttributes.btnBorderColor = '0372AB';
+        myExportComponent.componentAttributes.btnFontFace = 'Verdana';
+        myExportComponent.componentAttributes.btnFontColor = '0372AB';
+        myExportComponent.componentAttributes.btnFontSize = '12';
+        //Title of button
+        myExportComponent.componentAttributes.btnsavetitle = '另存为'
+        myExportComponent.componentAttributes.btndisabledtitle = '右键生成图片';
+        myExportComponent.Render("exproterDiv");
     </script>
 </body>
 </html>

@@ -20,10 +20,19 @@ namespace TX_Bussiness.Web.bussiness.Template
         {
             pageindex = Utility.GetIntParameter("page") > 0 ? Utility.GetIntParameter("page") : 1;
             string id = Utility.GetParameter("id");
+            string starttime = Utility.GetParameter("starttime");
+            string endtime = Utility.GetParameter("endtime");
             SqlQuery query = new Select(InfoCollector.ProjcodeColumn).From(InfoCollector.Schema);
             query.Where("1=1");
-            query.Where(InfoCollector.CollectoridColumn).IsEqualTo(id);
-
+            query.And(InfoCollector.CollectoridColumn).IsEqualTo(id);
+            if (!string.IsNullOrEmpty(starttime))
+            {
+                query.And(InfoCollector.AdddateColumn).IsGreaterThanOrEqualTo(starttime);
+            }
+            if (!string.IsNullOrEmpty(endtime))
+            {
+                query.And(InfoCollector.AdddateColumn).IsLessThanOrEqualTo(endtime);
+            }
             SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query);
             totalcount = projectquery.GetRecordCount();
             projectquery.Paged(pageindex, pagesize);

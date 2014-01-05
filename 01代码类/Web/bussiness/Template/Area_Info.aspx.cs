@@ -24,6 +24,9 @@ namespace TX_Bussiness.Web.bussiness.Template
         protected List<SCommunity> commnuitylist = new List<SCommunity>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Yannis.DAO.User user = GetUserInfo();
+
+            #region [ 获取参数列表 ]
             pageindex = Utility.GetIntParameter("page") > 0 ? Utility.GetIntParameter("page") : 1;
             txt_area = Utility.GetParameter("txt_area");
             txt_street = Utility.GetParameter("txt_street");
@@ -31,10 +34,19 @@ namespace TX_Bussiness.Web.bussiness.Template
             txt_startdate = Utility.GetParameter("txt_startdate");
             txt_enddate = Utility.GetParameter("txt_enddate");
             txt_infotype = !string.IsNullOrEmpty(Utility.GetParameter("txt_infotype")) ? Utility.GetParameter("txt_infotype") : "1";
+            #endregion
+
+
+            #region [ 获取区域统计数据 ]
             if (int.Parse(txt_infotype) == (int)Enums.AreaCountType.Area)
             {
                 SqlQuery query = new Select().From(SArea.Schema);
                 query.Where("1=1");
+                ///中队长只能查看自己区域的统计数据
+                if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+                {
+                    query.And(SArea.AreacodeColumn).IsEqualTo(user.Collectorareacode);
+                }
                 if (txt_area != "0" && !string.IsNullOrEmpty(txt_area))
                     query.And(SArea.AreacodeColumn).IsEqualTo(txt_area);
                 totalcount = query.GetRecordCount();
@@ -45,6 +57,11 @@ namespace TX_Bussiness.Web.bussiness.Template
             {
                 SqlQuery query = new Select().From(SStreet.Schema);
                 query.Where("1=1");
+                ///中队长只能查看自己街道的统计数据
+                if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+                {
+                    query.And(SStreet.StreetcodeColumn).IsEqualTo(user.Streetcode);
+                }
                 if (!string.IsNullOrEmpty(txt_area) && txt_area != "0")
                     query.And(SStreet.AreacodeColumn).IsEqualTo(txt_area);
                 if (!string.IsNullOrEmpty(txt_street) && txt_street != "0")
@@ -57,6 +74,11 @@ namespace TX_Bussiness.Web.bussiness.Template
             {
                 SqlQuery query = new Select().From(SCommunity.Schema);
                 query.Where("1=1");
+                ///中队长只能查看自己社区的统计数据
+                if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+                {
+                    query.And(SCommunity.CommcodeColumn).IsEqualTo(user.Communitycode);
+                }
                 if (!string.IsNullOrEmpty(txt_street) && txt_street != "0")
                     query.And(SCommunity.StreetcodeColumn).IsEqualTo(txt_street);
                 if (!string.IsNullOrEmpty(txt_commnuity) && txt_commnuity != "0")
@@ -65,6 +87,8 @@ namespace TX_Bussiness.Web.bussiness.Template
                 query.Paged(pageindex, pagesize);
                 commnuitylist = query.ExecuteTypedList<SCommunity>();
             }
+            #endregion
+
             string pageUrl = "/bussiness/template/area_info.aspx?txt_area={0}&txt_street={1}&txt_commnuity={2}&txt_startdate={3}&txt_enddate={4}&txt_infotype={5}&page=__id__";
             pageUrl = string.Format(pageUrl, txt_area, txt_street, txt_commnuity, txt_startdate, txt_enddate, txt_infotype);
             PageContent.InnerHtml = Comm.PageControl.OutPageList(this.pagesize, this.pageindex, this.totalcount, pageUrl, 8);

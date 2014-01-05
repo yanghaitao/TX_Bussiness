@@ -23,7 +23,7 @@
                 if (id && id != "") {
                     $.dialog({
                         title: '案卷流程',
-                        content: 'url:/bussiness/Template/depart_info_detail.aspx?id=' + id,
+                        content: 'url:/bussiness/Template/depart_info_detail.aspx?startime=' + $("#startime").val() + '&endtime=' + $("#endtime").val() + '&id=' + id,
                         lock: true,
                         okVal: '关闭',
                         ok: true,

@@ -302,3 +302,6 @@ table thead {
 .tit{margin-bottom:5px;}
 #find{width:48px;}
 #reset{width:48px;}
+#startime{width:100px;}
+#endtime{width:100px}
+.hide{display:none;}

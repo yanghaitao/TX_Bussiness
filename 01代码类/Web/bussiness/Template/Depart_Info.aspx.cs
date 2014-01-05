@@ -19,6 +19,7 @@ namespace TX_Bussiness.Web.bussiness.Template
         protected List<Depart> departlist = new List<Depart>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Yannis.DAO.User user = GetUserInfo();
             pageindex = Utility.GetIntParameter("page") > 0 ? Utility.GetIntParameter("page") : 1;
             txt_depart = Utility.GetParameter("txt_depart");
             txt_startdate = Utility.GetParameter("txt_startdate");
@@ -26,6 +27,11 @@ namespace TX_Bussiness.Web.bussiness.Template
 
             SqlQuery query = new Select().From(Depart.Schema);
             query.Where("1=1");
+            ///中队长只能查看自己部门的统计数据
+            if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+            {
+                query.And(Depart.DepartcodeColumn).IsEqualTo(user.Departcode);
+            }
             if (!string.IsNullOrEmpty(txt_depart) && txt_depart != "0")
             {
                 query.And(Depart.ParentcodeColumn).IsEqualTo(txt_depart);

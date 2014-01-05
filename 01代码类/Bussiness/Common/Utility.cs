@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Collections;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Xml;
 
 namespace Bussiness.Common
 {
@@ -1220,6 +1221,133 @@ namespace Bussiness.Common
                 return "127.0.0.1";
             return result;
         }
+        /// <summary>
+        /// 将XML字符串转换成DATASET
+        /// </summary>
+        /// <param name="xmlStr"></param>
+        /// <returns></returns>
+        public static DataSet ConvertToDateSetByXmlString(string xmlStr)
+        {
+            if (xmlStr.Length > 0)
+            {
+                StringReader StrStream = null;
+                XmlTextReader Xmlrdr = null;
+                try
+                {
+                    DataSet ds = new DataSet();
+                    //读取字符串中的信息
+                    StrStream = new StringReader(xmlStr);
+                    //获取StrStream中的数据
+                    Xmlrdr = new XmlTextReader(StrStream);
+                    //ds获取Xmlrdr中的数据  
+                    //ds.ReadXmlSchema(Xmlrdr);
+                    ds.ReadXml(Xmlrdr);
+                    return ds;
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+                finally
+                {
+                    //释放资源
+                    if (Xmlrdr != null)
+                    {
+                        Xmlrdr.Close();
+                        StrStream.Close();
+                    }
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+        #region[ 导出Excel ]
+
+        /// <summary>
+        /// 导出excel
+        /// </summary>
+        /// <param name="FileName">输出文件名</param>
+        /// <param name="dt">需要输出的Datatable</param>
+        public static void ExportToExcel(string FileName, DataTable dt)
+        {
+            HttpContext.Current. Response.Clear();
+            HttpContext.Current.Response.Buffer = false;
+            //以下语句导出出现乱码情况(注释：鲁伟兴)  
+            if (dt.Rows.Count > 1)
+            {
+                HttpContext.Current.Response.Charset = "GB2312";
+                HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(FileName, System.Text.Encoding.UTF8) + ".xls");
+                HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");//System.Text.Encoding.GetEncoding("GB2312");
+                HttpContext.Current.Response.ContentType = "application/ms-excel";
+            }
+            else
+            {
+                HttpContext.Current.Response.Charset = "GB2312";
+                HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(FileName, System.Text.Encoding.UTF8) + ".xls");
+                HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");//System.Text.Encoding.GetEncoding("GB2312");
+                HttpContext.Current.Response.ContentType = "application/ms-excel";
+            }
+
+            //Response.Charset = "big5";
+            //Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(FileName, System.Text.Encoding.UTF8) + ".xls");
+            //Response.ContentEncoding = System.Text.Encoding.UTF8;//System.Text.Encoding.GetEncoding("GB2312");
+            //Response.ContentType = "application/ms-excel";
+
+            
+            System.IO.StringWriter oStringWriter = new System.IO.StringWriter();
+            System.Web.UI.HtmlTextWriter oHtmlTextWriter = new System.Web.UI.HtmlTextWriter(oStringWriter);
+            string newLine = "";
+            newLine = "<table cellspacing=\"1\" border=\"1\">";
+            oHtmlTextWriter.WriteLine(newLine);
+            newLine = "<tr><td colspan=\"" + dt.Columns.Count + "\" align=\"center\">" + dt.TableName + "</td></tr>";
+            oHtmlTextWriter.WriteLine(newLine);
+            newLine = "<tr>";
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                newLine += "<td>" + dt.Columns[i].Caption + "</td>";
+            }
+            newLine += "</tr>";
+            oHtmlTextWriter.WriteLine(newLine);
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+
+                newLine = "<tr>";
+
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    newLine += "<td>" + dt.Rows[j][i].ToString() + "</td>";
+                }
+                newLine += "</tr>";
+                oHtmlTextWriter.WriteLine(newLine);
+            }
+            oHtmlTextWriter.WriteLine("</table>");
+            HttpContext.Current.Response.Write(oStringWriter.ToString());
+            HttpContext.Current.Response.End();
+        }
+
+
+        /// <summary>
+        /// 导出excel
+        /// </summary>
+        /// <param name="FileName">输出文件名</param>
+        /// <param name="ControlID">要输出控件id</param>
+        public void ExportToExcel(string FileName, string ControlID)
+        {
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.Buffer = false;
+            HttpContext.Current.Response.Charset = "GB2312";
+            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(FileName, System.Text.Encoding.UTF8) + ".xls");
+
+            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");
+            HttpContext.Current.Response.ContentType = "application/ms-excel";
+           
+            System.IO.StringWriter oStringWriter = new System.IO.StringWriter();
+            HttpContext.Current.Response.Write(oStringWriter.ToString());
+            HttpContext.Current.Response.End();
+        }
+        #endregion
     }
 
 }

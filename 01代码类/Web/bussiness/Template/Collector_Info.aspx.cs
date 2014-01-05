@@ -11,21 +11,27 @@ using Bussiness.Common;
 
 namespace TX_Bussiness.Web.bussiness.Template
 {
-    public partial class Collector_Info :Comm.BasePage
+    public partial class Collector_Info : Comm.BasePage
     {
         protected int pagesize = 10;
         protected int pageindex = 1;
         protected int totalcount;
-        protected string txt_depart, txt_startdate,txt_enddate;
+        protected string txt_depart, txt_startdate, txt_enddate;
         protected List<Yannis.DAO.User> userlist = new List<Yannis.DAO.User>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Yannis.DAO.User user=GetUserInfo();
             pageindex = Utility.GetIntParameter("page") > 0 ? Utility.GetIntParameter("page") : 1;
             txt_depart = Utility.GetParameter("txt_depart");
             txt_startdate = Utility.GetParameter("txt_startdate");
             txt_enddate = Utility.GetParameter("txt_enddate");
             SqlQuery query = new Select().From(Yannis.DAO.User.Schema);
             query.Where("1=1");
+            ///中队长只能查看自己部门下面的人员工作量
+            if(CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+            {
+               query.Where(Yannis.DAO.User.DepartcodeColumn).IsEqualTo(GetUserInfo().Departcode);
+            }
             if (!string.IsNullOrEmpty(txt_depart) && txt_depart != "0")
             {
                 query.And(Yannis.DAO.User.DepartcodeColumn).IsEqualTo(txt_depart);
@@ -45,7 +51,7 @@ namespace TX_Bussiness.Web.bussiness.Template
             query.Aggregates = list;
             query.Where("1=1");
             query.Where(InfoCollector.CollectoridColumn).IsEqualTo(userid);
-          
+
             if (!string.IsNullOrEmpty(txt_startdate))
             {
                 query.And(InfoCollector.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
