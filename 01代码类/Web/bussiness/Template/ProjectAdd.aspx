@@ -33,7 +33,6 @@
                     $("#fileimgs").val(filename);
                 }
             });
-
         })
     </script>
 </head>

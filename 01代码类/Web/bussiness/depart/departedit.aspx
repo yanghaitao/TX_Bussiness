@@ -126,8 +126,8 @@
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-inverse" onclick="return viladeExist('<%=model.Id %>','depart');" id="find" type="submit" value="保存" />
-                    <input class="btn btn-inverse" type="button" value="取消" onclick="window.history.go(-1)" />
+                    <input class="btn btn-primary" onclick="return viladeExist('<%=model.Id %>','depart');" id="find" type="submit" value="保存" />
+                    <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
         </tfoot>

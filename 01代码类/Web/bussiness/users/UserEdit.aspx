@@ -6,17 +6,35 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
+     <link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script src="/js/json2.js" type="text/javascript"></script>
     <script src="/js/global.js" type="text/javascript"></script>
-         <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
-      <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-      <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+    <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
+    <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+    <script type="text/javascript" src="/uploadify/jquery.uploadify.js"></script>
     <script type="text/javascript">
         $(function () {
-            $('.modal').show();
+            var filename = "";
+            $("#file_upload").uploadify({
+                'swf': '/uploadify/uploadify.swf',
+                'multi':false,
+                'uploader': '/tools/AjaxHandler.ashx',
+                'formData': { 'act': 'UploadPhoto' },
+                'auto': true,
+                'buttonText': '上传',
+                'buttonClass': 'btn btn-primary',
+                'fileTypeExts': '*.gif; *.jpg; *.png',
+                'width': 30,
+                'height': 15,
+                'onUploadSuccess': function (file, data, response) {
+                    $("#txt_photo").attr("src", data);
+                    $("#fileimgs").val(data);
+                }
+            });
         })
     </script>
 </head>
@@ -33,6 +51,21 @@
             </tr>
         </thead>
         <tbody>
+         <tr>
+                <td width="15%">
+                    登录名<font color="FF0000">*</font>
+                    <input type="hidden" value="<%=model.Id %>" name="id"/>
+                </td>
+                <td width="500">
+                    <input name="txt_username" value="<%=model.Loginname %>" type="text" />
+                </td>
+                <td width="500">
+                    密码<font color="FF0000">*</font>
+                </td>
+                <td width="500">
+                    <input name="txt_password" value="<%=model.Password %>" type="text" />
+                </td>
+            </tr>
             <tr>
                 <td width="15%">
                     登录名<font color="FF0000">*</font>
@@ -170,12 +203,31 @@
                     </select>
                 </td>
             </tr>
+             <tr>
+                <td rowspan="2">
+                    性别<font color="FF0000">*</font>
+                </td>
+                <td rowspan="2">
+                <label> 
+                    <input name="txt_sex" type="radio" value="1" checked="checked" /> 男&nbsp;&nbsp
+                    <input type="radio" name="txt_sex" value="2" <%=model.Usersex=="2"?"checked=checked":"" %>/> 女
+                </label>
+                </td>
+                <td rowspan="2">
+                   照片
+                    <input type="hidden" name="fileimgs" id="fileimgs" />
+                    <input type="file" name="file_upload" id="file_upload" />
+                </td>
+                <td rowspan="2">
+                     <img src="<%=model.Userphoto %>" id="txt_photo" width="80px" height="100px"/>
+                </td>
+            </tr>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-inverse" onclick="return viladeExist('<%=model.Id %>','user');" id="find" type="button" value="保存" />
-                    <input class="btn btn-inverse" type="button" value="取消" onclick="window.history.go(-1)" />
+                    <input class="btn btn-primary" onclick="return viladeExist('<%=model.Id %>','user');" id="find" type="button" value="保存" />
+                    <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
         </tfoot>

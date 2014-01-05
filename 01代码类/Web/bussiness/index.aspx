@@ -76,10 +76,15 @@
         <div class="left_c left">
             <h1>系统操作菜单</h1>
             <div class="acc">
+             <%if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_JLD) || CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
+               {%>
                 <div>
-                <%if(CheckRole(GetUserInfo().Id,TX_Bussiness.Web.Comm.Constant.RoleCode_ZFRY)) {%>
+                <%if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZFRY))
+                  {%>
                     <a class="one">勤务实时系统</a>
-                    <%} else{%>
+                    <%}
+                  else
+                  {%>
                       <a class="one">上报交办系统</a>
                     <%} %>
                     <ul class="kid">
@@ -87,7 +92,7 @@
                      <li><b class="tip"></b><a target="Conframe" href="Template/projectlist.aspx">待办案卷</a></li>
                      <li><b class="tip"></b><a target="Conframe" href="Template/CompleteProject.aspx">已处理案卷</a></li>
                     </ul>
-                </div>
+                </div><%} %>
                 <%if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_JLD) || CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
                   {%>
                  <div>

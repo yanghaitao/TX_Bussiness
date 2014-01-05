@@ -1059,6 +1059,7 @@ namespace Bussiness.Common
             //  jsonBuilder.Append("}");
             return jsonBuilder.ToString();
         }
+
         /// <summary>
         /// 单个对象转JSON
         /// </summary>
@@ -1074,7 +1075,6 @@ namespace Bussiness.Common
                 return (T)serializer.ReadObject(ms);
             }
         }
-
 
         #region 读取或写入cookie
         /// <summary>
@@ -1221,6 +1221,7 @@ namespace Bussiness.Common
                 return "127.0.0.1";
             return result;
         }
+
         /// <summary>
         /// 将XML字符串转换成DATASET
         /// </summary>
@@ -1263,8 +1264,8 @@ namespace Bussiness.Common
                 return null;
             }
         }
-        #region[ 导出Excel ]
 
+        #region[ 导出Excel ]
         /// <summary>
         /// 导出excel
         /// </summary>
@@ -1326,7 +1327,6 @@ namespace Bussiness.Common
             HttpContext.Current.Response.Write(oStringWriter.ToString());
             HttpContext.Current.Response.End();
         }
-
 
         /// <summary>
         /// 导出excel

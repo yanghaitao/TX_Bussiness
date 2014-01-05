@@ -45,6 +45,8 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usertel = Utility.GetParameter("txt_tel");
                     model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
+                    model.Usersex = Utility.GetParameter("txt_sex");
+                    model.Userphoto = Utility.GetParameter("fileimgs");
                     model.Isdel = false;
                     #endregion
                 }
@@ -65,6 +67,8 @@ namespace TX_Bussiness.Web.bussiness.users
                     model.Usertel = Utility.GetParameter("txt_tel");
                     model.Usertype = int.Parse(Utility.GetParameter("txt_ismobile"));
                     model.Roleid = Utility.GetIntParameter("txt_rolecode");
+                    model.Usersex = Utility.GetParameter("txt_sex");
+                    model.Userphoto = Utility.GetParameter("fileimgs");
                     #endregion
                 }
                 model.Save();

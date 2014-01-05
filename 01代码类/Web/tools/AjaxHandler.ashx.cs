@@ -77,12 +77,38 @@ namespace TX_Bussiness.Web.tools
                 case "GetProjessClassJson":
                     context.Response.Write(GetProjessClassJson(dict["parentcode"]));//获取子类
                     break;
+                case "UploadPhoto":
+                    context.Response.Write(UploadPhoto(context));//用户照片上传
+                    break;
+            }
+        }
+
+        private string UploadPhoto(HttpContext context)
+        {
+            string filepath = ConfigurationManager.AppSettings["UserPhotoPath"];
+            HttpPostedFile file = context.Request.Files["Filedata"];
+            string uploadPath =HttpContext.Current.Server.MapPath(filepath);
+            string fileExtension = System.IO.Path.GetExtension(file.FileName);
+            string fileName = DateTime.Now.Ticks + fileExtension;
+            if (file != null)
+            {
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+                }
+                file.SaveAs(uploadPath + fileName);
+                //下面这句代码缺少的话，上传成功后上传队列的显示不会自动消失  
+                return filepath + fileName;
+            }
+            else
+            {
+                return "0";
             }
         }
 
         private string FileUpload(HttpContext context)
         {
-            string filepath = string.Format(ConfigurationManager.AppSettings["ImgUploadPath"]+"{0}/{1}/{2}/",DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
+            string filepath = string.Format(ConfigurationManager.AppSettings["ImgUploadPath"] + "{0}/{1}/{2}/", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             HttpPostedFile file = context.Request.Files["Filedata"];
             string uploadPath =
                 HttpContext.Current.Server.MapPath(filepath);
@@ -95,7 +121,7 @@ namespace TX_Bussiness.Web.tools
                 }
                 file.SaveAs(uploadPath + file.FileName);
                 //下面这句代码缺少的话，上传成功后上传队列的显示不会自动消失  
-                return filepath+file.FileName;
+                return filepath + file.FileName;
             }
             else
             {

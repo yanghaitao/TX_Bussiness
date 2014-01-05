@@ -81,8 +81,8 @@
                 </td>
                 <td class="detail">
                     <input id="formid" name="txt_departname" value="<%=txt_departname %>" />
-                     <input class="btn btn-inverse" id="find" type="submit" value="查询" />
-                    <input class="btn btn-inverse" type="reset" value="清空" />
+                     <input class="btn btn-primary" id="find" type="submit" value="查询" />
+                    <input class="btn btn-primary" type="reset" value="清空" />
                 </td>
             </tr>
         </tbody>

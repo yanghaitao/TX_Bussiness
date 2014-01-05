@@ -17,14 +17,6 @@
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
-            //            $('#formid').tooltip({ title: '单据号' });
-            //            $('#formtype').tooltip({ title: '单据类型' });
-            //            $('#bumen').tooltip({ title: '部门' });
-            //            $('#startime').tooltip({ title: '起始日期' });
-            //            $('#endtime').tooltip({ title: '结束日期' });
-            //            $('#baoxiaoren').tooltip({ title: '报销人' });
-            //            $('#xiangmu').tooltip({ title: '所属项目' });
-           
             $(".preview").click(function () {
                 var projcode = $(this).closest("tr").attr("_projcode");
                 if (projcode && projcode != "") {
