@@ -13,7 +13,7 @@
     <script type="text/javascript" src="Scripts/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <script type="text/javascript" src="Scripts/index.js"></script>
-    
+     <script type="text/javascript" src="js/global.js"></script>
 </head>
 <body>
     <div class="warp">

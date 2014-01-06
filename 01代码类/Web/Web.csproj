@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TX_Bussiness.Web</RootNamespace>
     <AssemblyName>TX_Bussiness.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -52,7 +52,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
@@ -92,7 +91,7 @@
     <Content Include="bussiness\img\leaf6.png" />
     <Content Include="bussiness\img\leaf7.png" />
     <Content Include="bussiness\img\leaf8.png" />
-    <Content Include="bussiness\img\logo.png" />
+    <None Include="bussiness\img\logo.png1" />
     <Content Include="bussiness\img\nav-tip.gif" />
     <Content Include="bussiness\img\primary.png" />
     <Content Include="bussiness\img\success.png" />

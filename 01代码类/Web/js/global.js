@@ -218,4 +218,11 @@ function viladeExist(obj, tablename) {
     } else {
         $("#form1").submit();
     }
-} 
+}
+
+function NoLimit() {
+    $('body').alert({
+        type: "primary"
+    });
+    return false;
+}

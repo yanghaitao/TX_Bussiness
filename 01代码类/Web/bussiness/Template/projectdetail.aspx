@@ -135,7 +135,7 @@
             <tr>
                 <td colspan="2" style="text-align: center;position:relative;">
                     <div class="projimg">
-                    <%foreach (var v in imglist.Where(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.Before).ToList<Yannis.DAO.Projectimg>())
+                    <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.Before))
                       {%>
                         <img src="<%=v.Imgurl %>" width="300px" height="300px" />
                         <%} %>
@@ -145,7 +145,7 @@
                 </td>
                 <td colspan="2" style="">
                  <div class="projimg">
-                       <%foreach (var v in imglist.Where(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.After).ToList<Yannis.DAO.Projectimg>())
+                       <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.After))
                       {%>
                         <img src="<%=v.Imgurl %>" width="300px" height="300px" />
                         <%} %>
