@@ -6,20 +6,17 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $('.modal').show();
-
-        })
-    </script>
+    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
 </head>
 <body>
-    <form name="form1" action="/bussiness/template/projectedit.aspx" method="post">
+    <form name="form1" action="/bussiness/template/projectedit.aspx" method="post" class="valifrom">
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>维护界面<b class="tip"></b>案卷办理</div>
     <table class="table table-striped table-bordered table-condensed list">
@@ -31,11 +28,10 @@
             </tr>
         </thead>
         <tbody>
-           
             <tr>
                 <td width="15%">
                     勤务编号<font color="FF0000">*</font>
-                    <input type="hidden" name="projcode" value="<%=model.Projcode %>"/> 
+                    <input type="hidden" name="projcode" value="<%=model.Projcode %>" />
                 </td>
                 <td width="500">
                     <input name="Name" value="<%=string.Format(GetAppSeeting("ProjectNameTemplate"),model.Projcode)%>"
@@ -133,7 +129,7 @@
                     处理部门<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_depart">
+                    <select name="txt_depart" datatype="*" nullmsg="请选择派遣部门！">
                         <%foreach (var v in delartlist)
                           { %>
                         <option value="<%=v.Id %>">
@@ -149,8 +145,8 @@
                     处理人<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_handler">
-                        <%foreach (var v in GetUserList(GetUserInfo().Departcode.ToString(),true))
+                    <select name="txt_handler" datatype="*" nullmsg="请选择处理人员！">
+                        <%foreach (var v in GetUserList(GetUserInfo().Departcode.ToString(), true))
                           { %>
                         <option value="<%=v.Id %>">
                             <%=v.Username%>
@@ -160,7 +156,7 @@
                 </td>
                 <%} %>
             </tr>
-              <tr>
+            <tr>
                 <td width="15%">
                     事发地址
                 </td>
@@ -176,38 +172,35 @@
                     <textarea name="txt_describe" style="width: 95%" rows="4" cols="5" readonly="readonly"><%=model.Describe %></textarea>
                 </td>
             </tr>
-           
             <tr>
                 <td width="15%">
                     局领导派遣意见
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_leadmessage" style="width: 95%" rows="4" cols="5"><%=model.Leadmessage %></textarea>
+                    <textarea name="txt_leadmessage" style="width: 95%" rows="4" cols="5" <%if(CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_JLD)){ %> datatype="*" nullmsg="请填写派遣意见！"<%} %>><%=model.Leadmessage %></textarea>
                 </td>
             </tr>
-            
             <tr>
                 <td width="15%">
                     中队长派遣意见
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_message" style="width: 95%" rows="4" cols="5"><%=model.Message %></textarea>
+                    <textarea name="txt_message" style="width: 95%" rows="4" cols="5" <%if(CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ)){ %> datatype="*" nullmsg="请填写派遣意见！"<%} %>><%=model.Message %></textarea>
                 </td>
             </tr>
-           
             <tr>
                 <td width="15%">
                     执法人员处置结果
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_handlemessage" style="width: 95%" rows="4" cols="5"><%=model.Handlermessge %></textarea>
+                    <textarea name="txt_handlemessage" style="width: 95%" rows="4" cols="5" <%if(CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZFRY)){ %> datatype="*" nullmsg="请填写派遣意见！"<%} %>><%=model.Handlermessge %></textarea>
                 </td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-primary" id="find" type="submit" value="保存" />
+                    <input class="btn btn-primary" id="saveproject" type="submit" value="保存" />
                     <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1);" />
                 </td>
             </tr>

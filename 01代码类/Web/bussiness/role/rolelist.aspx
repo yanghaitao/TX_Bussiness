@@ -14,6 +14,7 @@
     <script src="/js/global.js" type="text/javascript"></script>
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
+        <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();

@@ -20,7 +20,7 @@ namespace TX_Bussiness.Web.bussiness.Template
         {
             user = GetUserInfo();
             if (!IsPostBack && Request.HttpMethod == "POST")
-            {
+            {  
                 #region[ 获取参数列表 ]
                 string txt_name = Utility.GetParameter("txt_name");
                 string txt_area = Utility.GetParameter("txt_area");

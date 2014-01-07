@@ -14,23 +14,12 @@
     <script src="/js/global.js" type="text/javascript"></script>
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />    
+    <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         $(function () {
             $(".datepicker").datepicker();
-
-            //$('#list').hide();
-            $('#find').click(function () {
-                $('#list').show();
-            })
-            //            $('#formid').tooltip({ title: '单据号' });
-            //            $('#formtype').tooltip({ title: '单据类型' });
-            //            $('#bumen').tooltip({ title: '部门' });
-            //            $('#startime').tooltip({ title: '起始日期' });
-            //            $('#endtime').tooltip({ title: '结束日期' });
-            //            $('#baoxiaoren').tooltip({ title: '报销人' });
-            //            $('#xiangmu').tooltip({ title: '所属项目' });
-
         });
 
         function showbox(obj) {

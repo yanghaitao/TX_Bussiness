@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-    <script src="/bussiness/js/global.js" type="text/javascript"></script>
+    <script src="/js/global.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             $('.modal').show();

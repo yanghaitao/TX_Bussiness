@@ -15,9 +15,9 @@
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+     <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $("#info2").click(function () {
-            alert(1)
             $('body').alert({
                 type: 'info',
                 buttons: [{

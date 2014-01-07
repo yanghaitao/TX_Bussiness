@@ -4,15 +4,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/admin-all.css" />
     <link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
-    <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
+    <script type="text/javascript" src="/bussiness/Scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/bussiness/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script type="text/javascript" src="/uploadify/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="/bussiness/Scripts/tip.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
+    <script type="text/javascript" src="/bussiness/Scripts/ChurAlert.min.js?skin=blue"></script>
+    <script type="text/javascript" src="/bussiness/Scripts/chur-alert.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
     <script src="/js/json2.js" type="text/javascript"></script>
-    <script src="/js/global.js" type="text/javascript"></script>
+    <script src="/js/global.js" type="text/javascript"></script> 
+     <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             var filename = "";
@@ -34,10 +40,11 @@
                 }
             });
         })
+
     </script>
 </head>
 <body>
-    <form action="/bussiness/template/projectadd.aspx" method="post">
+    <form action="/bussiness/template/projectadd.aspx" method="post" class="valifrom">
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>维护界面<b class="tip"></b>案卷登记</div>
     <table class="table table-striped table-bordered table-condensed list">
@@ -68,7 +75,7 @@
                     所属区域<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_area">
+                    <select name="txt_area" datatype="*" nullmsg="请选择区域！">
                         <%foreach (var v in Arealist())
                           { %>
                         <option value="<%=v.Areacode %>">
@@ -81,7 +88,7 @@
                     所属街道<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_street">
+                    <select name="txt_street" datatype="*" nullmsg="请选择街道！">
                         <%foreach (var v in Streettlist())
                           { %>
                         <option value="<%=v.Streetcode %>">
@@ -96,7 +103,7 @@
                     所属社区<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_commnuity">
+                    <select name="txt_commnuity" datatype="*" nullmsg="请选择社区！">
                         <%foreach (var v in Communitylist())
                           {
                               if (!string.IsNullOrEmpty(v.Commname))
@@ -105,15 +112,15 @@
                             <%=v.Commname %>
                         </option>
                         <%}
-                       }%>
+                          }%>
                     </select>
                 </td>
                 <td>
                     大类<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_bigclass">
-                        <option value="0">全部 </option>
+                    <select name="txt_bigclass" datatype="*" nullmsg="请选择大类！">
+                        <option value="">全部 </option>
                         <%foreach (var v in GetProjectClass())
                           { %>
                         <option value="<%=v.Id %>">
@@ -137,7 +144,7 @@
                     小类<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_smallclass">
+                    <select name="txt_smallclass" datatype="*" nullmsg="请选择小类！">
                     </select>
                 </td>
             </tr>
@@ -146,7 +153,7 @@
                     事发位置
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_address" style="width: 95%" rows="2" cols="5"></textarea>
+                    <textarea name="txt_address" style="width: 95%" rows="2" cols="5" datatype="*" nullmsg="请填写事发位置！"></textarea>
                 </td>
             </tr>
             <tr>
@@ -154,7 +161,7 @@
                     情况描述
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_describ" style="width: 95%" rows="4" cols="5"></textarea>
+                    <textarea name="txt_describ" style="width: 95%" rows="4" cols="5" datatype="*" nullmsg="请填写情况描述！"></textarea>
                 </td>
             </tr>
             <tr>
@@ -162,7 +169,7 @@
                     上传图片
                 </td>
                 <td width="500" colspan="3" height="">
-                <input type="hidden" name="fileimgs" id="fileimgs" />
+                    <input type="hidden" name="fileimgs" id="fileimgs" />
                     <input type="file" name="file_upload" id="file_upload" />
                     <button type="button" onclick="$('#file_upload').uploadify('upload','*')" class="btn btn-primary">
                         上传</button>
@@ -174,7 +181,7 @@
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-primary" id="find" type="submit" value="保存" />
+                    <input class="btn btn-primary" id="saveproject" type="submit" value="保存" />
                     <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>

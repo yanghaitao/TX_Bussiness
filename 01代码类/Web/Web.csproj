@@ -479,6 +479,7 @@
     <Content Include="js\kandtabs\style.css" />
     <Content Include="js\manhuaDate.1.0.js" />
     <Content Include="js\time.js" />
+    <Content Include="js\Validform_v5.3.2.js" />
     <Content Include="login.aspx" />
     <Content Include="main.aspx" />
     <Content Include="uploadify\jquery.uploadify.js" />

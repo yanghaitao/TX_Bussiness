@@ -4,18 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/admin-all.css" />
      <link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
-    <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
+    <script type="text/javascript" src="/bussiness/Scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="/bussiness/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script src="/js/json2.js" type="text/javascript"></script>
-    <script src="/js/global.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
-    <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
-    <link rel="stylesheet" type="text/css" href="../Styles/chur.css" />
+    <script type="text/javascript" src="/bussiness/Scripts/ChurAlert.min.js?skin=blue"></script>
+    <script type="text/javascript" src="/bussiness/Scripts/chur-alert.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
     <script type="text/javascript" src="/uploadify/jquery.uploadify.js"></script>
+    <script src="/js/global.js" type="text/javascript"></script> 
+    <script src="/js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             var filename = "";
@@ -35,11 +36,12 @@
                     $("#fileimgs").val(data);
                 }
             });
+
         })
     </script>
 </head>
 <body>
-    <form action="/bussiness/users/useredit.aspx" method="post" id="form1">
+    <form action="/bussiness/users/useredit.aspx" method="post" id="form1" class="valifrom">
     <div class="alert alert-info tit">
         当前位置<b class="tip"></b>维护界面<b class="tip"></b>用户编辑</div>
     <table class="table table-striped table-bordered table-condensed list">
@@ -51,34 +53,19 @@
             </tr>
         </thead>
         <tbody>
-         <tr>
-                <td width="15%">
-                    登录名<font color="FF0000">*</font>
-                    <input type="hidden" value="<%=model.Id %>" name="id"/>
-                </td>
-                <td width="500">
-                    <input name="txt_username" value="<%=model.Loginname %>" type="text" />
-                </td>
-                <td width="500">
-                    密码<font color="FF0000">*</font>
-                </td>
-                <td width="500">
-                    <input name="txt_password" value="<%=model.Password %>" type="text" />
-                </td>
-            </tr>
             <tr>
                 <td width="15%">
                     登录名<font color="FF0000">*</font>
-                    <input type="hidden" value="<%=model.Id %>" name="id"/>
+                    <input type="hidden" value="<%=model.Id %>" name="id" />
                 </td>
                 <td width="500">
-                    <input name="txt_username" value="<%=model.Loginname %>" type="text" />
+                    <input name="txt_username" value="<%=model.Loginname %>" type="text" datatype="*" nullmsg="请填写登录名！"/>
                 </td>
                 <td width="500">
                     密码<font color="FF0000">*</font>
                 </td>
                 <td width="500">
-                    <input name="txt_password" value="<%=model.Password %>" type="text" />
+                    <input name="txt_password" value="<%=model.Password %>" type="text" datatype="*" nullmsg="请填写密码！"/>
                 </td>
             </tr>
             <tr>
@@ -86,13 +73,13 @@
                     姓名<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <input name="txt_name" value="<%=model.Username %>" type="text" />
+                    <input name="txt_name" value="<%=model.Username %>" type="text" datatype="*" nullmsg="请填写姓名！"/>
                 </td>
                 <td>
                     手机<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <input name="txt_mobile" value="<%=model.Usermobile %>" type="text" />
+                    <input name="txt_mobile" value="<%=model.Usermobile %>" type="text" datatype="*,m" nullmsg="请填写正确的手机号码！"/>
                 </td>
             </tr>
             <tr>
@@ -100,13 +87,13 @@
                     固话<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <input name="txt_tel" value="<%=model.Usertel %>" type="text" />
+                    <input name="txt_tel" value="<%=model.Usertel %>" type="text" datatype="*" nullmsg="请填写电话号码！"/>
                 </td>
                 <td>
                     邮箱<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <input name="txt_email" value="<%=model.Useremail%>" type="text" />
+                    <input name="txt_email" value="<%=model.Useremail%>" type="text" datatype="e" nullmsg="请填写正确的邮箱！"/>
                 </td>
             </tr>
             <tr>
@@ -114,7 +101,7 @@
                     区域<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_area">
+                    <select name="txt_area" datatype="*" nullmsg="请选择区域！">
                         <%foreach (var v in Arealist())
                           {
                               if (!string.IsNullOrEmpty(v.Areaname))
@@ -130,8 +117,8 @@
                     街道<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_street">
-                        <option value="0">全部 </option>
+                    <select name="txt_street" datatype="*" nullmsg="请填选择街道！">
+                        <option value="">全部 </option>
                         <%foreach (var v in Streettlist())
                           {
                               if (v.Streetname != "")
@@ -149,8 +136,8 @@
                     社区<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_commnuity">
-                        <option value="0">全部 </option>
+                    <select name="txt_commnuity" datatype="*" nullmsg="请选择社区！">
+                        <option value="">全部 </option>
                         <%foreach (var v in Communitylist())
                           {
                               if (v.Commname != "")
@@ -166,7 +153,7 @@
                     部门<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_depart">
+                    <select name="txt_depart" datatype="*" nullmsg="请选择部门！">
                         <%foreach (var v in Departlist())
                           { %>
                         <option value="<%=v.Id %>" <%=v.Id==model.Departcode?"selected='selected'":"" %>">
@@ -181,7 +168,7 @@
                     用户类型<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_ismobile">
+                    <select name="txt_ismobile" datatype="*" nullmsg="请填选择用户部门！">
                        <option value="1" <%=model.Usertype==1?"selected='selected'":"" %>>普通用户 </option>
                         <option value="2" <%=model.Usertype==2?"selected='selected'":"" %>>城管通用户 </option>
                     </select>
@@ -190,7 +177,7 @@
                     所属角色<font color="FF0000">*</font>
                 </td>
                 <td>
-                   <select name="txt_rolecode">
+                   <select name="txt_rolecode" datatype="*" nullmsg="请选择用户所属角色！">
                         <%foreach (var v in GetRoleList())
                           {
                               if (!string.IsNullOrEmpty(v.Rolename))
@@ -215,7 +202,7 @@
                 </td>
                 <td rowspan="2">
                    照片
-                    <input type="hidden" name="fileimgs" id="fileimgs" />
+                    <input type="hidden" value="<%=model.Userphoto %>" name="fileimgs" id="fileimgs" />
                     <input type="file" name="file_upload" id="file_upload" />
                 </td>
                 <td rowspan="2">
@@ -226,7 +213,7 @@
         <tfoot>
             <tr>
                 <td colspan="4">
-                    <input class="btn btn-primary" onclick="return viladeExist('<%=model.Id %>','user');" id="find" type="button" value="保存" />
+                    <input class="btn btn-primary" onclick="return viladeExist(<%=model.Id %>,'user')" id="find" type="submit" value="保存" />
                     <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
                 </td>
             </tr>
