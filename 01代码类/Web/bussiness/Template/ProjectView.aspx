@@ -66,8 +66,8 @@
                 <td>
                     <%=v.Actionname %>
                 </td>
-                <td>
-                    <%= v.Opinion %>
+                <td title="<%= v.Opinion %>">
+                    <%=Bussiness.Common.Utility.CheckStringLength( v.Opinion,10) %>
                 </td>
                 <td>
                     <%= v.Acceptdate %>

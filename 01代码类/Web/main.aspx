@@ -26,7 +26,7 @@
        function CheckLimit(userid,sysname) {
            $.post("/tools/AjaxHandler.ashx", { act: "CheckLimit", userid: userid, system: sysname }, function (data) {
                if (data == "1") {
-                   window.parent.location.href = "/bussiness/index.aspx";
+                   window.parent.location.href = "/newpage/sbjb/index.aspx";
                } else {
                    $('body').alert({
                        type: "primary"
@@ -47,18 +47,7 @@
                         <div class="page1">
                             <div class="content">
                                 <div class="first_screen">
-                                    <div class="weather">
-                                        <div class="today">
-                                            <img src="images/icon_tianqi.png" width="70" height="60" />
-                                            <span>31~20°C</span>
-                                        </div>
-                                        <div class="city">
-                                            <a href="#">郑州</a></div>
-                                        <div class="clear">
-                                        </div>
-                                        <div class="refresh">
-                                            <span class="fleft">更新时间15:30</span><a href="#" class="fright">刷新</a></div>
-                                    </div>
+                                    
                                     <div class="time">
                                         <span id="h1"></span><span id="h2"></span><strong>:</strong> <span id="m1"></span>
                                         <span id="m2"></span><strong>:</strong> <span id="s1"></span><span id="s2"></span>

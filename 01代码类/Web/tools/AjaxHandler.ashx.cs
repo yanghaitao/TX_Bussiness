@@ -12,13 +12,14 @@ using System.Web.Script.Serialization;
 using Bussiness.Common;
 using System.IO;
 using System.Configuration;
+using System.Web.SessionState;
 
 namespace TX_Bussiness.Web.tools
 {
     /// <summary>
     /// AjaxHandler 的摘要说明
     /// </summary>
-    public class AjaxHandler : IHttpHandler
+    public class AjaxHandler : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -53,6 +54,9 @@ namespace TX_Bussiness.Web.tools
                 case "GetCommunityList"://获取社区列表
                     context.Response.Write(GetCommunityList(dict["streetcode"]));
                     break;
+                case "GetBaseClass":
+                    context.Response.Write(GetBaseClass(dict["baseclasscode"]));//获取大类列表
+                    break;
                 case "GetSmallClass"://获取小类列表
                     context.Response.Write(GetSmallClass(dict["bigclasscode"]));
                     break;
@@ -63,10 +67,10 @@ namespace TX_Bussiness.Web.tools
                     context.Response.Write(DeleModel(dict["model"], dict["id"]));
                     break;
                 case "UserIsExist"://判断用户名是否已存在
-                    context.Response.Write(UserIsExist(dict["name"]));
+                    context.Response.Write(UserIsExist(dict["name"],dict["id"]));
                     break;
                 case "DepartIsExist"://判断部门名是否已存在
-                    context.Response.Write(DepartIsExist(dict["name"]));
+                    context.Response.Write(DepartIsExist(dict["name"], dict["id"]));
                     break;
                 case "ChangePassword"://修改用户密码
                     context.Response.Write(ChangePassword(dict["uid"], dict["oldpwd"], dict["newpwd"]));
@@ -80,7 +84,62 @@ namespace TX_Bussiness.Web.tools
                 case "UploadPhoto":
                     context.Response.Write(UploadPhoto(context));//用户照片上传
                     break;
+                case "LoginIn":
+                    context.Response.Write(LoginIn(dict["username"],dict["password"]));//用户登录
+                    break;
+               
             }
+        }
+
+        private string LoginIn(string username, string password)
+        {
+            try
+            {
+                SqlQuery query = new Select().From(Yannis.DAO.User.Schema).Where(Yannis.DAO.User.LoginnameColumn).IsEqualTo(username)
+                        .And(Yannis.DAO.User.PasswordColumn).IsEqualTo(password);
+                Yannis.DAO.User model = query.ExecuteSingle<Yannis.DAO.User>();
+                if (model != null)
+                {
+                    HttpContext.Current.Session[Comm.Constant.SESSION_USER_INFO] = model;
+                    HttpContext.Current.Session.Timeout = 45;
+
+                    Utility.WriteCookie(Comm.Constant.COOKIE_USER_NAME_REMEMBER, "TX_SZCG", model.Loginname, 43200);
+                    Utility.WriteCookie(Comm.Constant.COOKIE_USER_PWD_REMEMBER, "TX_SZCG", model.Password, 43200);
+                    new SysLog()
+                    {
+                        Actionname = "登陆系统",
+                        CuDate = DateTime.Now,
+                        Ip = Utility.GetIP(),
+                        Loginname = model.Loginname,
+                        Userid = model.Id
+                    }.Save();
+                    return "1";
+                }
+                else
+                {
+                    return "用户名或密码不正确";
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+            //throw new NotImplementedException();
+        }
+
+        private string GetBaseClass(string baseclassid)
+        {
+            SqlQuery query = new Select().From(Projectclass.Schema);
+            query.Where("1=1");
+            if (baseclassid != "0")
+            {
+                query.And(Projectclass.ParentidColumn).IsEqualTo(baseclassid);
+                List<Projectclass> list = query.ExecuteTypedList<Projectclass>();
+                if (list != null && list.Count > 0)
+                    return new JavaScriptSerializer().Serialize(list);
+            }
+            return string.Empty;
+            //throw new NotImplementedException();
         }
 
         private string UploadPhoto(HttpContext context)
@@ -150,10 +209,12 @@ namespace TX_Bussiness.Web.tools
             // throw new NotImplementedException();
         }
 
-        private string DepartIsExist(string departname)
+        private string DepartIsExist(string departname,string departid)
         {
             SqlQuery query = new Select().From(Yannis.DAO.Depart.Schema);
             query.Where("1=1");
+            if (!string.IsNullOrEmpty(departid) && departid != "0")
+                query.And(Depart.IdColumn).IsNotEqualTo(departid);
             query.And(Yannis.DAO.Depart.DepartnameColumn).IsEqualTo(departname);
             query.And(Yannis.DAO.Depart.IsdelColumn).IsNotEqualTo(true);
             Yannis.DAO.Depart model = query.ExecuteSingle<Yannis.DAO.Depart>();
@@ -163,10 +224,12 @@ namespace TX_Bussiness.Web.tools
             //throw new NotImplementedException();
         }
 
-        private string UserIsExist(string loginname)
+        private string UserIsExist(string loginname,string userid)
         {
             SqlQuery query = new Select().From(Yannis.DAO.User.Schema);
             query.Where("1=1");
+            if (!string.IsNullOrEmpty(userid)&&userid!="0")
+                query.And(Yannis.DAO.User.IdColumn).IsNotEqualTo(userid);
             query.And(Yannis.DAO.User.LoginnameColumn).IsEqualTo(loginname);
             query.And(Yannis.DAO.User.IsdelColumn).IsNotEqualTo(true);
             Yannis.DAO.User model = query.ExecuteSingle<Yannis.DAO.User>();
@@ -183,7 +246,7 @@ namespace TX_Bussiness.Web.tools
                 Yannis.DAO.User user = User.FetchByID(id);
                 user.Isdel = true;
                 user.Save();
-                //WriteLog("删除用户 用户id:"+user.Id+" 登录名："+user.Loginname);
+                WriteLog("删除用户 用户id:"+user.Id+" 登录名："+user.Loginname);
                 return "1";
             }
             if (tablename == "depart")
@@ -191,7 +254,7 @@ namespace TX_Bussiness.Web.tools
                 Depart depart = Depart.FetchByID(id);
                 depart.Isdel = true;
                 depart.Save();
-                //WriteLog("删除部门 部门id:" + depart.Id + " 登录名：" + depart.Departname);
+                WriteLog("删除部门 部门id:" + depart.Id + " 登录名：" + depart.Departname);
                 return "1";
             }
             if (tablename == "projectclass")
@@ -199,7 +262,7 @@ namespace TX_Bussiness.Web.tools
                 Projectclass pclass = Projectclass.FetchByID(id);
                 pclass.Isdel = true;
                 pclass.Save();
-                // WriteLog("删除分类 分类id:" + pclass.Id + " 类别名称：" + pclass.Classname);
+                 WriteLog("删除分类 分类id:" + pclass.Id + " 类别名称：" + pclass.Classname);
                 return "1";
             }
             return "0";

@@ -100,6 +100,14 @@ namespace TX_Bussiness.Web.Comm
             return new Select().From(Projectclass.Schema).Where(Projectclass.ClasstypeColumn).IsEqualTo(1).ExecuteTypedList<Projectclass>();
         }
         /// <summary>
+        /// 获取顶级分类
+        /// </summary>
+        /// <returns></returns>
+        public List<Projectclass> GetBaseClass()
+        {
+            return new Select().From(Projectclass.Schema).Where(Projectclass.ClasstypeColumn).IsEqualTo(0).And(Projectclass.ParentidColumn).IsEqualTo(0).ExecuteTypedList<Projectclass>();
+        }
+        /// <summary>
         /// 判断用户是否有权限
         /// </summary>
         /// <param name="limitid">用户权限id</param>

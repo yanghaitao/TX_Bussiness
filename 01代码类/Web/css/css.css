@@ -1,0 +1,20 @@
+*{margin:0 auto; padding:0;}
+html{ font:12px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:none;}
+ol,ul,li{ list-style:none;}
+a:link, a:visited {text-decoration:none;}
+img{ border:0;}
+a{color:#FFF;text-decoration:none; }
+a:hover{color:#e0c0a0;}
+
+
+.main{width:1003px; height:600px; }
+.top{ background:url(../images/top.png) no-repeat; width:1003px; height:430px; margin:0 auto;}
+.top_ziti{height:14px; float:left; padding:15px 0 0 380px; font-size:12px; font-family:"宋体"; letter-spacing:1px; color:#FFF; width:230px; text-align:center; }
+
+.zj{ background:url(../images/main.png) no-repeat; width:1003px; height:177px; }
+.input{ float:left; margin:20px 0 0 396px;}
+.input li{  width:215px; height:20px; padding-top:10px;}
+.btn_dr{ width:100px; height:26px; float:left; padding:14px 0 0 460px;}
+.btn_dr a{ background:url(../images/btn_dr.png) no-repeat; width:100px; height:26px;display:block; }
+.wb{ background:url(../images/wb.png) no-repeat;width:1003px; height:33px; }
+.ziti{ width:233px; height:13px; float:left; padding:10px 0 0 395px; font-size:12px; font-family:"宋体";letter-spacing:1px;   color:#FFF;}

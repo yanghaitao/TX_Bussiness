@@ -140,12 +140,27 @@ $(function () {
         }
     })
 
+    $("select[name='txt_baseclass']").change(function () {
+        var value = $(this).val();
+        $.post("/tools/AjaxHandler.ashx", { act: "GetBaseClass", baseclasscode: value }, function (data) {
+            if (data != "" && data.length > 0) {
+                var jsondata = JSON.parse(data);
+                var options = "<option value=''>全部</option>";
+                $.each(jsondata, function (i, item) {
+                    options += "<option value='" + item.Id + "'>" + item.Classname + "</option>";
+                })
+                $("select[name='txt_bigclass']").html(options);
+            } else
+            { $("select[name='txt_bigclass']").html(""); }
+        })
+    })
+
     $("select[name='txt_bigclass']").change(function () {
         var value = $(this).val();
         $.post("/tools/AjaxHandler.ashx", { act: "GetSmallClass", bigclasscode: value }, function (data) {
             if (data != "" && data.length > 0) {
                 var jsondata = JSON.parse(data);
-                var options = "";
+                var options = "<option value=''>全部</option>";
                 $.each(jsondata, function (i, item) {
                     options += "<option value='" + item.Id + "'>" + item.Classname + "</option>";
                 })
@@ -173,20 +188,6 @@ $(function () {
             $("select[name='txt_bigclass']").html("<option value=''>无</option>");
         }
     });
-
-    $(".valifrom").Validform({
-        tiptype: function (msg, o, cssctl) {
-            //msg：提示信息;
-            //o:{obj:*,type:*,curform:*}, obj指向的是当前验证的表单元素（或表单对象），type指示提示的状态，值为1、2、3、4， 1：正在检测/提交数据，2：通过验证，3：验证失败，4：提示ignore状态, curform为当前form对象;
-            //cssctl:内置的提示信息样式控制函数，该函数需传入两个参数：显示提示信息的对象 和 当前提示的状态（既形参o中的type）;
-            if (o.type == "3") {//验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
-                $('body').alert({
-                    type: "出错提示",
-                    content: msg
-                })
-            }
-        }
-    });
 })
 function Refstate() {
     window.location.reload();
@@ -211,34 +212,34 @@ function delemodel(id, table) {
 }
 
 function viladeExist(obj, tablename) {
+    var _this = $(this);
     var action = "";
     var val = "";
     var errormsg = "";
     if (tablename == "depart") {
         action = "DepartIsExist";
-        val = $("input[name='txt_departname']").val();
+        val = $("input[name='txt_departname']");
         errormsg = "该部门已存在！"
     }
     if (tablename == "user") {
         action = "UserIsExist";
-        val = $("input[name='txt_username']").val();
+        val = $("input[name='txt_username']");
         errormsg = "该用户名已存在！";
     }
-    if (obj == "0") {
-        $.post("/tools/AjaxHandler.ashx", { act: action, name: val }, function (data) {
-            if (data == "1") {
-                $("body").alert({
-                    type: "warning",
-                    content: errormsg
-                });
-                return false;
-            } else {
-                $("#form1").submit();
-            }
-        })
-    } else {
-        $("#form1").submit();
-    }
+
+    $.post("/tools/AjaxHandler.ashx", { act: action, name: val.val(), id: obj }, function (data) {
+        if (data == "1") {
+            $("body").alert({
+                type: "warning",
+                content: errormsg
+            });
+            val.val("");
+            return false;
+        } else {
+            $("#form1").submit();
+        }
+    })
+
 }
 
 function NoLimit() {

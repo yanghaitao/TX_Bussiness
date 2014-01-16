@@ -27,6 +27,7 @@ namespace TX_Bussiness.Web.bussiness.Template
             txt_enddate = Utility.GetParameter("txt_enddate");
             SqlQuery query = new Select().From(Yannis.DAO.User.Schema);
             query.Where("1=1");
+            query.And(Yannis.DAO.User.IsdelColumn).IsNotEqualTo(true);
             ///中队长只能查看自己部门下面的人员工作量
             if(CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
             {

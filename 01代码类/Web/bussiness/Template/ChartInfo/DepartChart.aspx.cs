@@ -32,6 +32,7 @@ namespace TX_Bussiness.Web.bussiness.Template.ChartInfo
             #region [ 图表类型 ]
             txt_charttype = Utility.GetParameter("txt_charttype");
             txt_chartstyle = Utility.GetParameter("txt_chartstyle");
+            chartpath = GetAppSeeting("ChartFilePath") + "Line.swf";//默认图标类型
             if (txt_charttype == "1")
             {
                 if (txt_chartstyle == "1")
@@ -60,6 +61,7 @@ namespace TX_Bussiness.Web.bussiness.Template.ChartInfo
             #region [ 获取图表所需部门数据 ]
             SqlQuery query = new Select().From(Depart.Schema);
             query.Where("1=1");
+            query.And(Depart.IsdelColumn).IsNotEqualTo(true);
             ///中队长只能查看自己部门的统计数据
             if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
             {

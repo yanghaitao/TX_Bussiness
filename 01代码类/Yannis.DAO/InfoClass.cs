@@ -217,6 +217,32 @@ namespace Yannis.DAO
 				colvarAdddate.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarAdddate);
 				
+				TableSchema.TableColumn colvarBaseclasscode = new TableSchema.TableColumn(schema);
+				colvarBaseclasscode.ColumnName = "baseclasscode";
+				colvarBaseclasscode.DataType = DbType.String;
+				colvarBaseclasscode.MaxLength = 50;
+				colvarBaseclasscode.AutoIncrement = false;
+				colvarBaseclasscode.IsNullable = true;
+				colvarBaseclasscode.IsPrimaryKey = false;
+				colvarBaseclasscode.IsForeignKey = false;
+				colvarBaseclasscode.IsReadOnly = false;
+				colvarBaseclasscode.DefaultSetting = @"";
+				colvarBaseclasscode.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBaseclasscode);
+				
+				TableSchema.TableColumn colvarBaseclassname = new TableSchema.TableColumn(schema);
+				colvarBaseclassname.ColumnName = "baseclassname";
+				colvarBaseclassname.DataType = DbType.String;
+				colvarBaseclassname.MaxLength = 50;
+				colvarBaseclassname.AutoIncrement = false;
+				colvarBaseclassname.IsNullable = true;
+				colvarBaseclassname.IsPrimaryKey = false;
+				colvarBaseclassname.IsForeignKey = false;
+				colvarBaseclassname.IsReadOnly = false;
+				colvarBaseclassname.DefaultSetting = @"";
+				colvarBaseclassname.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBaseclassname);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -282,6 +308,22 @@ namespace Yannis.DAO
 			get { return GetColumnValue<DateTime?>(Columns.Adddate); }
 			set { SetColumnValue(Columns.Adddate, value); }
 		}
+		  
+		[XmlAttribute("Baseclasscode")]
+		[Bindable(true)]
+		public string Baseclasscode 
+		{
+			get { return GetColumnValue<string>(Columns.Baseclasscode); }
+			set { SetColumnValue(Columns.Baseclasscode, value); }
+		}
+		  
+		[XmlAttribute("Baseclassname")]
+		[Bindable(true)]
+		public string Baseclassname 
+		{
+			get { return GetColumnValue<string>(Columns.Baseclassname); }
+			set { SetColumnValue(Columns.Baseclassname, value); }
+		}
 		
 		#endregion
 		
@@ -302,7 +344,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varProjectcode,string varBigclasscode,string varBigclassname,string varSmallclasscode,string varSmallclassanme,DateTime? varAdddate)
+		public static void Insert(string varProjectcode,string varBigclasscode,string varBigclassname,string varSmallclasscode,string varSmallclassanme,DateTime? varAdddate,string varBaseclasscode,string varBaseclassname)
 		{
 			InfoClass item = new InfoClass();
 			
@@ -318,6 +360,10 @@ namespace Yannis.DAO
 			
 			item.Adddate = varAdddate;
 			
+			item.Baseclasscode = varBaseclasscode;
+			
+			item.Baseclassname = varBaseclassname;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -328,7 +374,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varProjectcode,string varBigclasscode,string varBigclassname,string varSmallclasscode,string varSmallclassanme,DateTime? varAdddate)
+		public static void Update(int varId,string varProjectcode,string varBigclasscode,string varBigclassname,string varSmallclasscode,string varSmallclassanme,DateTime? varAdddate,string varBaseclasscode,string varBaseclassname)
 		{
 			InfoClass item = new InfoClass();
 			
@@ -345,6 +391,10 @@ namespace Yannis.DAO
 				item.Smallclassanme = varSmallclassanme;
 			
 				item.Adddate = varAdddate;
+			
+				item.Baseclasscode = varBaseclasscode;
+			
+				item.Baseclassname = varBaseclassname;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -408,6 +458,20 @@ namespace Yannis.DAO
         
         
         
+        public static TableSchema.TableColumn BaseclasscodeColumn
+        {
+            get { return Schema.Columns[7]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn BaseclassnameColumn
+        {
+            get { return Schema.Columns[8]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -419,6 +483,8 @@ namespace Yannis.DAO
 			 public static string Smallclasscode = @"smallclasscode";
 			 public static string Smallclassanme = @"smallclassanme";
 			 public static string Adddate = @"adddate";
+			 public static string Baseclasscode = @"baseclasscode";
+			 public static string Baseclassname = @"baseclassname";
 						
 		}
 		#endregion

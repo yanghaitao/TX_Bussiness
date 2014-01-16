@@ -516,6 +516,32 @@ namespace Yannis.DAO
 				colvarAddress.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarAddress);
 				
+				TableSchema.TableColumn colvarBaseclassid = new TableSchema.TableColumn(schema);
+				colvarBaseclassid.ColumnName = "baseclassid";
+				colvarBaseclassid.DataType = DbType.Int32;
+				colvarBaseclassid.MaxLength = 0;
+				colvarBaseclassid.AutoIncrement = false;
+				colvarBaseclassid.IsNullable = true;
+				colvarBaseclassid.IsPrimaryKey = false;
+				colvarBaseclassid.IsForeignKey = false;
+				colvarBaseclassid.IsReadOnly = false;
+				colvarBaseclassid.DefaultSetting = @"";
+				colvarBaseclassid.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBaseclassid);
+				
+				TableSchema.TableColumn colvarBaseclassname = new TableSchema.TableColumn(schema);
+				colvarBaseclassname.ColumnName = "baseclassname";
+				colvarBaseclassname.DataType = DbType.String;
+				colvarBaseclassname.MaxLength = 50;
+				colvarBaseclassname.AutoIncrement = false;
+				colvarBaseclassname.IsNullable = true;
+				colvarBaseclassname.IsPrimaryKey = false;
+				colvarBaseclassname.IsForeignKey = false;
+				colvarBaseclassname.IsReadOnly = false;
+				colvarBaseclassname.DefaultSetting = @"";
+				colvarBaseclassname.ForeignKeyTableName = "";
+				schema.Columns.Add(colvarBaseclassname);
+				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -765,6 +791,22 @@ namespace Yannis.DAO
 			get { return GetColumnValue<string>(Columns.Address); }
 			set { SetColumnValue(Columns.Address, value); }
 		}
+		  
+		[XmlAttribute("Baseclassid")]
+		[Bindable(true)]
+		public int? Baseclassid 
+		{
+			get { return GetColumnValue<int?>(Columns.Baseclassid); }
+			set { SetColumnValue(Columns.Baseclassid, value); }
+		}
+		  
+		[XmlAttribute("Baseclassname")]
+		[Bindable(true)]
+		public string Baseclassname 
+		{
+			get { return GetColumnValue<string>(Columns.Baseclassname); }
+			set { SetColumnValue(Columns.Baseclassname, value); }
+		}
 		
 		#endregion
 		
@@ -785,7 +827,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varAreacode,string varStreetcode,string varCommunitycode,int? varProjectType,string varProjectImgurl,int? varNodeid,int? varDispatcherid,string varDispatchername,int? varHandlerid,int? varProjectstate,string varDescribe,int? varBigclassid,int? varSmallclassid,string varBigclassname,string varSmallclassname,string varHandlername,DateTime? varAdddate,string varLoacation,DateTime? varStartdate,string varProjectname,string varDetails,string varDepartcode,int? varReportpersonid,string varReportpersonname,string varLeadmessage,string varMessage,string varHandlermessge,bool? varIsdel,string varAddress)
+		public static void Insert(string varAreacode,string varStreetcode,string varCommunitycode,int? varProjectType,string varProjectImgurl,int? varNodeid,int? varDispatcherid,string varDispatchername,int? varHandlerid,int? varProjectstate,string varDescribe,int? varBigclassid,int? varSmallclassid,string varBigclassname,string varSmallclassname,string varHandlername,DateTime? varAdddate,string varLoacation,DateTime? varStartdate,string varProjectname,string varDetails,string varDepartcode,int? varReportpersonid,string varReportpersonname,string varLeadmessage,string varMessage,string varHandlermessge,bool? varIsdel,string varAddress,int? varBaseclassid,string varBaseclassname)
 		{
 			Project item = new Project();
 			
@@ -847,6 +889,10 @@ namespace Yannis.DAO
 			
 			item.Address = varAddress;
 			
+			item.Baseclassid = varBaseclassid;
+			
+			item.Baseclassname = varBaseclassname;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -857,7 +903,7 @@ namespace Yannis.DAO
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varProjcode,string varAreacode,string varStreetcode,string varCommunitycode,int? varProjectType,string varProjectImgurl,int? varNodeid,int? varDispatcherid,string varDispatchername,int? varHandlerid,int? varProjectstate,string varDescribe,int? varBigclassid,int? varSmallclassid,string varBigclassname,string varSmallclassname,string varHandlername,DateTime? varAdddate,string varLoacation,DateTime? varStartdate,string varProjectname,string varDetails,string varDepartcode,int? varReportpersonid,string varReportpersonname,string varLeadmessage,string varMessage,string varHandlermessge,bool? varIsdel,string varAddress)
+		public static void Update(int varProjcode,string varAreacode,string varStreetcode,string varCommunitycode,int? varProjectType,string varProjectImgurl,int? varNodeid,int? varDispatcherid,string varDispatchername,int? varHandlerid,int? varProjectstate,string varDescribe,int? varBigclassid,int? varSmallclassid,string varBigclassname,string varSmallclassname,string varHandlername,DateTime? varAdddate,string varLoacation,DateTime? varStartdate,string varProjectname,string varDetails,string varDepartcode,int? varReportpersonid,string varReportpersonname,string varLeadmessage,string varMessage,string varHandlermessge,bool? varIsdel,string varAddress,int? varBaseclassid,string varBaseclassname)
 		{
 			Project item = new Project();
 			
@@ -920,6 +966,10 @@ namespace Yannis.DAO
 				item.Isdel = varIsdel;
 			
 				item.Address = varAddress;
+			
+				item.Baseclassid = varBaseclassid;
+			
+				item.Baseclassname = varBaseclassname;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1144,6 +1194,20 @@ namespace Yannis.DAO
         
         
         
+        public static TableSchema.TableColumn BaseclassidColumn
+        {
+            get { return Schema.Columns[30]; }
+        }
+        
+        
+        
+        public static TableSchema.TableColumn BaseclassnameColumn
+        {
+            get { return Schema.Columns[31]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1178,6 +1242,8 @@ namespace Yannis.DAO
 			 public static string Handlermessge = @"handlermessge";
 			 public static string Isdel = @"isdel";
 			 public static string Address = @"address";
+			 public static string Baseclassid = @"baseclassid";
+			 public static string Baseclassname = @"baseclassname";
 						
 		}
 		#endregion

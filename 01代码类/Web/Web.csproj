@@ -71,6 +71,7 @@
     <Content Include="bussiness\depart\departedit.aspx" />
     <Content Include="bussiness\depart\departlist.aspx" />
     <Content Include="bussiness\HtmlPage.html" />
+    <Content Include="bussiness\img\1.jpg" />
     <Content Include="bussiness\img\bj.png" />
     <Content Include="bussiness\img\chur\0.png" />
     <Content Include="bussiness\img\chur\1.png" />
@@ -101,6 +102,7 @@
     <Content Include="bussiness\index.aspx" />
     <Content Include="bussiness\Index.html" />
     <Content Include="bussiness\Login.html" />
+    <Content Include="bussiness\loginfo\operation.aspx" />
     <Content Include="bussiness\p_class\classedit.aspx" />
     <Content Include="bussiness\p_class\classlist.aspx" />
     <Content Include="bussiness\role\roleedit.aspx" />
@@ -259,11 +261,13 @@
     <Content Include="bussiness\Template\Maintain-add.html" />
     <Content Include="bussiness\Template\Maintain-del.html" />
     <Content Include="bussiness\Template\Maintain-edit.html" />
+    <Content Include="bussiness\Template\Person_Detail.aspx" />
     <Content Include="bussiness\Template\ProjectAdd.aspx" />
     <Content Include="bussiness\Template\projectdetail.aspx" />
     <Content Include="bussiness\Template\ProjectEdit.aspx" />
     <Content Include="bussiness\Template\projectlist.aspx" />
     <Content Include="bussiness\Template\ProjectView.aspx" />
+    <Content Include="bussiness\Template\rydw.aspx" />
     <Content Include="bussiness\Template\UserInfo.aspx" />
     <Content Include="bussiness\users\UserEdit.aspx" />
     <Content Include="bussiness\users\UserList.aspx" />
@@ -278,7 +282,10 @@
     <Content Include="Charts\FusionChartsExportComponent.js" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap.css" />
+    <Content Include="css\css.css" />
     <Content Include="css\dateIco.png" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\fonts\flexslider-icon.svg" />
     <Content Include="css\global.css" />
     <Content Include="css\index.css" />
     <Content Include="css\interface.css" />
@@ -467,6 +474,7 @@
     <Content Include="js\jquery-ui\layout\jquery.layout-latest.js" />
     <Content Include="js\jquery-ui\layout\jquery.layout-latest.min.js" />
     <Content Include="js\jquery.easyui.min.js" />
+    <Content Include="js\jquery.flexslider.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\json2.js" />
     <Content Include="js\kandtabs\00.png" />
@@ -481,7 +489,251 @@
     <Content Include="js\time.js" />
     <Content Include="js\Validform_v5.3.2.js" />
     <Content Include="login.aspx" />
+    <Content Include="login1\base.aspx" />
+    <Content Include="login1\css\ajlc.css" />
+    <Content Include="login1\css\basic.css" />
+    <Content Include="login1\css\chaxunbox.css" />
+    <Content Include="login1\css\css.css" />
+    <Content Include="login1\css\enter.css" />
+    <Content Include="login1\css\enter02.css" />
+    <Content Include="login1\css\in-tray.css" />
+    <Content Include="login1\images\basic_biaoti.gif" />
+    <Content Include="login1\images\basic_biaoti.png" />
+    <Content Include="login1\images\basic_bj.jpg" />
+    <Content Include="login1\images\basic_btn_kz_bj.png" />
+    <Content Include="login1\images\basic_wb.gif" />
+    <Content Include="login1\images\bj_tiaowen.jpg" />
+    <Content Include="login1\images\bj_tiaowen_02.jpg" />
+    <Content Include="login1\images\btn01.gif" />
+    <Content Include="login1\images\btn01_02.gif" />
+    <Content Include="login1\images\btn02.gif" />
+    <Content Include="login1\images\btn02_02.gif" />
+    <Content Include="login1\images\btn03.gif" />
+    <Content Include="login1\images\btn03_02.gif" />
+    <Content Include="login1\images\btn04.gif" />
+    <Content Include="login1\images\btn04_02.gif" />
+    <Content Include="login1\images\btn05.gif" />
+    <Content Include="login1\images\btn05_02.gif" />
+    <Content Include="login1\images\btn06.gif" />
+    <Content Include="login1\images\btn06_02.gif" />
+    <Content Include="login1\images\btn07.gif" />
+    <Content Include="login1\images\btn07_02.gif" />
+    <Content Include="login1\images\btn08.gif" />
+    <Content Include="login1\images\btn08_02.gif" />
+    <Content Include="login1\images\btn09.gif" />
+    <Content Include="login1\images\btn09_02.gif" />
+    <Content Include="login1\images\btn10.gif" />
+    <Content Include="login1\images\btn10_02.gif" />
+    <Content Include="login1\images\btn_dr.png" />
+    <Content Include="login1\images\btn_enter01.jpg" />
+    <Content Include="login1\images\btn_enter02.jpg" />
+    <Content Include="login1\images\dr_bj.jpg" />
+    <Content Include="login1\images\dr_bj_02.jpg" />
+    <Content Include="login1\images\jc_pic01.jpg" />
+    <Content Include="login1\images\jc_pic02.jpg" />
+    <Content Include="login1\images\jc_pic03.jpg" />
+    <Content Include="login1\images\jc_pic04.jpg" />
+    <Content Include="login1\images\jc_pic05.jpg" />
+    <Content Include="login1\images\jc_pic06.jpg" />
+    <Content Include="login1\images\jc_pic07.jpg" />
+    <Content Include="login1\images\kz_main_bj.jpg" />
+    <Content Include="login1\images\kz_pic01.jpg" />
+    <Content Include="login1\images\kz_pic02.jpg" />
+    <Content Include="login1\images\kz_pic03.jpg" />
+    <Content Include="login1\images\kz_pic04.jpg" />
+    <Content Include="login1\images\kz_pic05.jpg" />
+    <Content Include="login1\images\kz_pic06.jpg" />
+    <Content Include="login1\images\kz_pic07.jpg" />
+    <Content Include="login1\images\kz_pic08.jpg" />
+    <Content Include="login1\images\kz_pic09.jpg" />
+    <Content Include="login1\images\kz_pic10.jpg" />
+    <Content Include="login1\images\kz_pic11.jpg" />
+    <Content Include="login1\images\kz_pic12.jpg" />
+    <Content Include="login1\images\kz_pic13.jpg" />
+    <Content Include="login1\images\kz_pic14.jpg" />
+    <Content Include="login1\images\kz_pic15.jpg" />
+    <Content Include="login1\images\main.png" />
+    <Content Include="login1\images\main_bj.jpg" />
+    <Content Include="login1\images\main_bj_02.jpg" />
+    <Content Include="login1\images\title.jpg" />
+    <Content Include="login1\images\title_02.jpg" />
+    <Content Include="login1\images\top.png" />
+    <Content Include="login1\images\wb.png" />
+    <Content Include="login1\images\登录1200-768_02.jpg" />
+    <Content Include="login1\images\登录1200-768_04.jpg" />
+    <Content Include="login1\images\登录1200-768_05.jpg" />
+    <Content Include="login1\login.aspx" />
+    <Content Include="login2\aiwrap.png" />
+    <Content Include="login2\bg.jpg" />
+    <Content Include="login2\demo.js" />
+    <Content Include="login2\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="login2\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_15_f7f3de_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="login2\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="login2\images\ui-icons_222222_256x240.png" />
+    <Content Include="login2\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="login2\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="login2\images\ui-icons_b83400_256x240.png" />
+    <Content Include="login2\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="login2\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="login2\jquery-1.6.2.min.js" />
+    <Content Include="login2\jquery-ui-1.8.16.custom.css" />
+    <Content Include="login2\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="login2\jquery.js" />
+    <Content Include="login2\jquery.keyboard.extension-typing.js" />
+    <Content Include="login2\jquery.keyboard.js" />
+    <Content Include="login2\key.png" />
+    <Content Include="login2\keyboard.css" />
+    <Content Include="login2\keyboard.png" />
+    <Content Include="login2\loading.gif" />
+    <Content Include="login2\login.aspx" />
+    <Content Include="login2\login.html" />
+    <Content Include="login2\logo.png" />
+    <Content Include="login2\logo1.png" />
+    <Content Include="login2\nbcu.jpg" />
+    <Content Include="login2\styles.css" />
     <Content Include="main.aspx" />
+    <Content Include="newPage\Chart\FusionCharts\Data.xml" />
+    <Content Include="newPage\Chart\FusionCharts\Data2.xml" />
+    <Content Include="newPage\Chart\FusionCharts\Data3.xml" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_Area2D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_Column2D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_Column3D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_Line.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_MSColumn3D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_MSColumn3DLineDY.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_Pie3D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FCF_StackedColumn3D.swf" />
+    <Content Include="newPage\Chart\FusionCharts\FusionCharts.js" />
+    <Content Include="newPage\Chart\FusionCharts\Pie3D.swf" />
+    <Content Include="newPage\images\15dahmwucr9z.jpg" />
+    <Content Include="newPage\images\a_bg.png" />
+    <Content Include="newPage\images\kkdohne0mzgb.jpg" />
+    <Content Include="newPage\images\lcttz.jpg" />
+    <Content Include="newPage\images\lct\jgcbtz.jpg" />
+    <Content Include="newPage\images\lct\jgcbzq.jpg" />
+    <Content Include="newPage\images\lct\jgjstz.jpg" />
+    <Content Include="newPage\images\lct\jgjszq.jpg" />
+    <Content Include="newPage\images\oi3ohkuxe2p4.jpg" />
+    <Content Include="newPage\images\rq7vhm7ggmid.jpg" />
+    <Content Include="newPage\images\tit_bg.png" />
+    <Content Include="newPage\images\vvszho8bgm9m.jpg" />
+    <Content Include="newPage\images\w3z9hne04073.jpg" />
+    <Content Include="newPage\js\jquery-1.4.2.min.js" />
+    <Content Include="newPage\js\jquery-1.6.1.js" />
+    <Content Include="newPage\js\jquery.jBox.src.js" />
+    <Content Include="newPage\js\menu1.js" />
+    <Content Include="newPage\js\popup_layer.js" />
+    <Content Include="newPage\js\public.js" />
+    <Content Include="newPage\js\unitpngfix.js" />
+    <Content Include="newPage\sbjb\ajsb.aspx" />
+    <Content Include="newPage\sbjb\banli.aspx" />
+    <Content Include="newPage\sbjb\Index.aspx" />
+    <Content Include="newPage\sbjb\qwdj.aspx" />
+    <Content Include="newPage\sbjb\rwcl.aspx" />
+    <Content Include="newPage\sbjb\ywcrw.aspx" />
+    <Content Include="newPage\style\Blue\images\jbox-button1.png" />
+    <Content Include="newPage\style\Blue\images\jbox-button2.png" />
+    <Content Include="newPage\style\Blue\images\jbox-close1.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-close2.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-content-loading.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-icons-ie6.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-icons.png" />
+    <Content Include="newPage\style\Blue\images\jbox-loading1.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-loading2.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-loading3.gif" />
+    <Content Include="newPage\style\Blue\images\jbox-title-icon.gif" />
+    <Content Include="newPage\style\Blue\jbox.css" />
+    <Content Include="newPage\style\css\index.css" />
+    <Content Include="newPage\style\css\login.css" />
+    <Content Include="newPage\style\css\login_old.css" />
+    <Content Include="newPage\style\css\reset.css" />
+    <Content Include="newPage\style\css\reset_old.css" />
+    <Content Include="newPage\style\css\style.css" />
+    <Content Include="newPage\style\hover-green\bl.png" />
+    <Content Include="newPage\style\hover-green\cx.png" />
+    <Content Include="newPage\style\hover-green\fh.png" />
+    <Content Include="newPage\style\hover-green\hs.png" />
+    <Content Include="newPage\style\hover-green\jb.png" />
+    <Content Include="newPage\style\hover-green\jd.png" />
+    <Content Include="newPage\style\hover-green\jz.png" />
+    <Content Include="newPage\style\hover-green\nh.png" />
+    <Content Include="newPage\style\hover-green\xs.png" />
+    <Content Include="newPage\style\hover-green\yy.png" />
+    <Content Include="newPage\style\hover-green\zh.png" />
+    <Content Include="newPage\style\hover-orange\bl.png" />
+    <Content Include="newPage\style\hover-orange\cx.png" />
+    <Content Include="newPage\style\hover-orange\fh.png" />
+    <Content Include="newPage\style\hover-orange\hs.png" />
+    <Content Include="newPage\style\hover-orange\icon_off.png" />
+    <Content Include="newPage\style\hover-orange\jb.png" />
+    <Content Include="newPage\style\hover-orange\jd.png" />
+    <Content Include="newPage\style\hover-orange\jz.png" />
+    <Content Include="newPage\style\hover-orange\nh.png" />
+    <Content Include="newPage\style\hover-orange\xs.png" />
+    <Content Include="newPage\style\hover-orange\yy.png" />
+    <Content Include="newPage\style\hover-orange\zh.png" />
+    <Content Include="newPage\style\img\bl.gif" />
+    <Content Include="newPage\style\img\btn.png" />
+    <Content Include="newPage\style\img\btn_box.png" />
+    <Content Include="newPage\style\img\caption_bg.png" />
+    <Content Include="newPage\style\img\car.png" />
+    <Content Include="newPage\style\img\clear.gif" />
+    <Content Include="newPage\style\img\col_sub_bg.png" />
+    <Content Include="newPage\style\img\cx.gif" />
+    <Content Include="newPage\style\img\cz.png" />
+    <Content Include="newPage\style\img\data.jpg" />
+    <Content Include="newPage\style\img\data2.jpg" />
+    <Content Include="newPage\style\img\data3.jpg" />
+    <Content Include="newPage\style\img\data4.jpg" />
+    <Content Include="newPage\style\img\fh.gif" />
+    <Content Include="newPage\style\img\header.png" />
+    <Content Include="newPage\style\img\header1.jpg" />
+    <Content Include="newPage\style\img\header2.jpg" />
+    <Content Include="newPage\style\img\header_bg.png" />
+    <Content Include="newPage\style\img\houses.png" />
+    <Content Include="newPage\style\img\hs.gif" />
+    <Content Include="newPage\style\img\icon.png" />
+    <Content Include="newPage\style\img\icon_2.png" />
+    <Content Include="newPage\style\img\icon_bg.png" />
+    <Content Include="newPage\style\img\icon_off.png" />
+    <Content Include="newPage\style\img\jb.gif" />
+    <Content Include="newPage\style\img\jd.gif" />
+    <Content Include="newPage\style\img\jz.gif" />
+    <Content Include="newPage\style\img\lct.jpg" />
+    <Content Include="newPage\style\img\login.jpg" />
+    <Content Include="newPage\style\img\login1.jpg" />
+    <Content Include="newPage\style\img\login_old.jpg" />
+    <Content Include="newPage\style\img\map.jpg" />
+    <Content Include="newPage\style\img\nav_bg.png" />
+    <Content Include="newPage\style\img\nav_bottom.png" />
+    <Content Include="newPage\style\img\nh.gif" />
+    <Content Include="newPage\style\img\page_a_bg.png" />
+    <Content Include="newPage\style\img\pop_up_bg.png" />
+    <Content Include="newPage\style\img\pop_up_bg2.png" />
+    <Content Include="newPage\style\img\step.png" />
+    <Content Include="newPage\style\img\step_1.png" />
+    <Content Include="newPage\style\img\step_2.png" />
+    <Content Include="newPage\style\img\step_3.png" />
+    <Content Include="newPage\style\img\step_4.png" />
+    <Content Include="newPage\style\img\submit.png" />
+    <Content Include="newPage\style\img\tab_bg.png" />
+    <Content Include="newPage\style\img\tit_b.png" />
+    <Content Include="newPage\style\img\tit_bg.png" />
+    <Content Include="newPage\style\img\tit_bg_box.png" />
+    <Content Include="newPage\style\img\top_bg.png" />
+    <Content Include="newPage\style\img\top_msg.png" />
+    <Content Include="newPage\style\img\user_bg.png" />
+    <Content Include="newPage\style\img\user_pic.jpg" />
+    <Content Include="newPage\style\img\xs.gif" />
+    <Content Include="newPage\style\img\yellow1.gif" />
+    <Content Include="newPage\style\img\yy.gif" />
+    <Content Include="newPage\style\img\zh.gif" />
     <Content Include="uploadify\jquery.uploadify.js" />
     <Content Include="uploadify\jquery.uploadify.min.js" />
     <Content Include="uploadify\uploadify.css" />
@@ -490,6 +742,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="WebForm1.aspx" />
+    <None Include="newPage\style\Blue\Desktop.ini" />
+    <None Include="newPage\style\Blue\images\OneNote 目录.onetoc2" />
+    <None Include="newPage\style\Blue\images\Thumbs.db" />
+    <None Include="newPage\style\Blue\OneNote 目录.onetoc2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="bussiness\depart\departedit.aspx.cs">
@@ -512,6 +768,13 @@
     </Compile>
     <Compile Include="bussiness\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\loginfo\operation.aspx.cs">
+      <DependentUpon>operation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\loginfo\operation.aspx.designer.cs">
+      <DependentUpon>operation.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\p_class\classedit.aspx.cs">
       <DependentUpon>classedit.aspx</DependentUpon>
@@ -611,6 +874,13 @@
     <Compile Include="bussiness\Template\Depart_Info_Detail.aspx.designer.cs">
       <DependentUpon>Depart_Info_Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="bussiness\Template\Person_Detail.aspx.cs">
+      <DependentUpon>Person_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\Person_Detail.aspx.designer.cs">
+      <DependentUpon>Person_Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="bussiness\Template\ProjectAdd.aspx.cs">
       <DependentUpon>ProjectAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -645,6 +915,13 @@
     </Compile>
     <Compile Include="bussiness\Template\ProjectView.aspx.designer.cs">
       <DependentUpon>ProjectView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="bussiness\Template\rydw.aspx.cs">
+      <DependentUpon>rydw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bussiness\Template\rydw.aspx.designer.cs">
+      <DependentUpon>rydw.aspx</DependentUpon>
     </Compile>
     <Compile Include="bussiness\Template\UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
@@ -684,12 +961,75 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login1\base.aspx.cs">
+      <DependentUpon>base.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login1\base.aspx.designer.cs">
+      <DependentUpon>base.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login1\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login1\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login2\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login2\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\ajsb.aspx.cs">
+      <DependentUpon>ajsb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\ajsb.aspx.designer.cs">
+      <DependentUpon>ajsb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\banli.aspx.cs">
+      <DependentUpon>banli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\banli.aspx.designer.cs">
+      <DependentUpon>banli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\qwdj.aspx.cs">
+      <DependentUpon>qwdj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\qwdj.aspx.designer.cs">
+      <DependentUpon>qwdj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\rwcl.aspx.cs">
+      <DependentUpon>rwcl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\rwcl.aspx.designer.cs">
+      <DependentUpon>rwcl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\ywcrw.aspx.cs">
+      <DependentUpon>ywcrw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\ywcrw.aspx.designer.cs">
+      <DependentUpon>ywcrw.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tools\AjaxHandler.ashx.cs">
@@ -732,6 +1072,9 @@
     <None Include="bussiness\Styles\font\Vani.ttf" />
     <None Include="bussiness\Styles\font\Vanib.ttf" />
     <None Include="bussiness\Styles\ui-all\images\Thumbs.db" />
+    <None Include="css\fonts\flexslider-icon.eot" />
+    <None Include="css\fonts\flexslider-icon.ttf" />
+    <None Include="css\fonts\flexslider-icon.woff" />
     <None Include="images\ico.psd" />
     <None Include="images\Thumbs.db" />
     <Content Include="tools\AjaxHandler.ashx" />

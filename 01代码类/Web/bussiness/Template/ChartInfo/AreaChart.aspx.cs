@@ -41,6 +41,7 @@ namespace TX_Bussiness.Web.bussiness.Template.ChartInfo
             #region [ 图表类型 ]
             txt_charttype = Utility.GetParameter("txt_charttype");
             txt_chartstyle = Utility.GetParameter("txt_chartstyle");
+            chartpath = GetAppSeeting("ChartFilePath") + "Line.swf";//默认图标类型
             if (txt_charttype == "1")
             {
                 if (txt_chartstyle == "1")

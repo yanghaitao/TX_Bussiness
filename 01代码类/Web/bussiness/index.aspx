@@ -20,14 +20,12 @@
         <div class="top_c">
             <div class="top-menu">
                 <ul class="top-menu-nav">
-                    <li><a href="#">首页</a></li>
+                    <li><a target="Conframe" href="Template/person_detail.aspx">首页</a></li>
                     <li><a href="#">案卷信息<i class="tip-up"></i></a>
                         <ul class="kidc">
-                            <li><a target="Conframe" href="Template/find-form.html">表单样式</a></li>
-                            <li><a target="Conframe" href="Template/find-alert.html">弹出窗口</a></li>
-                            <li><a target="Conframe" href="Template/find-order.html">查询排序</a></li>
-                            <li><a target="Conframe" href="Template/find-1.html">查询结果一</a></li>
-                            <li><a target="Conframe" href="Template/find-2.html">查询结果二</a></li>
+                           <li><b class="tip"></b><a target="Conframe" href="Template/projectadd.aspx">案卷登记</a></li>
+                         <li><b class="tip"></b><a target="Conframe" href="Template/projectlist.aspx">待办案卷</a></li>
+                         <li><b class="tip"></b><a target="Conframe" href="Template/CompleteProject.aspx">已处理案卷</a></li>
                         </ul>
                     </li>
                     <li><a href="#">应用维护<i class="tip-up"></i></a>
@@ -103,6 +101,13 @@
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/depart_info.aspx">部门统计</a></li>
                     </ul>
                 </div>
+                <div>
+                    <a class="one">人员定位系统</a>
+                    <ul class="kid">
+                       <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/rydw.aspx">人员实时定位</a></li>
+                       <li><b class="tip"></b><a target="Conframe" href="/bussiness/template/collector_info.aspx">人员路径显示</a></li>
+                    </ul>
+                </div>
               <%}if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_GLY)){%>
                 <div>
                     <a class="one">应用维护</a>
@@ -111,6 +116,7 @@
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/depart/departlist.aspx">部门管理</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/role/rolelist.aspx">角色管理</a></li>
                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/p_class/classlist.aspx">类别管理</a></li>
+                             <li><b class="tip"></b><a target="Conframe" href="/bussiness/loginfo/operation.aspx">操作记录</a></li>
                     </ul>
                 </div>
                 <%} %>
@@ -156,7 +162,7 @@
 
         </div>
         <div class="Conframe">
-            <iframe name="Conframe" id="Conframe"></iframe>
+            <iframe name="Conframe" id="Conframe" src="/bussiness/template/person_detail.aspx"></iframe>
         </div>
         <!--右边框架结束-->
 

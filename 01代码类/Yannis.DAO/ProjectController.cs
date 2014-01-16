@@ -80,7 +80,7 @@ namespace Yannis.DAO
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Areacode,string Streetcode,string Communitycode,int? ProjectType,string ProjectImgurl,int? Nodeid,int? Dispatcherid,string Dispatchername,int? Handlerid,int? Projectstate,string Describe,int? Bigclassid,int? Smallclassid,string Bigclassname,string Smallclassname,string Handlername,DateTime? Adddate,string Loacation,DateTime? Startdate,string Projectname,string Details,string Departcode,int? Reportpersonid,string Reportpersonname,string Leadmessage,string Message,string Handlermessge,bool? Isdel,string Address)
+	    public void Insert(string Areacode,string Streetcode,string Communitycode,int? ProjectType,string ProjectImgurl,int? Nodeid,int? Dispatcherid,string Dispatchername,int? Handlerid,int? Projectstate,string Describe,int? Bigclassid,int? Smallclassid,string Bigclassname,string Smallclassname,string Handlername,DateTime? Adddate,string Loacation,DateTime? Startdate,string Projectname,string Details,string Departcode,int? Reportpersonid,string Reportpersonname,string Leadmessage,string Message,string Handlermessge,bool? Isdel,string Address,int? Baseclassid,string Baseclassname)
 	    {
 		    Project item = new Project();
 		    
@@ -142,6 +142,10 @@ namespace Yannis.DAO
             
             item.Address = Address;
             
+            item.Baseclassid = Baseclassid;
+            
+            item.Baseclassname = Baseclassname;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -150,7 +154,7 @@ namespace Yannis.DAO
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Projcode,string Areacode,string Streetcode,string Communitycode,int? ProjectType,string ProjectImgurl,int? Nodeid,int? Dispatcherid,string Dispatchername,int? Handlerid,int? Projectstate,string Describe,int? Bigclassid,int? Smallclassid,string Bigclassname,string Smallclassname,string Handlername,DateTime? Adddate,string Loacation,DateTime? Startdate,string Projectname,string Details,string Departcode,int? Reportpersonid,string Reportpersonname,string Leadmessage,string Message,string Handlermessge,bool? Isdel,string Address)
+	    public void Update(int Projcode,string Areacode,string Streetcode,string Communitycode,int? ProjectType,string ProjectImgurl,int? Nodeid,int? Dispatcherid,string Dispatchername,int? Handlerid,int? Projectstate,string Describe,int? Bigclassid,int? Smallclassid,string Bigclassname,string Smallclassname,string Handlername,DateTime? Adddate,string Loacation,DateTime? Startdate,string Projectname,string Details,string Departcode,int? Reportpersonid,string Reportpersonname,string Leadmessage,string Message,string Handlermessge,bool? Isdel,string Address,int? Baseclassid,string Baseclassname)
 	    {
 		    Project item = new Project();
 	        item.MarkOld();
@@ -215,6 +219,10 @@ namespace Yannis.DAO
 			item.Isdel = Isdel;
 				
 			item.Address = Address;
+				
+			item.Baseclassid = Baseclassid;
+				
+			item.Baseclassname = Baseclassname;
 				
 	        item.Save(UserName);
 	    }

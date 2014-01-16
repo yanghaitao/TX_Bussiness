@@ -1,0 +1,58 @@
+*{margin:0 auto; padding:0;}
+html{ font:12px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:none;}
+ol,ul,li{ list-style:none;}
+a:link, a:visited {text-decoration:none;}
+img{ border:0;}
+a{color:#FFF;text-decoration:none; }
+a:hover{color:#000;}
+
+body{ width:100%}
+.main{ background: url(../images/basic_bj.jpg) no-repeat center center; width:100%; height:640px; margin:0 auto;  overflow:hidden;}
+.main_ziti{ padding-top:17px; text-align:center;font-family:"微软雅黑","宋体"; font-size:14px; color:#FFF; letter-spacing:2px;}
+.mian_biaoti{ width:1018px; height:234px;  margin:20px 0 0 90px; float:left;;}
+
+.btn {width:840px; height:300px; padding:235px 0 0 0; margin:0 auto; }
+.btn  ul{width:840px; height:300px;margin:0 auto; }
+.btn_01{ float:left;width:168px; height:150px; }
+.btn_01 a{ background:url(../images/btn01.gif) no-repeat; width:168px; height:150px; display:block;}
+.btn_01 a:hover{ background:url(../images/btn01_02.gif) no-repeat;}
+.btn_02{float:left;width:168px; height:150px; }
+.btn_02 a{ background:url(../images/btn02.gif) no-repeat; width:168px; height:150px;  display:block;}
+.btn_02 a:hover{ background:url(../images/btn02_02.gif) no-repeat;}
+.btn_03{float:left; width:168px; height:150px; }
+.btn_03 a{ background:url(../images/btn03.gif) no-repeat; width:168px; height:150px; display:block;}
+.btn_03 a:hover{ background:url(../images/btn03_02.gif) no-repeat;}
+.btn_04{float:left; width:168px; height:150px; }
+.btn_04 a{ background:url(../images/btn04.gif) no-repeat; width:168px; height:150px;  display:block;}
+.btn_04 a:hover{ background:url(../images/btn04_02.gif) no-repeat;}
+.btn_05{float:left;width:168px; height:150px; }
+.btn_05 a{ background:url(../images/btn05.gif) no-repeat;width:168px; height:150px;  display:block;}
+.btn_05 a:hover{ background:url(../images/btn05_02.gif) no-repeat;}
+.btn_06{float:left; width:168px; height:150px; }
+.btn_06 a{ background:url(../images/btn06.gif) no-repeat; width:168px; height:150px; display:block;}
+.btn_06 a:hover{ background:url(../images/btn06_02.gif) no-repeat;}
+.btn_07{float:left;width:168px; height:150px; }
+.btn_07 a:hover{ background:url(../images/btn07_02.gif) no-repeat;}
+.btn_07 a{ background:url(../images/btn07.gif) no-repeat;width:168px; height:150px; display:block;}
+
+.btn_08{float:left; width:168px; height:150px; }
+.btn_08 a:hover{ background:url(../images/btn08_02.gif) no-repeat;}
+.btn_08 a{ background:url(../images/btn08.gif) no-repeat;width:168px; height:150px; display:block;}
+
+.btn_09{float:left; width:168px; height:150px; }
+.btn_09 a:hover{ background:url(../images/btn09_02.gif) no-repeat;}
+.btn_09 a{ background:url(../images/btn09.gif) no-repeat;width:168px; height:150px; display:block;}
+
+.btn_10{float:left; width:168px; height:150px; }
+.btn_10 a:hover{ background:url(../images/btn10_02.gif) no-repeat;}
+.btn_10 a{ background:url(../images/btn10.gif) no-repeat;width:168px; height:150px; display:block;}
+
+
+.bj{ width:1024px; height:29px;margin-top:92px;}
+.btn_0808{background:url(../images/basic_btn_kz_bj.png) no-repeat; width:118px; height:29px; }
+.btn_0808 a{ font-family:"微软雅黑","宋体"; color:#FFF; font-size:16px; text-align:center; letter-spacing:2px; float:left; padding:7px 0 0 7px; }
+.btn_0808 a:hover{ color:#000;}
+
+.bottom{ background:url(../images/basic_wb.gif) no-repeat 0 top;width:520px; height:33px; margin:0 auto; margin-top:35px;}
+.bottom label{ font-size:12px; font-family:"宋体"; letter-spacing:2px; color:#FFF; text-align:center; float:left;margin:9px 0 0 145px; }
+

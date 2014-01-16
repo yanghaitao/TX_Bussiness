@@ -27,6 +27,7 @@ namespace TX_Bussiness.Web.bussiness.Template
 
             SqlQuery query = new Select().From(Depart.Schema);
             query.Where("1=1");
+            query.And(Depart.IsdelColumn).IsNotEqualTo(true);
             ///中队长只能查看自己部门的统计数据
             if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
             {

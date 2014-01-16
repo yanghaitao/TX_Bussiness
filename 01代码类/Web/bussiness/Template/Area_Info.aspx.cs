@@ -22,9 +22,10 @@ namespace TX_Bussiness.Web.bussiness.Template
         protected List<SArea> arealist = new List<SArea>();
         protected List<SStreet> streetlist = new List<SStreet>();
         protected List<SCommunity> commnuitylist = new List<SCommunity>();
+        Yannis.DAO.User user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Yannis.DAO.User user = GetUserInfo();
+            user = GetUserInfo();
 
             #region [ 获取参数列表 ]
             pageindex = Utility.GetIntParameter("page") > 0 ? Utility.GetIntParameter("page") : 1;

@@ -104,7 +104,7 @@
                     </select>
                 </td>
                 <td class="t_label">
-                    录入日期起
+                    日期
                 </td>
                 <td colspan="3">
                     <div class="input-append">
@@ -139,6 +139,9 @@
                     <input class="btn btn-primary" id="find" type="submit" value="查询" />
                     <input class="btn btn-primary" type="reset" id="reset" value="清空" />
                      <a class="btn btn-primary" href="javascript:;" id="exprot">导出Excel</a>
+                      <a href="/bussiness/template/area_info.aspx" class="btn btn-primary">
+                     普通查询
+                    </a>
                 </td>
             </tr>
         </tbody>

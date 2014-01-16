@@ -58,7 +58,8 @@
     <div>
     </div>
     <div class="alert alert-info tit">
-        当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计</div>
+        当前位置<b class="tip"></b>统计界面<b class="tip"></b>区域统计
+    </div>
     <form action="/bussiness/template/area_info.aspx" method="get">
     <table class="table table-striped table-bordered table-condensed c_table">
         <thead>
@@ -176,7 +177,7 @@
                   int i = 0;
                   foreach (var v in arealist)
                   {%>
-            <tr <%=i%2==0?"":"class='even'" %> ">
+            <tr <%=i%2==0?"":"class='even'" %>>
                 <td>
                     <a href="javascript:;">
                         <%=v.Areaname%>

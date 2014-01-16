@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-color:#E4F4FF;}
+.login_box{ width:870px; height:530px; padding-top:76px; background:url(../img/login.jpg) no-repeat 0 100px; margin:0 auto;  position:relative;}
+.login{ position:absolute; width:305px; height:269px; right:68px; bottom:59px}
+.login li{ margin-bottom:16px}
+.txt_ip{ width:230px; height:37px; _line-height:37px; padding-left:48px;border:none; background:none; color:#999}
+.submit{ background:url(../img/submit.png) no-repeat; width:94px; height:39px; border:none; margin-right:20px; float:left; cursor:pointer}
+.cz{ background:url(../img/cz.png) no-repeat; width:94px; height:39px; border:none; margin-right:20px; float:left; cursor:pointer}
+.code{ color:#fff; font-size:14px;}
+.code input{ vertical-align:middle; margin-right:3px}
+.login li.btn_li{line-height:39px; padding-left:40px}
+.login li.btn_li a{ font-size:16px; color:#fff; display:inline-block; float:left }
+.login li.tip{ color: #F30; margin-bottom:0; line-height:24px; font-size:14px; padding-left:40px}

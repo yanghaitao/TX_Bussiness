@@ -50,6 +50,8 @@ namespace Bussiness.Common
 
         public static string CheckStringLength(string stringToCheck, int maxLength)
         {
+            if (string.IsNullOrEmpty(stringToCheck))
+                return string.Empty;
             if (stringToCheck.Length > maxLength)
             {
                 if ((stringToCheck.Length > maxLength) && (stringToCheck.IndexOf(" ") == -1))

@@ -8,16 +8,25 @@
     <link rel="stylesheet" type="text/css" href="../Styles/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../Styles/admin-all.css" />
     <link href="/bussiness/Styles/base.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/flexslider.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.js"></script>
     <script type="text/javascript" src="../Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../Styles/ui-lightness/jquery-ui-1.8.22.custom.css" />
     <script type="text/javascript" src="../Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../Scripts/chur-alert.1.0.js"></script>
     <script src="/js/global.js" type="text/javascript"></script>
-    <script type="text/javascript">
+    <script src="../../js/jquery.flexslider.js" type="text/javascript"></script>
+    <script>
         $(function () {
-            $('.modal').show();
-
+            $('.flexslider').flexslider({
+                animation: "slide",
+                slideshow: false,
+                controlNav:false,
+                controlNav: "thumbnails",
+                 prevText: "",     
+                 nextText: "",   
+                 slideToStart:0
+            });
         })
     </script>
 </head>
@@ -103,7 +112,6 @@
                     城管通号
                 </td>
                 <td width="500">
-                   
                 </td>
             </tr>
             <tr>
@@ -133,23 +141,29 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center;position:relative;">
-                    <div class="projimg">
-                    <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.Before))
-                      {%>
-                        <img src="<%=v.Imgurl %>" width="300px" height="300px" />
+                <td colspan="2" style="text-align: center; position: relative;">
+                <div style="width:250px;margin:0 auto;">
+                    <div class="flexslider">
+                    <ul class="slides">
+                        <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.Before))
+                          {%>
+                        <li data-thumb="<%=v.Imgurl %>"><img src="<%=v.Imgurl %>" height="300px"/></li>
                         <%} %>
-                        <span class="prev"></span>
-                        <span class="next"></span>
+                    </ul>
                     </div>
+                </div>
                 </td>
                 <td colspan="2" style="">
-                 <div class="projimg">
-                       <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.After))
-                      {%>
-                        <img src="<%=v.Imgurl %>" width="300px" height="300px" />
+                    <div style="width:250px;margin:0 auto;">
+                    <div class="flexslider">
+                    <ul class="slides">
+                        <%foreach (var v in imglist.FindAll(x => x.Imgtype == (int)TX_Bussiness.Web.Comm.Enums.ProjectImgType.After))
+                          {%>
+                        <li data-thumb="<%=v.Imgurl %>"><img src="<%=v.Imgurl %>" height="300px"/></li>
                         <%} %>
+                    </ul>
                     </div>
+                </div>
                 </td>
             </tr>
         </tfoot>

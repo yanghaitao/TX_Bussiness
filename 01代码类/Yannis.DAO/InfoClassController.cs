@@ -80,7 +80,7 @@ namespace Yannis.DAO
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate)
+	    public void Insert(string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate,string Baseclasscode,string Baseclassname)
 	    {
 		    InfoClass item = new InfoClass();
 		    
@@ -96,6 +96,10 @@ namespace Yannis.DAO
             
             item.Adddate = Adddate;
             
+            item.Baseclasscode = Baseclasscode;
+            
+            item.Baseclassname = Baseclassname;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -104,7 +108,7 @@ namespace Yannis.DAO
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate)
+	    public void Update(int Id,string Projectcode,string Bigclasscode,string Bigclassname,string Smallclasscode,string Smallclassanme,DateTime? Adddate,string Baseclasscode,string Baseclassname)
 	    {
 		    InfoClass item = new InfoClass();
 	        item.MarkOld();
@@ -123,6 +127,10 @@ namespace Yannis.DAO
 			item.Smallclassanme = Smallclassanme;
 				
 			item.Adddate = Adddate;
+				
+			item.Baseclasscode = Baseclasscode;
+				
+			item.Baseclassname = Baseclassname;
 				
 	        item.Save(UserName);
 	    }

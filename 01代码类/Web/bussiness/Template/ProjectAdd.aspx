@@ -28,10 +28,10 @@
                 'formData': { 'act': 'UploadFile' },
                 'auto': false,
                 'buttonText': '选择图片',
-                'buttonClass': 'btn btn-primary',
+                'buttonClass': 'btn btn-primary nopadding',
                 'fileTypeExts': '*.gif; *.jpg; *.png',
-                'width': 50,
-                'height': 20,
+                'width': 75,
+                'height': 30,
                 'onUploadSuccess': function (file, data, response) {
                     filename += data + ",";
                 },
@@ -39,8 +39,21 @@
                     $("#fileimgs").val(filename);
                 }
             });
+            $(".valifrom").Validform({
+                tipSweep:true,
+                tiptype: function (msg, o, cssctl) {
+                    //msg：提示信息;
+                    //o:{obj:*,type:*,curform:*}, obj指向的是当前验证的表单元素（或表单对象），type指示提示的状态，值为1、2、3、4， 1：正在检测/提交数据，2：通过验证，3：验证失败，4：提示ignore状态, curform为当前form对象;
+                    //cssctl:内置的提示信息样式控制函数，该函数需传入两个参数：显示提示信息的对象 和 当前提示的状态（既形参o中的type）;
+                    if (o.type == "3") {//验证表单元素时o.obj为该表单元素，全部验证通过提交表单时o.obj为该表单对象;
+                        $('body').alert({
+                            type: "出错提示",
+                            content: msg
+                        })
+                    }
+                }
+            });
         })
-
     </script>
 </head>
 <body>
@@ -116,12 +129,12 @@
                     </select>
                 </td>
                 <td>
-                    大类<font color="FF0000">*</font>
+                    类别<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_bigclass" datatype="*" nullmsg="请选择大类！">
+                    <select name="txt_baseclass" datatype="*" nullmsg="请选择案卷类别！">
                         <option value="">全部 </option>
-                        <%foreach (var v in GetProjectClass())
+                        <%foreach (var v in GetBaseClass())
                           { %>
                         <option value="<%=v.Id %>">
                             <%=v.Classname %>
@@ -129,17 +142,18 @@
                         <%} %>
                     </select>
                 </td>
+                
             </tr>
             <tr>
-                <td>
-                    案卷类型<font color="FF0000">*</font>
+            <td>
+                    大类<font color="FF0000">*</font>
                 </td>
                 <td>
-                    <select name="txt_projecttype">
-                        <option value="1">一般 </option>
-                        <option value="2">紧急 </option>
+                    <select name="txt_bigclass" datatype="*" nullmsg="请选择大类！">
+                        
                     </select>
                 </td>
+                
                 <td>
                     小类<font color="FF0000">*</font>
                 </td>
@@ -149,11 +163,22 @@
                 </td>
             </tr>
             <tr>
+            <td>
+                    案卷类型<font color="FF0000">*</font>
+                </td>
+                <td colspan="3">
+                    <select name="txt_projecttype">
+                        <option value="1">一般 </option>
+                        <option value="2">紧急 </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td width="15%">
                     事发位置
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_address" style="width: 95%" rows="2" cols="5" datatype="*" nullmsg="请填写事发位置！"></textarea>
+                    <textarea name="txt_address" style="width: 95%" rows="2" cols="5" datatype="s1-200" nullmsg="请填写事发位置！"></textarea>
                 </td>
             </tr>
             <tr>
@@ -161,7 +186,7 @@
                     情况描述
                 </td>
                 <td width="500" colspan="3" height="">
-                    <textarea name="txt_describ" style="width: 95%" rows="4" cols="5" datatype="*" nullmsg="请填写情况描述！"></textarea>
+                    <textarea name="txt_describ" style="width: 95%" rows="4" cols="5" datatype="s1-1000" nullmsg="请填写情况描述！"></textarea>
                 </td>
             </tr>
             <tr>
@@ -170,7 +195,7 @@
                 </td>
                 <td width="500" colspan="3" height="">
                     <input type="hidden" name="fileimgs" id="fileimgs" />
-                    <input type="file" name="file_upload" id="file_upload" />
+                    <input type="file" name="file_upload" id="file_upload"/>
                     <button type="button" onclick="$('#file_upload').uploadify('upload','*')" class="btn btn-primary">
                         上传</button>
                     <button type="button" onclick="$('#file_upload').uploadify('cancel', '*')" class="btn btn-primary">

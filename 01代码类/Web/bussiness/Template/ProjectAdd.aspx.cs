@@ -20,7 +20,7 @@ namespace TX_Bussiness.Web.bussiness.Template
         {
             user = GetUserInfo();
             if (!IsPostBack && Request.HttpMethod == "POST")
-            {  
+            {
                 #region[ 获取参数列表 ]
                 string txt_name = Utility.GetParameter("txt_name");
                 string txt_area = Utility.GetParameter("txt_area");
@@ -33,6 +33,7 @@ namespace TX_Bussiness.Web.bussiness.Template
                 string txt_describ = Utility.GetParameter("txt_describ");
                 string txt_addrss = Utility.GetParameter("txt_address");
                 string projectimgs = Utility.GetParameter("fileimgs");
+                int txt_baseclass = Utility.GetIntParameter("txt_baseclass");
                 #endregion
                 using (TransactionScope ts = new TransactionScope())
                 {
@@ -43,6 +44,8 @@ namespace TX_Bussiness.Web.bussiness.Template
                         project.Adddate = DateTime.Now;
                         project.Address = txt_addrss;
                         project.Areacode = txt_area;
+                        project.Baseclassid = txt_baseclass;
+                        project.Baseclassname = GetClassName(txt_baseclass.ToString());
                         project.Bigclassid = txt_bigclass;
                         project.Bigclassname = GetClassName(txt_bigclass.ToString());
                         project.Communitycode = txt_commnuity;
@@ -142,7 +145,9 @@ namespace TX_Bussiness.Web.bussiness.Template
                             Bigclassname = GetClassName(txt_bigclass.ToString()),
                             Projectcode = projectcode,
                             Smallclassanme = GetClassName(txt_smallclass.ToString()),
-                            Smallclasscode = txt_smallclass.ToString()
+                            Smallclasscode = txt_smallclass.ToString(),
+                            Baseclasscode = txt_baseclass.ToString(),
+                            Baseclassname = GetClassName(txt_baseclass.ToString())
                         }.Save();
 
                         #endregion

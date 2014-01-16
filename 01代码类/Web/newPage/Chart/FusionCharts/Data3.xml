@@ -1,0 +1,12 @@
+﻿<graph caption='' xAxisName='行业' yAxisName='数量' showNames='1' decimalPrecision='0' formatNumberScale='0'>
+  <set name='资源环境' value='24' color='AFD8F8' />
+  <set name='粮油' value='24' color='F6BD0F' />
+  <set name='公益服务' value='30' color='8BBA00' />
+  <set name='教育' value='27' color='FF8E46' />
+  <set name='医疗' value='20' color='008E8E' />
+  <set name='交通' value='11' color='8BBA00' />
+  <set name='邮电' value='18' color='FF8E46' />
+  <set name='房地产' value='21' color='008E8E' />
+  <set name='文化体育' value='18' color='AFD8F8' />
+  <set name='房地产' value='6' color='F6BD0F' />
+</graph>

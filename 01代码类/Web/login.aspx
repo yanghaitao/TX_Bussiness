@@ -22,17 +22,17 @@
     </div>
 
     <div class="row-fluid">
-        <h1>后台管理系统</h1>
+        <h1>桐乡市城市管理行政执法局
+勤务信息平台
+</h1>
         <p>
             <label>帐&nbsp;&nbsp;&nbsp;号：<input type="text" name="username" id="uid" /></label>
         </p>
         <p>
             <label>密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password" id="pwd" /></label>
         </p>
-        <p class="pcode">
-            <label>效验码：<input type="text" id="code" maxlength="5" class="code" value="e5g88" /><img src="/bussiness/img/code.gif" alt="" class="imgcode" /><a href="#">下一张</a></label>
-        </p>
-        <p class="tip">&nbsp;</p>
+       
+       
         <hr />
         <input type="submit" value=" 登 录 " class="btn btn-primary btn-large login" />
         &nbsp;&nbsp;&nbsp;<input type="reset" value=" 取 消 " class="btn btn-large" />

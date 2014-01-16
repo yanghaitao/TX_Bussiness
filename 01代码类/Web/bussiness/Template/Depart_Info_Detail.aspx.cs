@@ -33,10 +33,11 @@ namespace TX_Bussiness.Web.bussiness.Template
             {
                 query.And(InfoDepart.AdddateColumn).IsLessThanOrEqualTo(endtime);
             }
-            SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query);
+            SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query).OrderDesc(Project.Columns.Adddate);
             totalcount = projectquery.GetRecordCount();
             projectquery.Paged(pageindex, pagesize);
             project_list = projectquery.ExecuteTypedList<Project>();
+
             string pageUrl = "/bussiness/template/depart_info_detail.aspx?id={0}&page=__id__";
             pageUrl = string.Format(pageUrl, id);
             PageContent.InnerHtml = Comm.PageControl.OutPageList(this.pagesize, this.pageindex, this.totalcount, pageUrl, 8);

@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+body{background-color:#417EB7;}
+.login{ background:#417EB7 url(../img/login1.jpg) no-repeat center center; min-width:1024px; min-height:768px;_height:768px; overflow: visible; margin:0 auto;}
+.login_box{ width:287px;margin:0 auto; padding:344px 0 0 118px; height:220px; position:relative}
+.login_box input.txt_ip{ width: 215px; height:26px;border:0; background:none; margin-bottom:22px; padding-left:5px}
+.login_box .error{ background:#EFC82A; height:23px; width:210px; line-height:23px; padding-left:10px; color:#624608; border-radius:2px; margin-top:-10px}
+.login_box .btn{ position:absolute; bottom:60px; left:118px}
+.login_box .btn input{ width:82px; height:29px; background:url(../img/btn_bg.png) no-repeat 0 -84px; border:none; padding:0; cursor:pointer}

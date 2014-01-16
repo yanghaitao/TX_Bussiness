@@ -46,7 +46,8 @@ namespace TX_Bussiness.Web.bussiness.Template
             {
                 query.And(InfoArea.AdddateColumn).IsLessThanOrEqualTo(endtime);
             }
-            SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query);
+          
+            SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query).OrderDesc(Project.Columns.Adddate);
             totalcount = projectquery.GetRecordCount();
             projectquery.Paged(pageindex, pagesize);
             project_list = projectquery.ExecuteTypedList<Project>();

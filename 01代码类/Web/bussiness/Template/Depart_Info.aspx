@@ -23,7 +23,7 @@
                 if (id && id != "") {
                     $.dialog({
                         title: '案卷流程',
-                        content: 'url:/bussiness/Template/depart_info_detail.aspx?startime=' + $("#startime").val() + '&endtime=' + $("#endtime").val() + '&id=' + id,
+                        content: 'url:/bussiness/Template/depart_info_detail.aspx?starttime=' + $("#startime").val() + '&endtime=' + $("#endtime").val() + '&id=' + id,
                         lock: true,
                         okVal: '关闭',
                         ok: true,
@@ -93,7 +93,7 @@
         <thead>
             <tr class="tr_detail">
                 <td>
-                    姓名
+                    部门名称
                 </td>
                 <td>
                    工作量
@@ -111,7 +111,7 @@
                   int i = 0;
                   foreach (var v in departlist)
                   {%>
-                 <tr <%=i%2==0?"":"class='even'" %> ">
+                 <tr <%=i%2==0?"":"class='even'" %>>
                 <td>
                     <a href="javascript:;">
                         <%=v.Departname%>

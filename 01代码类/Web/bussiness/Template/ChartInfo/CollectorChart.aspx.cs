@@ -33,6 +33,7 @@ namespace TX_Bussiness.Web.bussiness.Template.ChartInfo
             #region [ 图表类型 ]
             txt_charttype = Utility.GetParameter("txt_charttype");
             txt_chartstyle = Utility.GetParameter("txt_chartstyle");
+            chartpath = GetAppSeeting("ChartFilePath") + "Line.swf";//默认图标类型
             if (txt_charttype == "1")
             {
                 if (txt_chartstyle == "1")
@@ -62,6 +63,7 @@ namespace TX_Bussiness.Web.bussiness.Template.ChartInfo
             chartdatapath = GetAppSeeting("ChartDataPath") + "Collectoe_ChartData.xml";
             SqlQuery query = new Select().From(Yannis.DAO.User.Schema);
             query.Where("1=1");
+            query.And(Yannis.DAO.User.IsdelColumn).IsNotEqualTo(true);
             ///中队长只能查看自己部门下面的人员工作量
             if (CheckRole(user.Id, TX_Bussiness.Web.Comm.Constant.RoleCode_ZDZ))
             {

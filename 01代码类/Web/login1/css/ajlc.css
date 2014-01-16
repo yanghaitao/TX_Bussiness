@@ -1,0 +1,14 @@
+*{margin:0 auto; padding:0;}
+html{ font:12px "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:none;}
+ol,ul,li{ list-style:none;}
+a:link, a:visited {text-decoration:none;}
+img{ border:0;}
+a{color:#FFF;text-decoration:none; }
+a:hover{color:#FF0;}
+.clear{ clear:both;}
+
+
+
+.title{ width:980px; height:30px; margin-top:15px;}
+.title ul{ width:980px; float:left; height:30px;}
+.title ul li{  float:left; margin-left:5px;}

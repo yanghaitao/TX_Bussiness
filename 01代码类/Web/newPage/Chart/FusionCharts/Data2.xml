@@ -1,0 +1,15 @@
+﻿<graph caption='' xAxisName='区域' yAxisName='数量' showNames='1' decimalPrecision='0' formatNumberScale='0' 
+       baseFontSize ='12' outCnvBaseFontSize='12'>
+  <set name='浙江省' value='22' color='FFD8F8' />
+  <set name='杭州' value='12' color='AFD8F8' />
+  <set name='宁波' value='12' color='F6BD0F' />
+  <set name='温州' value='11' color='8BBA00' />
+  <set name='嘉兴' value='16' color='FF8E46' />
+  <set name='湖州' value='19' color='008E8E' />
+  <set name='绍兴' value='10' color='D64646' />
+  <set name='金华' value='5' color='AA4500' />
+  <set name='衢州' value='3' color='CC4410' />
+  <set name='舟山' value='5' color='E6A500' />
+  <set name='台州' value='6' color='A35440' />
+  <set name='丽水' value='5' color='F64410' />
+</graph>

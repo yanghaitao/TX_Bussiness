@@ -192,7 +192,7 @@
                     地址
                 </td>
                 <td>
-                    摘要
+                    案卷描述
                 </td>
                 <td>
                     上报时间
@@ -232,11 +232,11 @@
                 <td>
                     <%=v.Smallclassname %>
                 </td>
-                <td>
-                    <%=v.Address %>
+                <td title="<%=v.Address %>">
+                    <%=Bussiness.Common.Utility.CheckStringLength(v.Address,10)%>
                 </td>
-                <td>
-                    <%=v.Describe %>
+                <td title="<%=v.Describe %>">
+                    <%=Bussiness.Common.Utility.CheckStringLength(v.Describe, 10)%>
                 </td>
                 <td>
                     <%=v.Adddate %>
