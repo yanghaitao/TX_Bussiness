@@ -18,9 +18,12 @@ namespace TX_Bussiness.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           string xmlstr= FileHelper.GetFileText(Server.MapPath("/Charts/Data/Area_ChartData.xml"));
-           DataSet ds= ConvertToDateSetByXmlString(xmlstr);
-            Utility.ExportToExcel("test",ds.Tables[0]);
+            SqlQuery query = new Select(Project.Columns.Projcode,Project.Columns.Adddate).From(Project.Schema).Distinct().LeftOuterJoin(ProjectTrace.ProjcodeColumn, Project.ProjcodeColumn);
+           List<Project> prolist=  query.ExecuteTypedList<Project>();
+           foreach (var v in prolist)
+           {
+               Response.Write(v.Projcode+"--"+v.Adddate+"<br/>");
+           }
         }
         /// <summary>
         /// 将XML字符串转换成DATASET

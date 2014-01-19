@@ -22,20 +22,28 @@
  </script>     
 <![endif]-->
     <link href="/css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
-   <script type="text/javascript">
-       function CheckLimit(userid,sysname) {
-           $.post("/tools/AjaxHandler.ashx", { act: "CheckLimit", userid: userid, system: sysname }, function (data) {
-               if (data == "1") {
-                   window.parent.location.href = "/newpage/sbjb/index.aspx";
-               } else {
-                   $('body').alert({
-                       type: "primary"
-                   })
-               }
-           })
-           
-       }
-   </script>
+    <script type="text/javascript">
+        function CheckLimit(userid, sysname) {
+            $.post("/tools/AjaxHandler.ashx", { act: "CheckLimit", userid: userid, system: sysname }, function (data) {
+                if (data == "1") {
+                    if (sysname == "sbjb" || sysname == "qwss") {
+                        window.parent.location.href = "/newpage/sbjb/index.aspx";
+                    }
+                    if (sysname == "qwsj") {
+                        window.parent.location.href = "/newpage/qwsj/area_info.aspx";
+                    }
+                    if (sysname == "yywh") {
+                        window.parent.location.href = "/newpage/yywh/rygl.aspx";
+                    }
+                } else {
+                    $('body').alert({
+                        type: "primary"
+                    })
+                }
+            })
+
+        }
+    </script>
 </head>
 <body>
     <!-- content -->
@@ -47,15 +55,10 @@
                         <div class="page1">
                             <div class="content">
                                 <div class="first_screen">
-                                    
-                                    <div class="time">
-                                        <span id="h1"></span><span id="h2"></span><strong>:</strong> <span id="m1"></span>
-                                        <span id="m2"></span><strong>:</strong> <span id="s1"></span><span id="s2"></span>
-                                    </div>
                                     <div class="date" id="currentime">
                                     </div>
                                     <div class="welcome_wz">
-                                        <img src="images/welcome_wz.png" width="400" height="112" /></div>
+                                        <img src="images/top.png" /></div>
                                 </div>
                             </div>
                         </div>
@@ -69,29 +72,29 @@
                 <ul class="desktop_wrap">
                     <li>
                         <p>
-                            人员定位系统</p>
-                        <a href="#" onclick="CheckLimit('<%=model.Id %>','rydw')">
-                            <img src="images/icon_2.png" width="56" height="58" /></a></li>
+                            上报交办系统</p>
+                        <a href="#" onclick="CheckLimit('<%=model.Id %>','sbjb')">
+                            <img src="images/icon_15.png" width="64" height="62" /></a></li>
                     <li>
                         <p>
                             勤务实时系统</p>
                         <a href="#" onclick="CheckLimit('<%=model.Id %>','qwss')">
-                            <img src="images/icon_3.png" width="64" height="57" /></a></li>
-                    <li>
-                        <p>
-                            上报交办系统</p>
-                        <a href="#" onclick="CheckLimit('<%=model.Id %>','sbjb')">
-                            <img src="images/icon_4.png" width="64" height="62" /></a></li>
+                            <img src="images/icon_6.png" width="64" height="57" /></a></li>
                     <li>
                         <p>
                             勤务数据系统</p>
                         <a href="#" onclick="CheckLimit('<%=model.Id %>','qwsj')">
-                            <img src="images/icon_5.png" width="60" height="58" /></a></li>
+                            <img src="images/icon_3.png" width="60" height="58" /></a></li>
+                    <li>
+                        <p>
+                            人员定位系统</p>
+                        <a href="#" onclick="CheckLimit('<%=model.Id %>','rydw')">
+                            <img src="images/icon_4.png" width="56" height="58" /></a></li>
                     <li>
                         <p>
                             应用维护系统</p>
-                        <a href="#"  onclick="CheckLimit('<%=model.Id %>','yywh')">
-                            <img src="images/icon_6.png" width="61" height="63" /></a></li>
+                        <a href="#" onclick="CheckLimit('<%=model.Id %>','yywh')">
+                            <img src="images/icon_10.png" width="61" height="63" /></a></li>
                 </ul>
             </div>
         </div>

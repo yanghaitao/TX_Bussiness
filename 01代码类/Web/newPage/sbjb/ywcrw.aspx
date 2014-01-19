@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ywcrw.aspx.cs" Inherits="TX_Bussiness.Web.newPage.sbjb.ywcrw" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,17 +9,17 @@
     <link rel="stylesheet" type="text/css" href="../style/css/index.css" />
     <link id="skin" rel="stylesheet" href="../style/Blue/jbox.css" />
     <script src="../js/jquery-1.6.1.js" type="text/javascript"></script>
-       <script type="text/javascript" src="../../bussiness/Scripts/ChurAlert.min.js?skin=blue"></script>
+    <script type="text/javascript" src="../../bussiness/Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../../bussiness/Scripts/chur-alert.1.0.js"></script>
-   <%-- <script type="text/javascript" src="../js/popup_layer.js"></script>
+    <%-- <script type="text/javascript" src="../js/popup_layer.js"></script>
     <script type="text/javascript" src="../js/jquery.jBox.src.js"></script>--%>
     <script type="text/javascript" src="../js/public.js"></script>
     <script src="../../js/global.js" type="text/javascript"></script>
     <script type="text/javascript" src="../../bussiness/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
+    <script src="/newpage/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             create_sbjbmenu("任务处理");
-            $(".datepicker").datepicker();
             $(".preview").click(function () {
                 var projcode = $(this).closest("tr").attr("_projcode");
                 if (projcode && projcode != "") {
@@ -65,7 +64,7 @@
         </div>
         <!--header end-->
         <div class="tip">
-            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务处理</a> > 已完成任务</div>
+            当前位置：<a href="#">上报交办系统</a> > <a href="ryQuery.aspx">任务处理</a> > 已完成任务</div>
         <!--content start-->
         <div class="content noborder layout">
             <!--右边内容 start-->
@@ -133,16 +132,15 @@
                                       }%>
                                 </select>
                                 录入日期起：
-                                 <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"  value="<%=txt_startdate %>"/><span
-                            class="add-on"><i class="icon-calendar"></i></span>至<input id="endtime" class="span2 datepicker"
-                                name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>"/><span class="add-on"><i class="icon-calendar"></i></span>
-
+                                <input onclick="WdatePicker()" class="span2 datepicker" size="16" type="text" id="startime"
+                                    name="txt_startdate" value="<%=txt_startdate %>" /><span class="add-on"><i class="icon-calendar"></i></span>至<input
+                                        onclick="WdatePicker()" id="endtime" class="span2 datepicker" name="txt_enddate"
+                                        size="16" type="text" value="<%=txt_enddate %>" /><span class="add-on"><i class="icon-calendar"></i></span>
                                 <input class="ip_btn" id="find" type="submit" value="查询" />
                             </div>
                             </form>
                             <div class="search_data">
-                                <table width="100%" border="0" cellpadding="0" id="projlist" cellspacing="0">
-                                   
+                                <table width="100%" border="0" cellpadding="0" id="projlist" cellspacing="0" style="border-top: 1px solid #d6d6d6;">
                                     <tr>
                                         <th>
                                             勤务编号
@@ -217,15 +215,14 @@
                                             <%=v.Adddate %>
                                         </td>
                                         <td>
-                                            <a href="javascript:;" class="preview btn btn-mini btn-primary add">查看流程
-                                            </a>
+                                            <a href="javascript:;" class="preview btn btn-mini btn-primary add">查看流程 </a>
                                         </td>
                                     </tr>
                                     <%}
                                       } %>
                                     <tr class="tr_pagenumber">
                                         <td colspan="100">
-                                            <div id="PageContent" runat="server">
+                                            <div id="PageContent" runat="server" class="page">
                                             </div>
                                         </td>
                                     </tr>
@@ -246,7 +243,7 @@
                             任务处理</h2>
                         <dl class="message" style="padding-top: 10px">
                             <dd>
-                                <a href="/newpage/sbjb/banli.aspx">勤务登记</a>
+                                <a href="/newpage/sbjb/ajsb.aspx">勤务登记</a>
                             </dd>
                             <dd>
                                 <a href="rwcl.aspx">待办任务</a></dd>

@@ -113,7 +113,7 @@ body{background-color:#F8F8F8;}
 .page a.txt:hover{ text-decoration:underline; color:#BA2636; background:none}
 .page span strong{ margin:0 5px; text-decoration:underline}
 .ip_list{ margin:15px 0 -25px 0}
-.ip_list input{ width:160px; padding-left:5px; line-height:18px; height:18px;margin-right: 5px;border:1px solid #d6d6d6}
+.ip_list input{ width:160px; padding-left:5px; line-height:18px; height:18px;margin-right: 5px;border:0;border-bottom:1px solid rgb(33, 150, 255);}
 .ip_list select{line-height:20px; height:20px; margin-right:5px;}
 .ip_list .ip_btn{ width:59px; height:27px; background:url(../img/btn.png) no-repeat; line-height:27px; text-align:center; color:#fff; border:0; padding:0; cursor:pointer}
 .ip_list .ip_menu{background:url(../img/btn_box.png) no-repeat 0 -210px; width:75px; height:34px; text-align:center; color:#fff; line-height:32px;cursor:pointer}
@@ -239,7 +239,7 @@ body{background-color:#F8F8F8;}
 .box_con .ipw130{ width:130px;height:21px; padding-left:5px; border:1px solid #d6d6d6}.box_con .ipw60{ width:60px;height:21px; padding-left:5px;border:1px solid #d6d6d6}
 .box_con textarea{ width:500px;border:1px solid #d6d6d6}
 .box_con .btn_div{ text-align:center; padding:20px 0}
-.box_con input{ height:27px; line-height:27px;margin:0 5px;cursor:pointer; font-size:12px;border:0;}
+.box_con input{ height:27px; line-height:27px;margin:0 5px;cursor:pointer; font-size:12px;border:0;border-bottom:1px solid rgb(33, 150, 255);}
 .box_con .button{background:url(../img/btn_box.png) no-repeat 0 -210px; width:73px; height:32px; text-align:center; color:#fff; line-height:32px;}
 .box_con .off{ background:url(../img/btn_box.png) no-repeat 0 -139px; width:70px; height:32px; color:#fff; line-height:32px; text-align:center}
 .box a.close{ line-height:24px; color:#B9DDFF; background: url(../img/icon_bg.png) no-repeat 0 -80px; padding-left:20px; cursor:pointer;color:#474747;font-weight:bold}
@@ -258,7 +258,7 @@ body{background-color:#F8F8F8;}
 .box_con2 .ipw130{ width:130px;height:21px; padding-left:5px; border:1px solid #d6d6d6}.box_con .ipw60{ width:60px;height:21px; padding-left:5px;border:1px solid #d6d6d6}
 .box_con2 textarea{ width:500px;border:1px solid #d6d6d6}
 .box_con2 .btn_div{ text-align:center; padding:20px 0}
-.box_con2 input{ height:27px; line-height:27px;margin:0 5px;cursor:pointer; font-size:12px;border:0;}
+.box_con2 input{ height:27px; line-height:27px;margin:0 5px;cursor:pointer; font-size:12px;border:0;border-bottom:1px solid rgb(33, 150, 255);}
 .box_con2 .button{background:url(../img/btn_box.png) no-repeat 0 -210px; width:73px; height:32px; text-align:center; color:#fff; line-height:32px;}
 .box_con2 .off{ background:url(../img/btn_box.png) no-repeat 0 -139px; width:70px; height:32px; color:#fff; line-height:32px; text-align:center}
 
@@ -341,3 +341,24 @@ background: -moz-linear-gradient(top, #999, #666 100%); background: -webkit-grad
 #Validform_msg a.Validform_close:link,#Validform_msg a.Validform_close:visited{line-height:22px; position:absolute; right:8px; top:0px; color:#fff; text-decoration:none;}
 #Validform_msg a.Validform_close:hover{color:#ccc;}
 #Validform_msg .Validform_info{padding:8px;border:1px solid #bbb; border-top:none; text-align:left;}
+
+
+.badge-inverse{border: none;
+color: rgb(71, 71, 71);
+background: none;}
+.badge-warning{background: rgb(65, 126, 183);
+border-color: rgb(36, 91, 142);
+color: white;
+text-decoration: none;}
+.badge{padding: 0 5px;
+display: inline-block;
+line-height: 17px;
+border: 1px solid rgb(163, 163, 163);
+margin-left: 5px;
+background: url(../img/page_a_bg.png) repeat-x;
+color: rgb(71, 71, 71);}
+
+.badge:hover{background: rgb(65, 126, 183);
+border-color: rgb(36, 91, 142);
+color: white;
+text-decoration: none;}

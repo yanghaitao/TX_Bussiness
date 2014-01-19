@@ -7,7 +7,7 @@
 .time span{background:url(../images/time_bg.png) no-repeat; width:56px; height:95px;float:left; display:inline; text-align:center; line-height:95px; font-size:72px;}
 .time strong{float:left; display:inline; width:40px; text-align:center; height:95px; line-height:95px; font-size:72px;}
 .date{text-align:center ;margin:0px auto; margin-top:10px; color:#fff; font-size:16px; height:30px; line-height:30px;}
-.welcome_wz{width:400px; height:112px; margin:0px auto; margin-top:30px;}
+.welcome_wz{margin:0px auto; margin-top:30px;text-align:center;}
 /*
 .switch{background:url(../images/Switch_bg.png) no-repeat; width:157px; height:22px; margin:0px auto;}
 .switch ul li{float:left; margin-left:26px; display:inline; margin-top:3px;}
@@ -39,4 +39,4 @@
 
 .main_desktop{background:url(../images/main_desktop.png) no-repeat center bottom; width:635px; height:180px; margin:0px auto; padding:0px 70px; margin-top:40px;}
 .desktop_wrap li{float:left; display:inline; width:64px; text-align:center; margin-left:52px; overflow:hidden;}
-.desktop_wrap li p{color:#fff; height:40px; line-height:40px; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:15px; font-weight:bold;}
+.desktop_wrap li p{color:#fff; height:40px; line-height:20px; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:15px; font-weight:bold;}

@@ -28,7 +28,7 @@ namespace TX_Bussiness.Web.bussiness
                 Utility.WriteCookie("Password", "TX_SZCG", -1);
               
                 //自动登录,跳转URL
-                HttpContext.Current.Response.Redirect("/login.aspx");
+                HttpContext.Current.Response.Redirect("/login2/login.aspx");
             }
         }
     }

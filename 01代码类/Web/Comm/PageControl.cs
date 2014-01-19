@@ -55,11 +55,11 @@ namespace TX_Bussiness.Web.Comm
             }
             if (pageIndex == 1)
             {
-                firstStr = " <a class=\"badge badge-warning\">1</a>";
+                firstStr = " <a class=\"badge badge-warning cur\">1</a>";
             }
             if (pageIndex == pageCount)
             {
-                lastStr = " <a class=\"badge badge-warning\">" + pageCount.ToString() + "</a>";
+                lastStr = " <a class=\"badge badge-warning cur\">" + pageCount.ToString() + "</a>";
             }
             int firstNum = pageIndex - (centSize / 2); //中间开始的页码
             if (pageIndex < centSize)
@@ -76,7 +76,7 @@ namespace TX_Bussiness.Web.Comm
             {
                 if (i == pageIndex)
                 {
-                    pageStr.Append(" <a class=\"badge badge-warning\">" + i + "</a>");
+                    pageStr.Append(" <a class=\"badge badge-warning cur\">" + i + "</a>");
                 }
                 else
                 {

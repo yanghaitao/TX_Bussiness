@@ -565,6 +565,7 @@
     <Content Include="login1\login.aspx" />
     <Content Include="login2\aiwrap.png" />
     <Content Include="login2\bg.jpg" />
+    <Content Include="login2\content_bg.png" />
     <Content Include="login2\demo.js" />
     <Content Include="login2\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
     <Content Include="login2\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
@@ -631,11 +632,53 @@
     <Content Include="newPage\js\popup_layer.js" />
     <Content Include="newPage\js\public.js" />
     <Content Include="newPage\js\unitpngfix.js" />
+    <Content Include="newPage\My97DatePicker\calendar.js" />
+    <Content Include="newPage\My97DatePicker\config.js" />
+    <Content Include="newPage\My97DatePicker\lang\en.js" />
+    <Content Include="newPage\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="newPage\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="newPage\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="newPage\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="newPage\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="newPage\My97DatePicker\skin\default\img.gif" />
+    <Content Include="newPage\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="newPage\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="newPage\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="newPage\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="newPage\My97DatePicker\WdatePicker.js" />
+    <Content Include="newPage\qwsj\areachart.aspx" />
+    <Content Include="newPage\qwsj\area_info.aspx" />
+    <Content Include="newPage\qwsj\collectorchart.aspx" />
+    <Content Include="newPage\qwsj\collector_info.aspx" />
+    <Content Include="newPage\qwsj\departchart.aspx" />
+    <Content Include="newPage\qwsj\depart_info.aspx" />
+    <Content Include="newPage\qwsj\index.aspx" />
+    <Content Include="newPage\qwsj\style\css\index.css" />
+    <Content Include="newPage\qwsj\style\css\reset.css" />
+    <Content Include="newPage\qwsj\style\img\bj1.png" />
+    <Content Include="newPage\qwsj\style\img\bj2.png" />
+    <Content Include="newPage\qwsj\style\img\btn.png" />
+    <Content Include="newPage\qwsj\style\img\btn_bg.png" />
+    <Content Include="newPage\qwsj\style\img\caption_bg.png" />
+    <Content Include="newPage\qwsj\style\img\header_bg.png" />
+    <Content Include="newPage\qwsj\style\img\header_img.png" />
+    <Content Include="newPage\qwsj\style\img\icon.png" />
+    <Content Include="newPage\qwsj\style\img\li_bg.png" />
+    <Content Include="newPage\qwsj\style\img\login_box_bg.jpg" />
+    <Content Include="newPage\qwsj\style\img\logo.png" />
+    <Content Include="newPage\qwsj\style\img\menu_bg.jpg" />
+    <Content Include="newPage\qwsj\style\img\menu_tit_bg.png" />
+    <Content Include="newPage\qwsj\style\img\page_a_bg.png" />
+    <Content Include="newPage\qwsj\style\img\tit_bg.png" />
+    <Content Include="newPage\qwsj\style\img\top_icon.png" />
     <Content Include="newPage\sbjb\ajsb.aspx" />
     <Content Include="newPage\sbjb\banli.aspx" />
     <Content Include="newPage\sbjb\Index.aspx" />
+    <Content Include="newPage\sbjb\lbQuery.aspx" />
     <Content Include="newPage\sbjb\qwdj.aspx" />
+    <Content Include="newPage\sbjb\qyQuery.aspx" />
     <Content Include="newPage\sbjb\rwcl.aspx" />
+    <Content Include="newPage\sbjb\ryQuery.aspx" />
     <Content Include="newPage\sbjb\ywcrw.aspx" />
     <Content Include="newPage\style\Blue\images\jbox-button1.png" />
     <Content Include="newPage\style\Blue\images\jbox-button2.png" />
@@ -734,6 +777,33 @@
     <Content Include="newPage\style\img\yellow1.gif" />
     <Content Include="newPage\style\img\yy.gif" />
     <Content Include="newPage\style\img\zh.gif" />
+    <Content Include="newPage\yywh\bmedit.aspx" />
+    <Content Include="newPage\yywh\bmgl.aspx" />
+    <Content Include="newPage\yywh\czjl.aspx" />
+    <Content Include="newPage\yywh\jsedit.aspx" />
+    <Content Include="newPage\yywh\jsgl.aspx" />
+    <Content Include="newPage\yywh\lbedit.aspx" />
+    <Content Include="newPage\yywh\lbgl.aspx" />
+    <Content Include="newPage\yywh\ryedit.aspx" />
+    <Content Include="newPage\yywh\rygl.aspx" />
+    <Content Include="newPage\yywh\style\css\index.css" />
+    <Content Include="newPage\yywh\style\css\reset.css" />
+    <Content Include="newPage\yywh\style\img\bj1.png" />
+    <Content Include="newPage\yywh\style\img\bj2.png" />
+    <Content Include="newPage\yywh\style\img\btn.png" />
+    <Content Include="newPage\yywh\style\img\btn_bg.png" />
+    <Content Include="newPage\yywh\style\img\caption_bg.png" />
+    <Content Include="newPage\yywh\style\img\header_bg.png" />
+    <Content Include="newPage\yywh\style\img\header_img.png" />
+    <Content Include="newPage\yywh\style\img\icon.png" />
+    <Content Include="newPage\yywh\style\img\li_bg.png" />
+    <Content Include="newPage\yywh\style\img\login_box_bg.jpg" />
+    <Content Include="newPage\yywh\style\img\logo.png" />
+    <Content Include="newPage\yywh\style\img\menu_bg.jpg" />
+    <Content Include="newPage\yywh\style\img\menu_tit_bg.png" />
+    <Content Include="newPage\yywh\style\img\page_a_bg.png" />
+    <Content Include="newPage\yywh\style\img\tit_bg.png" />
+    <Content Include="newPage\yywh\style\img\top_icon.png" />
     <Content Include="uploadify\jquery.uploadify.js" />
     <Content Include="uploadify\jquery.uploadify.min.js" />
     <Content Include="uploadify\uploadify.css" />
@@ -989,6 +1059,55 @@
     <Compile Include="main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newPage\qwsj\areachart.aspx.cs">
+      <DependentUpon>areachart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\areachart.aspx.designer.cs">
+      <DependentUpon>areachart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\area_info.aspx.cs">
+      <DependentUpon>area_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\area_info.aspx.designer.cs">
+      <DependentUpon>area_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\collectorchart.aspx.cs">
+      <DependentUpon>collectorchart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\collectorchart.aspx.designer.cs">
+      <DependentUpon>collectorchart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\collector_info.aspx.cs">
+      <DependentUpon>collector_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\collector_info.aspx.designer.cs">
+      <DependentUpon>collector_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\departchart.aspx.cs">
+      <DependentUpon>departchart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\departchart.aspx.designer.cs">
+      <DependentUpon>departchart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\depart_info.aspx.cs">
+      <DependentUpon>depart_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\depart_info.aspx.designer.cs">
+      <DependentUpon>depart_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\qwsj\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\qwsj\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="newPage\sbjb\ajsb.aspx.cs">
       <DependentUpon>ajsb.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1010,12 +1129,26 @@
     <Compile Include="newPage\sbjb\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newPage\sbjb\lbQuery.aspx.cs">
+      <DependentUpon>lbQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\lbQuery.aspx.designer.cs">
+      <DependentUpon>lbQuery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="newPage\sbjb\qwdj.aspx.cs">
       <DependentUpon>qwdj.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="newPage\sbjb\qwdj.aspx.designer.cs">
       <DependentUpon>qwdj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\sbjb\qyQuery.aspx.cs">
+      <DependentUpon>qyQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\qyQuery.aspx.designer.cs">
+      <DependentUpon>qyQuery.aspx</DependentUpon>
     </Compile>
     <Compile Include="newPage\sbjb\rwcl.aspx.cs">
       <DependentUpon>rwcl.aspx</DependentUpon>
@@ -1024,12 +1157,82 @@
     <Compile Include="newPage\sbjb\rwcl.aspx.designer.cs">
       <DependentUpon>rwcl.aspx</DependentUpon>
     </Compile>
+    <Compile Include="newPage\sbjb\ryQuery.aspx.cs">
+      <DependentUpon>ryQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\sbjb\ryQuery.aspx.designer.cs">
+      <DependentUpon>ryQuery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="newPage\sbjb\ywcrw.aspx.cs">
       <DependentUpon>ywcrw.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="newPage\sbjb\ywcrw.aspx.designer.cs">
       <DependentUpon>ywcrw.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\bmedit.aspx.cs">
+      <DependentUpon>bmedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\bmedit.aspx.designer.cs">
+      <DependentUpon>bmedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\bmgl.aspx.cs">
+      <DependentUpon>bmgl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\bmgl.aspx.designer.cs">
+      <DependentUpon>bmgl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\czjl.aspx.cs">
+      <DependentUpon>czjl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\czjl.aspx.designer.cs">
+      <DependentUpon>czjl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\jsedit.aspx.cs">
+      <DependentUpon>jsedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\jsedit.aspx.designer.cs">
+      <DependentUpon>jsedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\jsgl.aspx.cs">
+      <DependentUpon>jsgl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\jsgl.aspx.designer.cs">
+      <DependentUpon>jsgl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\lbedit.aspx.cs">
+      <DependentUpon>lbedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\lbedit.aspx.designer.cs">
+      <DependentUpon>lbedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\lbgl.aspx.cs">
+      <DependentUpon>lbgl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\lbgl.aspx.designer.cs">
+      <DependentUpon>lbgl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\ryedit.aspx.cs">
+      <DependentUpon>ryedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\ryedit.aspx.designer.cs">
+      <DependentUpon>ryedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newPage\yywh\rygl.aspx.cs">
+      <DependentUpon>rygl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newPage\yywh\rygl.aspx.designer.cs">
+      <DependentUpon>rygl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tools\AjaxHandler.ashx.cs">

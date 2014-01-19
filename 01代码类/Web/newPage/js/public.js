@@ -22,7 +22,7 @@
 
 function create_sbjbmenu(cur){
 var sbjb = new Array("首 页", "任务处理", "任务查询", "知识库", "帮助");
-var sbjb_url = new Array("Index", "rwcl", "rwcx", "zsk", "bz");
+var sbjb_url = new Array("Index", "rwcl", "ryQuery", "zsk", "bz");
 var createsrc = "<ul class=\"left\">";
 for (var i = 0; i < sbjb.length; i++) {
     if (sbjb[i] == cur) {
@@ -40,3 +40,20 @@ $("#menu").html(createsrc);
 }
 
 
+function create_qwsjbmenu(cur) {
+    var sbjb = new Array("首 页", "勤务统计", "勤务统计(图表)", "知识库", "帮助");
+    var sbjb_url = new Array("index", "area_info","areachart", "zsk", "bz");
+    var createsrc = "<ul class=\"left\">";
+    for (var i = 0; i < sbjb.length; i++) {
+        if (sbjb[i] == cur) {
+            createsrc = createsrc + "<li class=\"cur\"><a href=\"" + sbjb_url[i] + ".aspx\">" + sbjb[i] + "</a></li>";
+        }
+        else {
+            createsrc = createsrc + "<li><a href=\"" + sbjb_url[i] + ".aspx\">" + sbjb[i] + "</a></li>";
+        }
+        if (i == sbjb.length - 1) {
+            createsrc = createsrc + "</ul>";
+        }
+    }
+$("#menu").html(createsrc);
+}

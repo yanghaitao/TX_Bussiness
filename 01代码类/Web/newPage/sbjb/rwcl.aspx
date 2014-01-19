@@ -16,11 +16,11 @@
     <script type="text/javascript" src="../js/public.js"></script>
     <script src="../../js/global.js" type="text/javascript"></script>
     <script type="text/javascript" src="../../bussiness/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
-       <script src="../../js/Validform_v5.3.2.js" type="text/javascript"></script>
+    <script src="../../js/Validform_v5.3.2.js" type="text/javascript"></script>
+    <script src="/newpage/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             create_sbjbmenu("任务处理");
-            $(".datepicker").datepicker();
             $(".preview").click(function () {
                 var projcode = $(this).closest("tr").attr("_projcode");
                 if (projcode && projcode != "") {
@@ -88,9 +88,10 @@
                     <!--search_con start-->
                     <div class="search_con noborder">
                         <div class="search_data">
-                        <form action="/newpage/sbjb/rwcl.aspx" method="get" class="valifrom">
+                            <form action="/newpage/sbjb/rwcl.aspx" method="get" class="valifrom">
                             <div class="ip_list">
-                                勤务编号：<input type="text" style="width: 180px" id="formid" datatype="n0-4" nullmsg="请输入正确的案卷编号！" name="txt_projectcode" value="<%=txt_projectcode %>" />
+                                勤务编号：<input type="text" style="width: 180px" id="formid" datatype="n0-4" nullmsg="请输入正确的案卷编号！"
+                                    name="txt_projectcode" value="<%=txt_projectcode %>" />
                                 处理部门：<select size="1" name="txt_depart" id="bumen">
                                     <option value="0">全部</option>
                                     <%foreach (var v in Departlist())
@@ -146,104 +147,106 @@
                                       }%>
                                 </select>
                                 录入日期起：
-                                <input class="span2 datepicker" size="16" type="text" id="startime" name="txt_startdate"
-                                    value="<%=txt_startdate %>" /><span class="add-on"><i class="icon-calendar"></i></span>至<input
-                                        id="endtime" class="span2 datepicker" name="txt_enddate" size="16" type="text"
-                                        value="<%=txt_enddate %>" /><span class="add-on"><i class="icon-calendar"></i></span>
+                                <input class="span2 datepicker" size="16" onclick="WdatePicker()" type="text" id="startime"
+                                    name="txt_startdate" value="<%=txt_startdate %>" class="Wdate" /><span class="add-on"><i
+                                        class="icon-calendar"></i></span>至<input id="endtime" onclick="WdatePicker()" class="span2 datepicker"
+                                            name="txt_enddate" size="16" type="text" value="<%=txt_enddate %>" /><span class="add-on"><i
+                                                class="icon-calendar"></i></span>
                                 <input class="ip_btn" id="find" type="submit" value="查询" />
                             </div>
                             </form>
-                            <div class="search_data">
-                                <table width="100%" border="0" cellpadding="0" id="projlist" cellspacing="0">
-                                    <tr>
-                                        <th>
-                                            勤务编号
-                                        </th>
-                                        <th>
-                                            上报人
-                                        </th>
-                                        <th>
-                                            区域
-                                        </th>
-                                        <th>
-                                            街道
-                                        </th>
-                                        <th>
-                                            社区
-                                        </th>
-                                        <th>
-                                            大类
-                                        </th>
-                                        <th>
-                                            小类
-                                        </th>
-                                        <th>
-                                            地址
-                                        </th>
-                                        <th>
-                                            案卷描述
-                                        </th>
-                                        <th>
-                                            上报时间
-                                        </th>
-                                        <th>
-                                            操作
-                                        </th>
-                                    </tr>
-                                    <%if (project_list != null && project_list.Count > 0)
-                                      {
-                                          int i = 0;
-                                          foreach (var v in project_list)
-                                          {%>
-                                    <tr <%=i%2==0?"":"class='even'" %> _projcode="<%=v.Projcode %>">
-                                        <td>
-                                            <a href="javascript:;showdetail('<%=v.Projcode %>')">
-                                                <%=String.Format(GetAppSeeting("ProjectNameTemplate"),v.Projcode) %>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <%=v.Reportpersonname %>
-                                        </td>
-                                        <td>
-                                            <%= GetAreaName(v.Areacode) %>
-                                        </td>
-                                        <td>
-                                            <%= GetStreetName( v.Streetcode) %>
-                                        </td>
-                                        <td>
-                                            <%=GetCommName( v.Communitycode) %>
-                                        </td>
-                                        <td>
-                                            <%=v.Bigclassname %>
-                                        </td>
-                                        <td>
-                                            <%=v.Smallclassname %>
-                                        </td>
-                                        <td title="<%=v.Address %>">
-                                            <%=Bussiness.Common.Utility.CheckStringLength(v.Address,10)%>
-                                        </td>
-                                        <td title="<%=v.Describe %>">
-                                            <%=Bussiness.Common.Utility.CheckStringLength(v.Describe, 10)%>
-                                        </td>
-                                        <td>
-                                            <%=v.Adddate %>
-                                        </td>
-                                        <td>
-                                            <a href="banli.aspx?projcode=<%=v.Projcode %>" class="btn btn-mini btn-primary add">
-                                                办理 </a><a href="javascript:;" class="preview btn btn-mini btn-primary add">查看流程
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <%}
-                                      } %>
-                                    <tr class="tr_pagenumber">
-                                        <td colspan="100">
-                                            <div id="PageContent" runat="server">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
+                        </div>
+                        <div class="search_data">
+                            <table width="100%" border="0" cellpadding="0" id="projlist" cellspacing="0" style="border-top: 1px solid #d6d6d6;">
+                                <tr>
+                                    <th>
+                                        勤务编号
+                                    </th>
+                                    <th>
+                                        上报人
+                                    </th>
+                                    <th>
+                                        区域
+                                    </th>
+                                    <th>
+                                        街道
+                                    </th>
+                                    <th>
+                                        社区
+                                    </th>
+                                    <th>
+                                        大类
+                                    </th>
+                                    <th>
+                                        小类
+                                    </th>
+                                    <th>
+                                        地址
+                                    </th>
+                                    <th>
+                                        案卷描述
+                                    </th>
+                                    <th>
+                                        上报时间
+                                    </th>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                                <%if (project_list != null && project_list.Count > 0)
+                                  {
+                                      int i = 0;
+                                      foreach (var v in project_list)
+                                      {%>
+                                <tr <%=i%2==0?"":"class='w_bg'" %> _projcode="<%=v.Projcode %>">
+                                    <td>
+                                        <a href="javascript:;showdetail('<%=v.Projcode %>')">
+                                            <%=String.Format(GetAppSeeting("ProjectNameTemplate"),v.Projcode) %>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <%=v.Reportpersonname %>
+                                    </td>
+                                    <td>
+                                        <%= GetAreaName(v.Areacode) %>
+                                    </td>
+                                    <td>
+                                        <%= GetStreetName( v.Streetcode) %>
+                                    </td>
+                                    <td>
+                                        <%=GetCommName( v.Communitycode) %>
+                                    </td>
+                                    <td>
+                                        <%=v.Bigclassname %>
+                                    </td>
+                                    <td>
+                                        <%=v.Smallclassname %>
+                                    </td>
+                                    <td title="<%=v.Address %>">
+                                        <%=Bussiness.Common.Utility.CheckStringLength(v.Address,10)%>
+                                    </td>
+                                    <td title="<%=v.Describe %>">
+                                        <%=Bussiness.Common.Utility.CheckStringLength(v.Describe, 10)%>
+                                    </td>
+                                    <td>
+                                        <%=v.Adddate %>
+                                    </td>
+                                    <td>
+                                        <a href="banli.aspx?projcode=<%=v.Projcode %>" class="btn btn-mini btn-primary add">
+                                            办理 </a><a href="javascript:;" class="preview btn btn-mini btn-primary add">查看流程
+                                        </a>
+                                    </td>
+                                </tr>
+                                <%i++;
+                                      }
+                                  } %>
+                                <tr class="tr_pagenumber">
+                                    <td colspan="100">
+                                        <div id="PageContent" runat="server" class="page">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                     <!--search_con end-->

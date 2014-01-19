@@ -7,9 +7,9 @@
     <link rel="stylesheet" type="text/css" href="../style/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="../style/css/index.css" />
     <link id="skin" rel="stylesheet" href="../style/Blue/jbox.css" />
-      <link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
+    <link rel="stylesheet" type="text/css" href="/uploadify/uploadify.css" />
     <script src="../js/jquery-1.6.1.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
+    <link rel="stylesheet" type="text/css" href="/bussiness/Styles/chur.css" />
     <script type="text/javascript" src="../../bussiness/Scripts/ChurAlert.min.js?skin=blue"></script>
     <script type="text/javascript" src="../../bussiness/Scripts/chur-alert.1.0.js"></script>
     <%-- <script type="text/javascript" src="../js/popup_layer.js"></script>
@@ -17,10 +17,11 @@
     <script type="text/javascript" src="../js/public.js"></script>
     <script type="text/javascript" src="../../bussiness/Scripts/jquery-ui-1.8.22.custom.min.js"></script>
     <script src="../../js/global.js" type="text/javascript"></script>
-        <script type="text/javascript" src="/uploadify/jquery.uploadify.js"></script>
+    <script type="text/javascript" src="/uploadify/jquery.uploadify.js"></script>
     <script src="../../js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
+            create_sbjbmenu("任务处理");
             var filename = "";
             $("#file_upload").uploadify({
                 'swf': '/uploadify/uploadify.swf',
@@ -79,13 +80,14 @@
                             </div>
                             <div class="box">
                                 <div class="box_tit" style="padding-bottom: 0px; clear: both">
-                                    <a>案卷上报</a></div>
+                                    案卷上报</div>
                                 <div class="box_con" style="padding-top: 0px; clear: both">
-                                    <table>
+                                    <form action="/newpage/sbjb/ajsb.aspx" method="post">
+                                    <table style="margin-top: 0px">
                                         <thead>
                                             <tr>
                                                 <td colspan="4">
-                                                    <b>案卷基本信息</b>
+                                                    <font style="font-size: 18px">勤务单</font>
                                                 </td>
                                             </tr>
                                         </thead>
@@ -109,7 +111,7 @@
                                                     所属区域<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_area" datatype="*" nullmsg="请选择区域！">
+                                                    <select name="txt_area" datatype="*" nullmsg="请选择区域！" class="ipw130">
                                                         <%foreach (var v in Arealist())
                                                           { %>
                                                         <option value="<%=v.Areacode %>">
@@ -122,7 +124,7 @@
                                                     所属街道<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_street" datatype="*" nullmsg="请选择街道！">
+                                                    <select name="txt_street" datatype="*" nullmsg="请选择街道！" class="ipw130">
                                                         <%foreach (var v in Streettlist())
                                                           { %>
                                                         <option value="<%=v.Streetcode %>">
@@ -137,7 +139,7 @@
                                                     所属社区<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_commnuity" datatype="*" nullmsg="请选择社区！">
+                                                    <select name="txt_commnuity" datatype="*" nullmsg="请选择社区！" class="ipw130">
                                                         <%foreach (var v in Communitylist())
                                                           {
                                                               if (!string.IsNullOrEmpty(v.Commname))
@@ -146,14 +148,14 @@
                                                             <%=v.Commname %>
                                                         </option>
                                                         <%}
-                          }%>
+                                                          }%>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     类别<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_baseclass" datatype="*" nullmsg="请选择案卷类别！">
+                                                    <select name="txt_baseclass" datatype="*" nullmsg="请选择案卷类别！" class="ipw130">
                                                         <option value="">全部 </option>
                                                         <%foreach (var v in GetBaseClass())
                                                           { %>
@@ -169,14 +171,14 @@
                                                     大类<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_bigclass" datatype="*" nullmsg="请选择大类！">
+                                                    <select name="txt_bigclass" datatype="*" nullmsg="请选择大类！" class="ipw130">
                                                     </select>
                                                 </td>
                                                 <td>
                                                     小类<font color="FF0000">*</font>
                                                 </td>
                                                 <td>
-                                                    <select name="txt_smallclass" datatype="*" nullmsg="请选择小类！">
+                                                    <select name="txt_smallclass" datatype="*" nullmsg="请选择小类！" class="ipw130">
                                                     </select>
                                                 </td>
                                             </tr>
@@ -185,7 +187,7 @@
                                                     案卷类型<font color="FF0000">*</font>
                                                 </td>
                                                 <td colspan="3">
-                                                    <select name="txt_projecttype">
+                                                    <select name="txt_projecttype" class="ipw130">
                                                         <option value="1">一般 </option>
                                                         <option value="2">紧急 </option>
                                                     </select>
@@ -216,9 +218,9 @@
                                                 <td width="500" colspan="3" height="">
                                                     <input type="hidden" name="fileimgs" id="fileimgs" />
                                                     <input type="file" name="file_upload" id="file_upload" />
-                                                    <button type="button" onclick="$('#file_upload').uploadify('upload','*')" class="btn btn-primary">
+                                                    <button type="button" onclick="$('#file_upload').uploadify('upload','*')" class="">
                                                         上传</button>
-                                                    <button type="button" onclick="$('#file_upload').uploadify('cancel', '*')" class="btn btn-primary">
+                                                    <button type="button" onclick="$('#file_upload').uploadify('cancel', '*')" class="">
                                                         取消</button>
                                                 </td>
                                             </tr>
@@ -226,12 +228,13 @@
                                         <tfoot>
                                             <tr>
                                                 <td colspan="4">
-                                                    <input class="btn btn-primary" id="saveproject" type="submit" value="保存" />
-                                                    <input class="btn btn-primary" type="button" value="取消" onclick="window.history.go(-1)" />
+                                                    <input class="button" id="saveproject" type="submit" value="保存" />
+                                                    <input class="button" type="button" value="取消" onclick="window.history.go(-1)" />
                                                 </td>
                                             </tr>
                                         </tfoot>
                                     </table>
+                                    </form>
                                 </div>
                             </div>
                         </div>

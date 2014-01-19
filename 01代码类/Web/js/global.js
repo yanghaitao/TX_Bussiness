@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $(".col-sub").css("height", $(window).height());
     function comm() {
         this.checkall = function (checkname, outvalname) {
             $("input[name='" + checkname + "']").attr("checked", true);
@@ -229,14 +230,11 @@ function viladeExist(obj, tablename) {
 
     $.post("/tools/AjaxHandler.ashx", { act: action, name: val.val(), id: obj }, function (data) {
         if (data == "1") {
-            $("body").alert({
-                type: "warning",
-                content: errormsg
-            });
+            alert(errormsg);
             val.val("");
             return false;
         } else {
-            $("#form1").submit();
+            // $("#form1").submit();
         }
     })
 

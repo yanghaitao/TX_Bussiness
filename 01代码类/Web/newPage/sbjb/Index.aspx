@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="TX_Bussiness.Web.newPage.sbjb.Index" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -104,8 +103,8 @@
                         left: ($(document).width() - this.popupLayer.width()) / 2,
                         top: (document.documentElement.clientHeight - this.popupLayer.height()) / 2 + $(document).scrollTop(),
                         opacity: 0.8
-                    }, 300, function () { this.popupLayer.css("opacity", 1) }.binding(this));
-                }.binding(this));
+                    }, 300, function () { this.popupLayer.css("opacity", 1) } .binding(this));
+                } .binding(this));
             } else {
                 this.popupLayer.animate({
                     left: this.trigger.offset().left,
@@ -116,7 +115,7 @@
                     complete: function () {
                         this.popupLayer.css("opacity", 1);
                         this.popupLayer.hide()
-                    }.binding(this)
+                    } .binding(this)
                 });
             }
         };
@@ -124,44 +123,45 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
-            <!--header start-->
-            <div class="header">
-                <div class="welcome"><a class="close" href="#">注销</a><a class="off" href="/bussiness/index.aspx?action=exit">退出</a></div>
-                <div class="nav">
-                    <ul class="left">
-                        <li class="cur"><a href="index.html">首 页</a></li>
-                        <li><a href="/newpage/sbjb/rwcl.aspx">任务处理</a></li>
-                        <li ><a href="/newpage/sbjb/rwcx.aspx">任务查询</a></li>
-                        <li><a href="xinfangyujing.html">知识库</a></li>
-                        <li><a href="xinfangtongji.html">帮助</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        <!--header start-->
+        <div class="header">
+            <div class="welcome">
+                <a class="close" href="#">注销</a><a class="off" href="/bussiness/index.aspx?action=exit">退出</a></div>
+            <div class="nav">
+                <ul class="left">
+                    <li class="cur"><a href="index.html">首 页</a></li>
+                    <li><a href="/newpage/sbjb/rwcl.aspx">任务处理</a></li>
+                    <li><a href="/newpage/sbjb/ryQuery.aspx">任务查询</a></li>
+                    <li><a href="xinfangyujing.html">知识库</a></li>
+                    <li><a href="xinfangtongji.html">帮助</a></li>
+                </ul>
             </div>
-            <!--header end-->
-            <div class="tip">当前位置：<a href="#">首页</a> ></div>
-            <!--content start-->
-            <div class="col_lh220">
-                <div class=" title_col_l">
-                    最新待办任务
-                </div>
-                <div class="text_con">
-                    <ul>
-                    <%foreach( var v in projectlist){ %>
-                        <li><span>[<%=v.Adddate %>]</span><a href="/newpage/sbjb/banli.aspx?projcode=<%=v.Projcode %>" target="_blank"><%=String.Format(GetAppSeeting("ProjectNameTemplate"), v.Projcode)%></a></li>
-                       <%} %>
-                        
-                    </ul>
-                </div>
+        </div>
+        <!--header end-->
+        <div class="tip">
+            当前位置：<a href="#">首页</a> ></div>
+        <!--content start-->
+        <div class="col_lh220">
+            <div class=" title_col_l">
+                最新待办任务
             </div>
-            <div class="col_rh220">
-                <div class=" title_col_r">
-                    物价动态
-                </div>
-                <div class="text_con" style="padding: 0px">
-
-
-                   <%--     <div name="pic" style="float: left; position: relative; overflow: hidden;">
+            <div class="text_con">
+                <ul>
+                    <%foreach (var v in projectlist)
+                      { %>
+                    <li><span>[<%=v.Adddate %>]</span><a href="/newpage/sbjb/banli.aspx?projcode=<%=v.Projcode %>"
+                        target="_blank"><%=String.Format(GetAppSeeting("ProjectNameTemplate"), v.Projcode)%></a></li>
+                    <%} %>
+                </ul>
+            </div>
+        </div>
+        <div class="col_rh220">
+            <div class=" title_col_r">
+                物价动态
+            </div>
+            <div class="text_con" style="padding: 0px">
+                <%--     <div name="pic" style="float: left; position: relative; overflow: hidden;">
                         <div>
                             <img width="100%" height="192" src="Chrysanthemum.jpg" alt="1" /></div>
                         <div>
@@ -170,79 +170,72 @@
                             <img width="100%" height="192" src="Hydrangeas.jpg" alt="3" /></div>
                     </div>
                 </div>--%>
-                   <div id="ibanner">
-                        <div id="pic">
-                            <a class="img" href="#">
-                                <img src="../images/vvszho8bgm9m.jpg" alt="杭州市物价局通报党组专题民主生活会情况" width="100%" height="192"  title="杨市长再次来我局指导调研群众路线教育实"/>
-                                <span>杭州市物价局通报党组专题民主生活会情况</span></a>
-                            <a class="img" href="#">
+                <div id="ibanner">
+                    <div id="pic">
+                        <a class="img" href="#">
+                            <img src="../images/vvszho8bgm9m.jpg" alt="杭州市物价局通报党组专题民主生活会情况" width="100%" height="192"
+                                title="杨市长再次来我局指导调研群众路线教育实" />
+                            <span>杭州市物价局通报党组专题民主生活会情况</span></a> <a class="img" href="#">
                                 <img src="../images/kkdohne0mzgb.jpg" alt="杨市长再次来我局指导调研群众路线教育实" width="100%" height="192" />
-                                <span>杨市长再次来我局指导调研群众路线教育实</span></a>
-                            <a class="img" href="#">
-                                <img src="../images/w3z9hne04073.jpg" alt="中国经贸导刊全国宣传工作会议在我市召开" width="100%"  height="192" />
-                                <span>中国经贸导刊全国宣传工作会议在我市召开</span></a>
-                            <a class="img" href="#">
-                                <img src="../images/15dahmwucr9z.jpg" alt="市物价局召开全市“行政执法提升年”活动" width="100%"  height="192" />
-                                <span>市物价局召开全市“行政执法提升年”活动</span></a>
-                        </div>
+                                <span>杨市长再次来我局指导调研群众路线教育实</span></a> <a class="img" href="#">
+                                    <img src="../images/w3z9hne04073.jpg" alt="中国经贸导刊全国宣传工作会议在我市召开" width="100%" height="192" />
+                                    <span>中国经贸导刊全国宣传工作会议在我市召开</span></a> <a class="img" href="#">
+                                        <img src="../images/15dahmwucr9z.jpg" alt="市物价局召开全市“行政执法提升年”活动" width="100%" height="192" />
+                                        <span>市物价局召开全市“行政执法提升年”活动</span></a>
                     </div>
-
+                </div>
                 <div class="clear">
-               
                 </div>
             </div>
+        </div>
+        <div class="col_l h_420" style="padding: 0px">
+            <div class=" title_col_l">
+                统计分析
+            </div>
+            <div class="text_con" style="overflow: hidden; padding: 0px; width: 100%">
+                <iframe src="QueryStatistics/QyChart1.aspx" frameborder="0" width="" style="width: 100%;
+                    height: 375px" scrolling="no"></iframe>
+            </div>
+        </div>
+        <div class="other">
+            <div class="col_r h_202">
+                <div class=" title_col_r">
+                    通知公告
                 </div>
-            <div class="col_l h_420" style="padding: 0px">
-                <div class=" title_col_l">
-                    统计分析
-                </div>
-                <div class="text_con" style="overflow: hidden; padding: 0px; width: 100%">
-                    <iframe src="QueryStatistics/QyChart1.aspx" frameborder="0" width="" style="width: 100%; height: 375px"
-                        scrolling="no"></iframe>
+                <div class="text_con">
+                    <ul>
+                        <li><span>[08-15]</span><a href="#">2004-2013年政府定价药品最高零售价格临时公示</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省物价局关于公布西咪替丁等集中采购药品零售价格的通知</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省物价局 浙江省财政厅关于调整因公电子护照收费标准的复函</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省物价局 浙江省财政厅关于核定大学生村官选聘考试收费标准的复函</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省物价局关于调整呼吸解热镇痛和专科特殊用药等最高零售限价的通知</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省物价局关于公布盐酸氨溴索注射液等集中采购药品零售价格的通知</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="other">
-                <div class="col_r h_202">
-                    <div class=" title_col_r">
-                        通知公告
-                    </div>
-                    <div class="text_con">
-                        <ul>
-                            <li><span>[08-15]</span><a href="#">2004-2013年政府定价药品最高零售价格临时公示</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省物价局关于公布西咪替丁等集中采购药品零售价格的通知</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省物价局 浙江省财政厅关于调整因公电子护照收费标准的复函</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省物价局
-                        浙江省财政厅关于核定大学生村官选聘考试收费标准的复函</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省物价局关于调整呼吸解热镇痛和专科特殊用药等最高零售限价的通知</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省物价局关于公布盐酸氨溴索注射液等集中采购药品零售价格的通知</a></li>
-                        </ul>
-                    </div>
+            <div class="col_r h_206">
+                <div class=" title_col_r">
+                    法律法规
                 </div>
-                <div class="col_r h_206">
-                    <div class=" title_col_r">
-                        法律法规
-                    </div>
-                    <div class="text_con">
-                        <ul>
-                            <li><span>[08-15]</span><a href="#">城镇燃气管理条例</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省政府非税收入管理条例</a></li>
-                            <li><span>[08-15]</span><a href="#">浙江省经济适用住房管理办法</a></li>
-                            <li><span>[08-15]</span><a href="#">反价格垄断行政执法程序规定</a></li>
-                            <li><span>[08-15]</span><a href="#">反价格垄断规定</a></li>
-                            <li><span>[08-15]</span><a href="#">中华人民共和国电力法</a></li>
-                        </ul>
-                    </div>
+                <div class="text_con">
+                    <ul>
+                        <li><span>[08-15]</span><a href="#">城镇燃气管理条例</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省政府非税收入管理条例</a></li>
+                        <li><span>[08-15]</span><a href="#">浙江省经济适用住房管理办法</a></li>
+                        <li><span>[08-15]</span><a href="#">反价格垄断行政执法程序规定</a></li>
+                        <li><span>[08-15]</span><a href="#">反价格垄断规定</a></li>
+                        <li><span>[08-15]</span><a href="#">中华人民共和国电力法</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="clear">
-            </div>
+        </div>
+        <div class="clear">
+        </div>
     </form>
-
-
     <script type="text/javascript">
         var t;
-        var speed = 3;//图片切换速度 
-        var nowlan = 0;//图片开始时间 
+        var speed = 3; //图片切换速度 
+        var nowlan = 0; //图片开始时间 
         function changepic() {
             var imglen = $("div[id='pic']").find("a").length;
             $("div[id='pic']").find("a").fadeOut();
@@ -261,6 +254,3 @@
     </script>
 </body>
 </html>
-
-
-
