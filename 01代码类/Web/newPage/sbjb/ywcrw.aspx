@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>桐乡市城市管理行政执法局勤务信息平台--上报交办系统</title>
     <link rel="stylesheet" type="text/css" href="../style/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="../style/css/index.css" />
     <link id="skin" rel="stylesheet" href="../style/Blue/jbox.css" />
@@ -56,9 +56,16 @@
     <form id="form1" runat="server">
     <div class="container">
         <!--header start-->
-        <div class="header">
+         <%if (CheckRole(GetUserInfo().Id, TX_Bussiness.Web.Comm.Constant.RoleCode_JLD))
+          {%>
+        <div class="header"style="background: rgb(62, 120, 186) url(/newpage/style/img/header.png) no-repeat left 0;">
+        <%}
+          else
+          { %>
+            <div class="header"style="background: rgb(62, 120, 186) url(/newpage/style/img/header_qwss.png) no-repeat left 0;">
+        <%} %>  <div class="loginname">欢迎您：<font><%=GetUserInfo().Loginname %></font></div>
             <div class="welcome">
-                <a class="close" href="#">注销</a><a class="off" href="/bussiness/index.aspx?action=exit">退出</a></div>
+                 <a class="close" href="/main.aspx">返回</a><a class="off" href="/bussiness/index.aspx?action=exit">退出</a></div>
             <div class="nav" id="menu">
             </div>
         </div>

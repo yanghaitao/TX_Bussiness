@@ -45,20 +45,21 @@ namespace TX_Bussiness.Web.newPage.qwsj
         }
         protected int GetCollectorCount(object userid)
         {
-            SqlQuery query = new Select().From(InfoCollector.Schema);
+            SqlQuery query = new Select().From(Project.Schema);
             List<Aggregate> list = new List<Aggregate>();
-            list.Add(new Aggregate(InfoArea.Columns.Projcode, "listcount", AggregateFunction.Count));
+            list.Add(new Aggregate(Project.Columns.Projcode, "listcount", AggregateFunction.Count));
             query.Aggregates = list;
             query.Where("1=1");
-            query.Where(InfoCollector.CollectoridColumn).IsEqualTo(userid);
+            query.And(Project.NodeidColumn).IsEqualTo(4);
+            query.And(Project.HandleridColumn).IsEqualTo(userid);
 
             if (!string.IsNullOrEmpty(txt_startdate))
             {
-                query.And(InfoCollector.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
+                query.And(Project.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
             }
             if (!string.IsNullOrEmpty(txt_enddate))
             {
-                query.And(InfoCollector.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
+                query.And(Project.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
             }
             object o = query.ExecuteScalar();
             if (o != null)

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>header</title>
+    <title>桐乡市城市管理行政执法局勤务信息平台--勤务数据系统</title>
     <link rel="stylesheet" type="text/css" href="style/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="style/css/index.css" />
     <script src="/js/jquery-1.8.0.min.js" type="text/javascript"></script>
@@ -46,10 +46,10 @@
                 <h1 style="line-height: 67px; font-size: 30px; color: White; margin-left: 30px;">
                     勤务数据系统</h1>
             </div>
-            <div class="top_menu">
+             <div class="top_menu">
                 <a class="lock" href="/bussiness/index.aspx?action=exit" title="注销"></a><a class="close"
-                    href="/bussiness/index.aspx?action=exit" title="退出"></a><a class="off" href="/bussiness/index.aspx?action=exit"
-                        title="注销"></a>
+                    href="/bussiness/index.aspx?action=exit" title="退出"></a><a class="off" href="/main.aspx"
+                        title="返回主界面"></a>
             </div>
         </div>
         <div class="nav">

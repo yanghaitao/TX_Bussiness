@@ -1,1 +1,1 @@
-<chart yAxisName="工作量" caption="区域工作量统计" useRoundEdges="1" bgColor="FFFFFF,FFFFFF" showBorder="0" exportEnabled="1" exportAtClient="1" exportHandler="fcExporter1" exportDialogMessage="正在生成，请稍等..." exportFormats="JPG=生成JPG图片|PDF=生成PDF文件"><set label="桐乡市" value="25"  /></chart>
+<chart yAxisName="工作量" caption="区域工作量统计" useRoundEdges="1" bgColor="FFFFFF,FFFFFF" showBorder="0" exportEnabled="1" exportAtClient="1" exportHandler="fcExporter1" exportDialogMessage="正在生成，请稍等..." exportFormats="JPG=生成JPG图片|PDF=生成PDF文件"><set label="桐乡市" value="3"  /></chart>

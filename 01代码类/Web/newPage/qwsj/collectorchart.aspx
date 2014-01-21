@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>header</title>
+    <title>桐乡市城市管理行政执法局勤务信息平台--勤务数据系统</title>
     <link rel="stylesheet" type="text/css" href="style/css/reset.css" />
     <link rel="stylesheet" type="text/css" href="style/css/index.css" />
     <script src="/js/jquery-1.8.0.min.js" type="text/javascript"></script>
@@ -56,13 +56,13 @@
             </div>
             <div class="top_menu">
                 <a class="lock" href="/bussiness/index.aspx?action=exit" title="注销"></a><a class="close"
-                    href="/bussiness/index.aspx?action=exit" title="退出"></a><a class="off" href="/bussiness/index.aspx?action=exit"
-                        title="注销"></a>
+                    href="/bussiness/index.aspx?action=exit" title="退出"></a><a class="off" href="/main.aspx"
+                        title="返回主界面"></a>
             </div>
         </div>
         <div class="nav">
             <ul class="left">
-                <li><a href="/newpage/qwsj/index.aspx">首页</a></li><li><a href="/newpage/qwsj/area_info.aspx">
+               <li><a href="/newpage/qwsj/area_info.aspx">
                     勤务统计</a></li><li class="cur"><a href="/newpage/qwsj/areachart.aspx">图表统计</a></li><li>
                         <a href="#">知识库</a></li>
                 <li><a href="#">帮助</a></li>

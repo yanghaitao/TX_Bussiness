@@ -96,30 +96,47 @@ namespace TX_Bussiness.Web.newPage.qwsj
         }
         protected int GetAreacount(object code, Enums.AreaCountType type)
         {
-            SqlQuery query = new Select().From(InfoArea.Schema);
-            List<Aggregate> list = new List<Aggregate>();
-            list.Add(new Aggregate(InfoArea.Columns.Projcode, "listcount", AggregateFunction.Count));
-            query.Aggregates = list;
-            query.Where("1=1");
-            if (!string.IsNullOrEmpty(txt_startdate))
-            {
-                query.And(InfoArea.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
-            }
-            if (!string.IsNullOrEmpty(txt_enddate))
-            {
-                query.And(InfoArea.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
-            }
+            //SqlQuery query = new Select().From(InfoArea.Schema);
+            //List<Aggregate> list = new List<Aggregate>();
+            //list.Add(new Aggregate(InfoArea.Columns.Projcode, "listcount", AggregateFunction.Count));
+            //query.Aggregates = list;
+            //query.Where("1=1");
+            //if (!string.IsNullOrEmpty(txt_startdate))
+            //{
+            //    query.And(InfoArea.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
+            //}
+            //if (!string.IsNullOrEmpty(txt_enddate))
+            //{
+            //    query.And(InfoArea.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
+            //}
+            //if (type == Enums.AreaCountType.Area)
+            //    query.And(InfoArea.AreacodeColumn).IsEqualTo(code);
+            //if (type == Enums.AreaCountType.Street)
+            //    query.And(InfoArea.StreetcodeColumn).IsEqualTo(code);
+            //if (type == Enums.AreaCountType.Commnuity)
+            //    query.And(InfoArea.CommnuitycodeColumn).IsEqualTo(code);
+            //object o = query.ExecuteScalar();
+            //if (o != null)
+            //    return Convert.ToInt32(o);
+            //return 0;
+
+
+            SqlQuery newquery = new Select().From(Project.Schema);
+            List<Aggregate> agglist = new List<Aggregate>();
+            agglist.Add(new Aggregate(Project.Columns.Projcode, "listcount", AggregateFunction.Count));
+            newquery.Aggregates = agglist;
+            newquery.Where("1=1");
+            newquery.And(Project.NodeidColumn).IsEqualTo(4);
             if (type == Enums.AreaCountType.Area)
-                query.And(InfoArea.AreacodeColumn).IsEqualTo(code);
+                newquery.And(Project.AreacodeColumn).IsEqualTo(code);
             if (type == Enums.AreaCountType.Street)
-                query.And(InfoArea.StreetcodeColumn).IsEqualTo(code);
+                newquery.And(Project.StreetcodeColumn).IsEqualTo(code);
             if (type == Enums.AreaCountType.Commnuity)
-                query.And(InfoArea.CommnuitycodeColumn).IsEqualTo(code);
-            object o = query.ExecuteScalar();
+                newquery.And(Project.CommunitycodeColumn).IsEqualTo(code);
+            object o = newquery.ExecuteScalar();
             if (o != null)
-                return Convert.ToInt32(o);
+               return Convert.ToInt32(o);
             return 0;
         }
-       
     }
 }

@@ -63,6 +63,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="404.htm" />
+    <Content Include="404\01.jpg" />
+    <Content Include="404\01.png" />
+    <Content Include="404\02.png" />
+    <Content Include="404\03.png" />
+    <Content Include="404\04.png" />
     <Content Include="App_Themes\BlueTheme\Default.css" />
     <Content Include="App_Themes\Green2Theme\Default.css" />
     <Content Include="App_Themes\GreenTheme\Default.css" />
@@ -92,6 +98,7 @@
     <Content Include="bussiness\img\leaf6.png" />
     <Content Include="bussiness\img\leaf7.png" />
     <Content Include="bussiness\img\leaf8.png" />
+    <None Include="404\Thumbs.db" />
     <None Include="bussiness\img\logo.png1" />
     <Content Include="bussiness\img\nav-tip.gif" />
     <Content Include="bussiness\img\primary.png" />
@@ -804,6 +811,10 @@
     <Content Include="newPage\yywh\style\img\page_a_bg.png" />
     <Content Include="newPage\yywh\style\img\tit_bg.png" />
     <Content Include="newPage\yywh\style\img\top_icon.png" />
+    <Content Include="tximage\ShowImage.jpg" />
+    <Content Include="tximage\ShowImage1.jpg" />
+    <Content Include="tximage\ShowImage2.jpg" />
+    <Content Include="tximage\ShowImage4.jpg" />
     <Content Include="uploadify\jquery.uploadify.js" />
     <Content Include="uploadify\jquery.uploadify.min.js" />
     <Content Include="uploadify\uploadify.css" />

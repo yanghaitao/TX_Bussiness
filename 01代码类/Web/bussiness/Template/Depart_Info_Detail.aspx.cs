@@ -22,21 +22,22 @@ namespace TX_Bussiness.Web.bussiness.Template
             string id = Utility.GetParameter("id");
             string starttime = Utility.GetParameter("starttime");
             string endtime = Utility.GetParameter("endtime");
-            SqlQuery query = new Select(InfoDepart.ProjcodeColumn).From(InfoDepart.Schema);
+            SqlQuery query = new Select().From(Project.Schema);
             query.Where("1=1");
-            query.And(InfoDepart.DepartcodeColumn).IsEqualTo(id);
+            query.And(Project.NodeidColumn).IsEqualTo(4);
+            query.And(Project.DepartcodeColumn).IsEqualTo(id);
             if (!string.IsNullOrEmpty(starttime))
             {
-                query.And(InfoDepart.AdddateColumn).IsGreaterThanOrEqualTo(starttime);
+                query.And(Project.AdddateColumn).IsGreaterThanOrEqualTo(starttime);
             }
             if (!string.IsNullOrEmpty(endtime))
             {
-                query.And(InfoDepart.AdddateColumn).IsLessThanOrEqualTo(endtime);
+                query.And(Project.AdddateColumn).IsLessThanOrEqualTo(endtime);
             }
-            SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query).OrderDesc(Project.Columns.Adddate);
-            totalcount = projectquery.GetRecordCount();
-            projectquery.Paged(pageindex, pagesize);
-            project_list = projectquery.ExecuteTypedList<Project>();
+           // SqlQuery projectquery = new Select().From(Project.Schema).Where(Project.ProjcodeColumn).In(query).OrderDesc(Project.Columns.Adddate);
+            totalcount = query.GetRecordCount();
+            query.Paged(pageindex, pagesize);
+            project_list = query.ExecuteTypedList<Project>();
 
             string pageUrl = "/bussiness/template/depart_info_detail.aspx?id={0}&page=__id__";
             pageUrl = string.Format(pageUrl, id);

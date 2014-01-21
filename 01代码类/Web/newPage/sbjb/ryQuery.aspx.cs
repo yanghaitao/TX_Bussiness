@@ -55,6 +55,10 @@ namespace TX_Bussiness.Web.newPage.sbjb
                     if (!string.IsNullOrEmpty(user.Departcode.ToString()) && txt_depart != "0")
                         query.And(Project.DepartcodeColumn).IsEqualTo(user.Departcode.ToString());
                 }
+                if (!string.IsNullOrEmpty(txt_depart) && txt_depart != "0")
+                {
+                    query.And(Project.DepartcodeColumn).IsEqualTo(txt_depart);
+                }
                 if (!string.IsNullOrEmpty(txt_startdate))
                     query.And(Project.AdddateColumn).IsGreaterThan(txt_startdate);
                 if (!string.IsNullOrEmpty(txt_enddate))

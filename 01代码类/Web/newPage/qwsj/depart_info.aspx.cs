@@ -46,20 +46,21 @@ namespace TX_Bussiness.Web.newPage.qwsj
         }
         protected int GetDepartCount(object departid)
         {
-            SqlQuery query = new Select().From(InfoDepart.Schema);
+            SqlQuery query = new Select().From(Project.Schema);
             List<Aggregate> list = new List<Aggregate>();
-            list.Add(new Aggregate(InfoDepart.Columns.Projcode, "listcount", AggregateFunction.Count));
+            list.Add(new Aggregate(Project.Columns.Projcode, "listcount", AggregateFunction.Count));
             query.Aggregates = list;
             query.Where("1=1");
-            query.Where(InfoDepart.DepartcodeColumn).IsEqualTo(departid);
+            query.And(Project.NodeidColumn).IsEqualTo(4);
+            query.And(Project.DepartcodeColumn).IsEqualTo(departid);
 
             if (!string.IsNullOrEmpty(txt_startdate))
             {
-                query.And(InfoDepart.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
+                query.And(Project.AdddateColumn).IsGreaterThanOrEqualTo(txt_startdate);
             }
             if (!string.IsNullOrEmpty(txt_enddate))
             {
-                query.And(InfoDepart.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
+                query.And(Project.AdddateColumn).IsLessThanOrEqualTo(txt_enddate);
             }
             object o = query.ExecuteScalar();
             if (o != null)

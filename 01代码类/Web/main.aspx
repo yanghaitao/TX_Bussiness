@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>G.net综合信息服务管理平台</title>
+    <title>桐乡市城市管理行政执法局勤务信息平台</title>
     <link rel="stylesheet" href="/css/global.css" type="text/css" />
     <link rel="stylesheet" href="/css/index.css" type="text/css" />
     <link rel="stylesheet" href="/css/menu.css" type="text/css" />
@@ -27,7 +27,7 @@
             $.post("/tools/AjaxHandler.ashx", { act: "CheckLimit", userid: userid, system: sysname }, function (data) {
                 if (data == "1") {
                     if (sysname == "sbjb" || sysname == "qwss") {
-                        window.parent.location.href = "/newpage/sbjb/index.aspx";
+                        window.parent.location.href = "/newpage/sbjb/rwcl.aspx";
                     }
                     if (sysname == "qwsj") {
                         window.parent.location.href = "/newpage/qwsj/area_info.aspx";
