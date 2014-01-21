@@ -21,7 +21,7 @@
     <script src="../../js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            create_sbjbmenu("任务处理");
+            create_sbjbmenu("任务交办");
             var filename = "";
             $("#file_upload").uploadify({
                 'swf': '/uploadify/uploadify.swf',
@@ -73,7 +73,7 @@
         </div>
         <!--header end-->
         <div class="tip">
-            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务处理</a> > 案卷上报</div>
+            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务交办</a> > 案卷交办</div>
         <!--content start-->
         <div class="content noborder layout">
             <!--右边内容 start-->
@@ -87,7 +87,7 @@
                             </div>
                             <div class="box">
                                 <div class="box_tit" style="padding-bottom: 0px; clear: both">
-                                    案卷上报</div>
+                                    案卷交办</div>
                                 <div class="box_con" style="padding-top: 0px; clear: both">
                                     <form action="/newpage/sbjb/ajsb.aspx" method="post">
                                     <table style="margin-top: 0px">
@@ -256,7 +256,7 @@
                 <div class="tree_menu pt20">
                     <div class="time">
                         <h2>
-                            任务处理</h2>
+                            任务交办</h2>
                         <dl class="message" style="padding-top: 10px">
                             <dd>
                                 <a href="#">勤务登记</a>

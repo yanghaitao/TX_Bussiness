@@ -21,7 +21,7 @@
     //</div>
 
 function create_sbjbmenu(cur){
-var sbjb = new Array("首 页", "任务处理", "任务查询", "知识库", "帮助");
+var sbjb = new Array("首 页", "任务交办", "任务查询", "知识库", "帮助");
 var sbjb_url = new Array("Index", "rwcl", "ryQuery", "zsk", "bz");
 var createsrc = "<ul class=\"left\">";
 for (var i = 0; i < sbjb.length; i++) {

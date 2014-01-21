@@ -17,7 +17,7 @@
     <script src="../../js/Validform_v5.3.2.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            create_sbjbmenu("任务处理");
+            create_sbjbmenu("任务交办");
             $(".valifrom").Validform({
                 tipSweep: true,
                 tiptype: function (msg, o, cssctl) {
@@ -51,7 +51,7 @@
         </div>
         <!--header end-->
         <div class="tip">
-            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务处理</a> > 待办任务</div>
+            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务交办</a> > 待办任务</div>
         <!--content start-->
         <form name="form1" action="/newpage/sbjb/banli.aspx" method="post">
         <div class="content noborder layout">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="box">
                                 <div class="box_tit" style="padding-bottom: 0px; clear: both">
-                                    任务处理</div>
+                                    任务交办</div>
                                 <div class="box_con" style="padding-top: 0px; clear: both">
                                     <table style="padding-top: 0px; clear: both; margin-top: 0px">
                                         <thead>
@@ -267,7 +267,7 @@
                 <div class="tree_menu pt20">
                     <div class="time">
                         <h2>
-                            任务处理</h2>
+                            任务交办</h2>
                         <dl class="message" style="padding-top: 10px">
                             <dd>
                                 <a href="/newpage/sbjb/ajsb.aspx">勤务登记</a>

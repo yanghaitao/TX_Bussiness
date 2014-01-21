@@ -20,7 +20,7 @@
     <script src="/newpage/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            create_sbjbmenu("任务处理");
+            create_sbjbmenu("任务交办");
             $(".preview").click(function () {
                 var projcode = $(this).closest("tr").attr("_projcode");
                 if (projcode && projcode != "") {
@@ -85,7 +85,7 @@
         </div>
         <!--header end-->
         <div class="tip">
-            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务处理</a> > 待办任务</div>
+            当前位置：<a href="#">上报交办系统</a> > <a href="rwcl.aspx">任务交办</a> > 待办任务</div>
         <!--content start-->
         <div class="content noborder layout">
             <!--右边内容 start-->
@@ -266,7 +266,7 @@
                 <div class="tree_menu pt20">
                     <div class="time">
                         <h2>
-                            任务处理</h2>
+                            任务交办</h2>
                         <dl class="message" style="padding-top: 10px">
                             <dd>
                                 <a href="/newpage/sbjb/ajsb.aspx">勤务登记</a>
